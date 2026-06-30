@@ -236,6 +236,10 @@
     color: var(--navy);
     line-height: 1.4;
   }
+  .faq-q-text {
+    flex: 1;
+    text-align: left;
+  }
 
   .faq-q:hover { color: var(--blue); }
 
@@ -557,6 +561,24 @@
   }
 
   .team-note li:last-child { margin-bottom: 0; }
+
+  .faq-q-num {
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-right: 12px;
+    min-width: 24px;
+    height: 24px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #122345;
+    border-radius: 4px;
+  }
+  .faq-item.open .faq-q-num {
+    background: #3b82f6;
+  }
 </style>
 </head>
 <body>
@@ -586,13 +608,13 @@
   <!-- ── 01 Getting Started & Setup ── -->
   <div class="faq-section" data-section="01">
     <div class="section-header">
-      <div class="section-num">01</div>
+      <div class="section-num">A</div>
       <h2>Getting started and setup</h2>
     </div>
 
     <div class="faq-item">
       <button class="faq-q" aria-expanded="false">
-        What do I need to do after my onboarding session?
+        <span class="faq-q-num">1</span> <span class="faq-q-text">What do I need to do after my onboarding session?</span>
         <span class="chevron">▼</span>
       </button>
       <div class="faq-a">
@@ -661,28 +683,37 @@
 
     <div class="faq-item">
       <button class="faq-q" aria-expanded="false">
-        How do I get my Workada email and Slack access?
+        <span class="faq-q-num">2</span> <span class="faq-q-text">How do I get my Workada email and Slack access?</span>
         <span class="chevron">▼</span>
       </button>
       <div class="faq-a">
-        <p>When you log in to your dashboard for the first time, this triggers an email to your inbox with your Slack credentials. Use those to log into Slack, then send your pod lead a message to introduce yourself — they're your main point of contact going forward.</p>
-        <p>If the email didn't arrive, check your spam, junk, and promotions folders first. If it still hasn't arrived after 24 hours, email <a href="mailto:support@op.workada.co">support@op.workada.co</a>.</p>
+        <p>When you enter the onboarding call code, it will trigger an email to your inbox with your Slack invitation. If you don't see it, check your spam folder. Log in via Slack.com or the app. You will be assigned to a pod channel — this is your primary space for day-to-day communication and support.</p>
       </div>
     </div>
 
     <div class="faq-item">
       <button class="faq-q" aria-expanded="false">
-        If I have access to Slack but haven't been assigned to a pod lead yet, is something wrong?
+        <span class="faq-q-num">3</span> <span class="faq-q-text">How do I make sure I have access to Slack?</span>
         <span class="chevron">▼</span>
       </button>
       <div class="faq-a">
-        <p>Pod lead assignment happens automatically once you enter your onboarding code. If you are not assigned to a pod within 24 hours, email <a href="mailto:support@op.workada.co">support@op.workada.co</a>.</p>
+        <p>Once you receive your Slack invitation at your Workada email, log in via Slack.com or the app. You will be assigned to a pod channel — this is your primary space for day-to-day communication and support.</p>
       </div>
     </div>
 
     <div class="faq-item">
       <button class="faq-q" aria-expanded="false">
-        What is my Workada email actually for?
+        <span class="faq-q-num">4</span> <span class="faq-q-text">If I have access to Slack but haven't been assigned to a pod lead yet, is something wrong?</span>
+        <span class="chevron">▼</span>
+      </button>
+      <div class="faq-a">
+        <p>Pod lead assignment happens automatically once you enter your onboarding code. If you are not assigned to a pod within the next business day, email <a href="mailto:support@op.workada.co">support@op.workada.co</a>.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">
+        <span class="faq-q-num">5</span> <span class="faq-q-text">What is my Workada email actually for?</span>
         <span class="chevron">▼</span>
       </button>
       <div class="faq-a">
@@ -692,17 +723,17 @@
 
     <div class="faq-item">
       <button class="faq-q" aria-expanded="false">
-        What computer or device do I need?
+        <span class="faq-q-num">6</span> <span class="faq-q-text">What if I missed the onboarding call code during onboarding?</span>
         <span class="chevron">▼</span>
       </button>
       <div class="faq-a">
-        <p>The Workada Timer is compatible with Windows and Mac.</p>
+        <p>Reach out to <a href="mailto:support@op.workada.co">support@op.workada.co</a> with your full name and the date and time you attended the onboarding call, so we can verify your attendance.</p>
       </div>
     </div>
 
     <div class="faq-item">
       <button class="faq-q" aria-expanded="false">
-        Does the timer work if I have antivirus software?
+        <span class="faq-q-num">7</span> <span class="faq-q-text">Does the timer work if I have antivirus software?</span>
         <span class="chevron">▼</span>
       </button>
       <div class="faq-a">
@@ -710,15 +741,6 @@
       </div>
     </div>
 
-    <div class="faq-item">
-      <button class="faq-q" aria-expanded="false">
-        Can I work from outside the US or Canada?
-        <span class="chevron">▼</span>
-      </button>
-      <div class="faq-a">
-        <p>Workada is currently available to contributors based in the US and Canada. Project availability varies per region.</p>
-      </div>
-    </div>
 
 
   </div>
@@ -726,23 +748,23 @@
   <!-- ── 02 Pay & Payments ── -->
   <div class="faq-section" data-section="02">
     <div class="section-header">
-      <div class="section-num">02</div>
+      <div class="section-num">B</div>
       <h2>Payment</h2>
     </div>
 
     <div class="faq-item">
       <button class="faq-q" aria-expanded="false">
-        What is my pay rate?
+        <span class="faq-q-num">8</span> <span class="faq-q-text">What is my pay rate?</span>
         <span class="chevron">▼</span>
       </button>
       <div class="faq-a">
-        <p>As pay may vary by project, your rate is reflected on your dashboard under the Payments tab.</p>
+        <p>As pay may vary by project, your rate is reflected on your dashboard under the Payments tab. You can find it at any time in the Payments tab on your dashboard.</p>
       </div>
     </div>
 
     <div class="faq-item">
       <button class="faq-q" aria-expanded="false">
-        How is my payout calculated?
+        <span class="faq-q-num">9</span> <span class="faq-q-text">How is my payout calculated?</span>
         <span class="chevron">▼</span>
       </button>
       <div class="faq-a">
@@ -753,7 +775,7 @@
 
     <div class="faq-item">
       <button class="faq-q" aria-expanded="false">
-        When do I get paid?
+        <span class="faq-q-num">10</span> <span class="faq-q-text">When do I get paid?</span>
         <span class="chevron">▼</span>
       </button>
       <div class="faq-a">
@@ -772,7 +794,7 @@
 
     <div class="faq-item">
       <button class="faq-q" aria-expanded="false">
-        Is my banking information safe with Stripe?
+        <span class="faq-q-num">11</span> <span class="faq-q-text">Is my banking information safe with Stripe?</span>
         <span class="chevron">▼</span>
       </button>
       <div class="faq-a">
@@ -782,7 +804,7 @@
 
     <div class="faq-item">
       <button class="faq-q" aria-expanded="false">
-        What if my payment looks wrong or is missing?
+        <span class="faq-q-num">12</span> <span class="faq-q-text">What if my payment looks wrong or is missing?</span>
         <span class="chevron">▼</span>
       </button>
       <div class="faq-a">
@@ -792,17 +814,7 @@
 
     <div class="faq-item">
       <button class="faq-q" aria-expanded="false">
-        Where can I see my pay rate?
-        <span class="chevron">▼</span>
-      </button>
-      <div class="faq-a">
-        <p>Your pay rate is reflected in the Payments tab on your dashboard.</p>
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-q" aria-expanded="false">
-        Does Workada withhold taxes from my earnings?
+        <span class="faq-q-num">13</span> <span class="faq-q-text">Does Workada withhold taxes from my earnings?</span>
         <span class="chevron">▼</span>
       </button>
       <div class="faq-a">
@@ -815,13 +827,13 @@
   <!-- ── 03 Time Tracking ── -->
   <div class="faq-section" data-section="03">
     <div class="section-header">
-      <div class="section-num">03</div>
+      <div class="section-num">C</div>
       <h2>Time tracking</h2>
     </div>
 
     <div class="faq-item">
       <button class="faq-q" aria-expanded="false">
-        How does time tracking work?
+        <span class="faq-q-num">14</span> <span class="faq-q-text">How does time tracking work?</span>
         <span class="chevron">▼</span>
       </button>
       <div class="faq-a">
@@ -862,7 +874,7 @@
 
     <div class="faq-item">
       <button class="faq-q" aria-expanded="false">
-        When should I start my timer?
+        <span class="faq-q-num">15</span> <span class="faq-q-text">When should I start my timer?</span>
         <span class="chevron">▼</span>
       </button>
       <div class="faq-a">
@@ -872,17 +884,19 @@
 
     <div class="faq-item">
       <button class="faq-q" aria-expanded="false">
-        How do I add manual time?
+        <span class="faq-q-num">16</span> <span class="faq-q-text">How do I add manual time?</span>
         <span class="chevron">▼</span>
       </button>
       <div class="faq-a">
         <p>Go to <strong>Dashboard &gt; Sessions &gt; + Add Manual Session</strong>. Enter the time window you worked and a brief description of the work completed. Submit it for review.</p>
+        <div class="note">Time added manually is still paid if approved by Workada.</div>
+        <p>Manual sessions that are approved by Workada are paid out in the next scheduled payment cycle.</p>
       </div>
     </div>
 
     <div class="faq-item">
       <button class="faq-q" aria-expanded="false">
-        Can I download the timer on more than one device?
+        <span class="faq-q-num">17</span> <span class="faq-q-text">Can I download the timer on more than one device?</span>
         <span class="chevron">▼</span>
       </button>
       <div class="faq-a">
@@ -892,7 +906,7 @@
 
     <div class="faq-item">
       <button class="faq-q" aria-expanded="false">
-        I forgot to stop the timer — what do I do?
+        <span class="faq-q-num">18</span> <span class="faq-q-text">I forgot to stop the timer — what do I do?</span>
         <span class="chevron">▼</span>
       </button>
       <div class="faq-a">
@@ -902,7 +916,7 @@
 
     <div class="faq-item">
       <button class="faq-q" aria-expanded="false">
-        My timer lost Wi-Fi connection mid-session — is my time lost?
+        <span class="faq-q-num">19</span> <span class="faq-q-text">My timer lost Wi-Fi connection mid-session — is my time lost?</span>
         <span class="chevron">▼</span>
       </button>
       <div class="faq-a">
@@ -912,7 +926,7 @@
 
     <div class="faq-item">
       <button class="faq-q" aria-expanded="false">
-        My timer session disappeared or recorded the wrong time — what do I do?
+        <span class="faq-q-num">20</span> <span class="faq-q-text">My timer session disappeared or recorded the wrong time — what do I do?</span>
         <span class="chevron">▼</span>
       </button>
       <div class="faq-a">
@@ -922,11 +936,23 @@
 
     <div class="faq-item">
       <button class="faq-q" aria-expanded="false">
-        Is there a minimum or maximum number of hours I need to work per week?
+        <span class="faq-q-num">21</span> <span class="faq-q-text">Is there a minimum or maximum number of hours I need to work per week?</span>
         <span class="chevron">▼</span>
       </button>
       <div class="faq-a">
-        <p>Neither. There's no minimum or maximum — you work at your own pace. What we care about most is the quality of the work you submit, not the number of hours you put in.</p><p>That said, when we review metrics, we do look at whether the time spent on a task reflects the quality of the work. Rushing through tasks is something we're able to identify, so take the time you need to do the work well.</p>
+        <p>Neither. There's no minimum or maximum — you work at your own pace. What we care about most is the quality of the work you submit, not the number of hours you put in.</p>
+        <p>That said, when we review metrics, we do look at whether the time spent on a task reflects the quality of the work. Rushing through tasks is something we're able to identify, so take the time you need to do the work well.</p>
+        <p>We do look for consistently active Contributors. If you need to be away for 7 or more days, let your Pod Lead know in advance.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">
+        <span class="faq-q-num">22</span> <span class="faq-q-text">Can I work from outside the US or Canada?</span>
+        <span class="chevron">▼</span>
+      </button>
+      <div class="faq-a">
+        <p>Workada is currently available to contributors based in the US and Canada. Project availability varies per region.</p>
       </div>
     </div>
 
@@ -935,13 +961,13 @@
   <!-- ── 04 Tasks & Workflow ── -->
   <div class="faq-section" data-section="04">
     <div class="section-header">
-      <div class="section-num">04</div>
+      <div class="section-num">D</div>
       <h2>Tasks and workflow</h2>
     </div>
 
     <div class="faq-item">
       <button class="faq-q" aria-expanded="false">
-        How do I access tasks?
+        <span class="faq-q-num">23</span> <span class="faq-q-text">How do I access tasks?</span>
         <span class="chevron">▼</span>
       </button>
       <div class="faq-a">
@@ -951,7 +977,7 @@
 
     <div class="faq-item">
       <button class="faq-q" aria-expanded="false">
-        What do the different task statuses mean?
+        <span class="faq-q-num">24</span> <span class="faq-q-text">What do the different task statuses mean?</span>
         <span class="chevron">▼</span>
       </button>
       <div class="faq-a">
@@ -970,7 +996,7 @@
 
     <div class="faq-item">
       <button class="faq-q" aria-expanded="false">
-        How long should it take me to do each task?
+        <span class="faq-q-num">25</span> <span class="faq-q-text">How long should it take me to do each task?</span>
         <span class="chevron">▼</span>
       </button>
       <div class="faq-a">
@@ -980,7 +1006,7 @@
 
     <div class="faq-item">
       <button class="faq-q" aria-expanded="false">
-        How many tasks can I have active at once?
+        <span class="faq-q-num">26</span> <span class="faq-q-text">How many tasks can I have active at once?</span>
         <span class="chevron">▼</span>
       </button>
       <div class="faq-a">
@@ -990,7 +1016,7 @@
 
     <div class="faq-item">
       <button class="faq-q" aria-expanded="false">
-        I passed training but still can't see tasks?
+        <span class="faq-q-num">27</span> <span class="faq-q-text">I passed training but still can't see tasks?</span>
         <span class="chevron">▼</span>
       </button>
       <div class="faq-a">
@@ -998,40 +1024,31 @@
       </div>
     </div>
 
-    <div class="faq-item">
-      <button class="faq-q" aria-expanded="false">
-        The task disappeared or I got an "action failed" error mid-submission.
-        <span class="chevron">▼</span>
-      </button>
-      <div class="faq-a">
-        <p>Don't worry about it. Just pick up another task from your Dashboard and keep going.</p>
-      </div>
-    </div>
+
 
   </div>
 
   <!-- ── 05 Quality & Feedback ── -->
   <div class="faq-section" data-section="05">
     <div class="section-header">
-      <div class="section-num">05</div>
+      <div class="section-num">E</div>
       <h2>Quality and feedback</h2>
     </div>
 
     <div class="faq-item">
       <button class="faq-q" aria-expanded="false">
-        Where do I find my feedback?
+        <span class="faq-q-num">28</span> <span class="faq-q-text">Where do I find my feedback?</span>
         <span class="chevron">▼</span>
       </button>
       <div class="faq-a">
         <p>Go to the Tasks section on your Dashboard and click on Completed. Tasks that have been reviewed will show a rating label — click on those to read your feedback. Not every completed task will have a rating yet, so if you don't see one, it just means it's still in the queue.</p>
-        <p>Feedback is also sent to your personal email with the subject line "Workada - new auto-feedback" — worth checking your spam folder if you haven't seen it.</p>
         <p>We're actively improving how feedback surfaces in the Dashboard, so this experience will get easier over time.</p>
       </div>
     </div>
 
     <div class="faq-item">
       <button class="faq-q" aria-expanded="false">
-        Who provides feedback?
+        <span class="faq-q-num">29</span> <span class="faq-q-text">Who provides feedback?</span>
         <span class="chevron">▼</span>
       </button>
       <div class="faq-a">
@@ -1042,7 +1059,7 @@
 
     <div class="faq-item">
       <button class="faq-q" aria-expanded="false">
-        The AI feedback says I missed something I clearly mentioned — what do I do?
+        <span class="faq-q-num">30</span> <span class="faq-q-text">The AI feedback says I missed something I clearly mentioned — what do I do?</span>
         <span class="chevron">▼</span>
       </button>
       <div class="faq-a">
@@ -1053,11 +1070,48 @@
 
     <div class="faq-item">
       <button class="faq-q" aria-expanded="false">
-        How long does it take for tasks to be reviewed?
+        <span class="faq-q-num">31</span> <span class="faq-q-text">How long does it take for tasks to be reviewed?</span>
         <span class="chevron">▼</span>
       </button>
       <div class="faq-a">
-        <p>Auto-feedback runs once a day, so you can expect to see results within ~24 hours of completing a task. If a task has been sitting in Pending Review for more than 48 hours without any updates, reach out to your pod lead.</p>
+        <p>Auto-feedback runs once a day, so you can expect to see results within ~1 business day of completing a task. If a task has been sitting in Pending Review for more than 2 business days without any updates, reach out to your pod lead.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ── 06 Offboarding ── -->
+  <div class="faq-section" data-section="06">
+    <div class="section-header">
+      <div class="section-num">F</div>
+      <h2>Offboarding</h2>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">
+        <span class="faq-q-num">32</span> <span class="faq-q-text">What does it mean to be offboarded, and how does it affect me?</span>
+        <span class="chevron">▼</span>
+      </button>
+      <div class="faq-a">
+        <p>Offboarding means losing access to continue contributing at Workada. There are five reasons you may be removed from the platform:</p>
+        <ol>
+          <li>Low quality work — if your quality falls below an acceptable threshold</li>
+          <li>Dishonesty — copy/paste, spam, or time milking. First incident results in a warning; second results in offboarding</li>
+          <li>Inactivity — if you are inactive for 7+ days without notifying your Pod Lead</li>
+          <li>Community guidelines violation — egregious violations result in immediate offboarding with no warning</li>
+          <li>Failing training — failure to pass training may result in offboarding</li>
+        </ol>
+        <p>In all cases, you will be paid for all work completed up to your offboarding date, processed in the next scheduled payment cycle.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">
+        <span class="faq-q-num">33</span> <span class="faq-q-text">I don't want to be a contributor at Workada anymore. How do I get offboarded?</span>
+        <span class="chevron">▼</span>
+      </button>
+      <div class="faq-a">
+        <p>Notify your Pod Lead directly that you'd like to leave the platform. They will flag your departure to Workada Operations, who will revoke your Dashboard, Slack, and Workada email access. You will be paid for all work completed up to your offboarding date in the next scheduled payment cycle.</p>
       </div>
     </div>
 
@@ -1072,14 +1126,14 @@
     </div>
   </div>
 
-
 </main>
 
 <footer>
-  Workada · Contributor FAQ · Version 1.0
+  Workada · Contributor FAQ · Version 1.2
 </footer>
 
 <script>
+  // ── FAQ accordion ──
   const items = document.querySelectorAll('.faq-item');
   items.forEach(item => {
     const btn = item.querySelector('.faq-q');
@@ -1090,13 +1144,13 @@
     });
   });
 
+  // ── Search ──
   const search = document.getElementById('search');
   const noResults = document.getElementById('no-results');
 
   search.addEventListener('input', () => {
     const q = search.value.toLowerCase().trim();
     let visible = 0;
-
     document.querySelectorAll('.faq-section').forEach(section => {
       let sectionHas = false;
       section.querySelectorAll('.faq-item').forEach(item => {
@@ -1108,8 +1162,37 @@
       section.style.display = sectionHas ? '' : 'none';
       if (sectionHas) visible++;
     });
+    if (noResults) noResults.style.display = visible === 0 ? 'block' : 'none';
+  });
 
-    noResults.style.display = visible === 0 ? 'block' : 'none';
+  // ── Tab switching ──
+  const heroTitle = document.getElementById('hero-title');
+  const heroSub   = document.getElementById('hero-sub');
+  const searchWrap = document.getElementById('search-wrap');
+
+  const heroContent = {
+    faq:    { title: 'Contributor FAQ',         sub: 'These are the questions you\'ve been asking most, in one place. We\'re actively making Workada better, and we\'re here to support you while we do.' },
+    glance: { title: 'Workada at a Glance',     sub: 'Our mission, values, and the standards that guide how we work together.' }
+  };
+
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const tab = btn.dataset.tab;
+
+      document.querySelectorAll('.tab-btn').forEach(b => {
+        b.classList.remove('active');
+        b.setAttribute('aria-selected', 'false');
+      });
+      document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+
+      btn.classList.add('active');
+      btn.setAttribute('aria-selected', 'true');
+      document.getElementById('tab-' + tab).classList.add('active');
+
+      heroTitle.textContent = heroContent[tab].title;
+      heroSub.textContent   = heroContent[tab].sub;
+      searchWrap.style.display = tab === 'faq' ? '' : 'none';
+    });
   });
 </script>
 </body>
