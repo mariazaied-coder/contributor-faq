@@ -201,6 +201,29 @@
     letter-spacing: -0.2px;
   }
 
+  /* ── Archived section ── */
+  .faq-section-archived {
+    opacity: 0.75;
+  }
+
+  .faq-section-archived .section-num {
+    background: #8a97a8;
+  }
+
+  .archived-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-muted);
+    letter-spacing: 0;
+  }
+
+  .archived-note {
+    font-size: 14px;
+    color: var(--text-muted);
+    font-style: italic;
+    margin: -6px 0 16px;
+  }
+
   /* ── Accordion ── */
   .faq-item {
     border: 1px solid var(--border);
@@ -717,7 +740,7 @@
         <span class="chevron">▼</span>
       </button>
       <div class="faq-a">
-        <p>Only to sign into Slack. There's no inbox — all mail forwards to your personal email. You won't be checking it regularly.</p>
+        <p>It's used to sign into Slack — there's no standalone inbox. All mail is automatically forwarded to your personal email, so please check your personal inbox regularly (including your spam folder) for any communications from Workada or your pod lead.</p>
       </div>
     </div>
 
@@ -737,7 +760,7 @@
         <span class="chevron">▼</span>
       </button>
       <div class="faq-a">
-        <p>This is a known issue — some antivirus configurations interfere with the timer. If the timer isn't working, contact your pod lead or email <a href="mailto:support@op.workada.co">support@op.workada.co</a>.</p>
+        <p>This is a known issue — some antivirus configurations interfere with the timer.</p>
       </div>
     </div>
 
@@ -948,7 +971,17 @@
 
     <div class="faq-item">
       <button class="faq-q" aria-expanded="false">
-        <span class="faq-q-num">22</span> <span class="faq-q-text">Can I work from outside the US or Canada?</span>
+        <span class="faq-q-num">22</span> <span class="faq-q-text">What should I do if I'll be on vacation or need time away?</span>
+        <span class="chevron">▼</span>
+      </button>
+      <div class="faq-a">
+        <p>Take the time you need — just let your pod lead know ahead of time so they can plan around your absence.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">
+        <span class="faq-q-num">23</span> <span class="faq-q-text">Can I work from outside the US or Canada?</span>
         <span class="chevron">▼</span>
       </button>
       <div class="faq-a">
@@ -967,17 +1000,17 @@
 
     <div class="faq-item">
       <button class="faq-q" aria-expanded="false">
-        <span class="faq-q-num">23</span> <span class="faq-q-text">How do I access tasks?</span>
+        <span class="faq-q-num">24</span> <span class="faq-q-text">How do I access tasks?</span>
         <span class="chevron">▼</span>
       </button>
       <div class="faq-a">
-        <p>Tasks are available through the Task tab on your Dashboard. Once your onboarding session is complete, your training is passed, and your account is fully set up, you'll be able to browse and pick up available projects.</p>
+        <p>Tasks are available through the Task tab on your Dashboard and/or on Multimango (see next section for more details). Once your onboarding session is complete, your training is passed, and your account is fully set up, you'll be able to browse and pick up available tasks.</p>
       </div>
     </div>
 
     <div class="faq-item">
       <button class="faq-q" aria-expanded="false">
-        <span class="faq-q-num">24</span> <span class="faq-q-text">What do the different task statuses mean?</span>
+        <span class="faq-q-num">25</span> <span class="faq-q-text">What do the different task statuses mean?</span>
         <span class="chevron">▼</span>
       </button>
       <div class="faq-a">
@@ -996,31 +1029,22 @@
 
     <div class="faq-item">
       <button class="faq-q" aria-expanded="false">
-        <span class="faq-q-num">25</span> <span class="faq-q-text">How long should it take me to do each task?</span>
+        <span class="faq-q-num">26</span> <span class="faq-q-text">How long should it take me to do each task?</span>
         <span class="chevron">▼</span>
       </button>
       <div class="faq-a">
-        <p>There is no set time to complete a task. The focus is on quality annotation — take the time you need to do the work well. As you build experience, you'll naturally become more efficient while maintaining high quality.</p>
+        <p>There's no strict time limit, but aim for around 12–17 minutes per task. Trust your gut on the obvious calls, zoom in where it matters, and only fact-check claims that are actually checkable — a count, a label, a spelling. Don't go down rabbit holes.</p>
+        <p>Quality is what matters most, so take the time you need to do the work well. As you build experience, you'll naturally get faster without losing that quality.</p>
       </div>
     </div>
 
     <div class="faq-item">
       <button class="faq-q" aria-expanded="false">
-        <span class="faq-q-num">26</span> <span class="faq-q-text">How many tasks can I have active at once?</span>
+        <span class="faq-q-num">27</span> <span class="faq-q-text">I passed training but I still can't see tasks</span>
         <span class="chevron">▼</span>
       </button>
       <div class="faq-a">
-        <p>You can have up to 3 tasks active at the same time.</p>
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-q" aria-expanded="false">
-        <span class="faq-q-num">27</span> <span class="faq-q-text">I passed training but still can't see tasks?</span>
-        <span class="chevron">▼</span>
-      </button>
-      <div class="faq-a">
-        <p>Reach out to your pod lead. They'll confirm whether your training has been fully approved — if it hasn't, they'll review it and pass you through. Once that's done, calibration tasks will appear on your Dashboard and you'll be good to go.</p>
+        <p>Once you pass training, you'll need to complete calibration tasks first — see the MultiMango section below for details.</p>
       </div>
     </div>
 
@@ -1053,7 +1077,7 @@
       </button>
       <div class="faq-a">
         <p>You'll complete at least 10 calibration tasks, labeled "[Calibration check]: Compare two images," with up to 20 attempts total. The 70% is based on the share of tasks you pass, not an overall star average, so aim to pass at least 7 out of 10.</p>
-        <p>If you're not at 70% after your first 10 attempts, you'll be prompted to complete additional training and reach out to your pod lead — you'll still have attempts left at that point, so that's a great time to ask for support. If you don't reach 70% within all 20 attempts, you'll be paused from the project indefinitely.</p>
+        <p>If you're not at 70% after your first 10 attempts, you'll be prompted to complete additional training and reach out to your pod lead — you'll still have attempts left at that point, so that's a great time to ask for support. If your first 5–10 calibration tasks aren't reaching a 70% passing grade, reach out to your pod lead for support right away so you don't risk being paused from the project. If you don't reach 70% within all 20 attempts, you'll be paused from the project indefinitely.</p>
       </div>
     </div>
 
@@ -1118,64 +1142,38 @@
 
     <div class="faq-item">
       <button class="faq-q" aria-expanded="false">
-        <span class="faq-q-num">35</span> <span class="faq-q-text">Which task type should I work on, and what does "No Active ELO Evaluations" mean?</span>
+        <span class="faq-q-num">35</span> <span class="faq-q-text">Which task type should I work on?</span>
         <span class="chevron">▼</span>
       </button>
       <div class="faq-a">
-        <p>Work whichever of the four task types is currently showing on your dashboard: Text to Video, Multi-Capability Model Ranking, Text to Image Compare, or Reference to Image Ranking. These rotate and can appear or disappear, so you may not see all four at once, but you'll always have at least one available.</p>
-        <p>If you get "No Active ELO Evaluations" when selecting Text to Image Compare specifically, that's a known issue we're already tracking — pick up another available task type in the meantime, and there's no need to email support about that one.</p>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- ── 06 Quality & Feedback ── -->
-  <div class="faq-section" data-section="06">
-    <div class="section-header">
-      <div class="section-num">F</div>
-      <h2>Quality and feedback</h2>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-q" aria-expanded="false">
-        <span class="faq-q-num">36</span> <span class="faq-q-text">Where do I find my feedback?</span>
-        <span class="chevron">▼</span>
-      </button>
-      <div class="faq-a">
-        <p>Go to the Tasks section on your Dashboard and click on Completed. Tasks that have been reviewed will show a rating label — click on those to read your feedback. Not every completed task will have a rating yet, so if you don't see one, it just means it's still in the queue.</p>
-        <p>We're actively improving how feedback surfaces in the Dashboard, so this experience will get easier over time.</p>
+        <p>Work whichever of these four task types is showing on your MultiMango dashboard:</p>
+        <ul>
+          <li>Text to Video</li>
+          <li>Multi-Capability Model Ranking</li>
+          <li>Text to Image Compare</li>
+          <li>Reference to Image Ranking</li>
+        </ul>
+        <p>These can appear and disappear at random, so you may not see all four at once — but everyone should have at least one available at any given time. If your usual type isn't showing (or won't let you pick up a task), work one of the others that has available tasks rather than sitting idle.</p>
       </div>
     </div>
 
     <div class="faq-item">
       <button class="faq-q" aria-expanded="false">
-        <span class="faq-q-num">37</span> <span class="faq-q-text">Who provides feedback?</span>
+        <span class="faq-q-num">36</span> <span class="faq-q-text">I'm getting "No Active ELO Evaluations"</span>
         <span class="chevron">▼</span>
       </button>
       <div class="faq-a">
-        <p>Feedback is AI-generated. Think of it as directional guidance — a starting point for understanding where you can improve, not a definitive verdict on your work.</p>
-        <p>Your pod lead can also review your submissions and give you feedback. If you'd like a closer look at your work, just ask them — there's no harm in reaching out.</p>
+        <p>Task availability for a given category can fluctuate. If one or more tasks has the message "No Active ELO Evaluations" when you attempt to access it, go back and try another category. Remember to refresh your screen to make sure no new tasks for our priority categories appear. Do not email support about receiving the No ELO message on Text to Image Compare. Contact your Pod Lead for guidance if you consistently see it across all other task categories, especially multiple categories.</p>
       </div>
     </div>
 
     <div class="faq-item">
       <button class="faq-q" aria-expanded="false">
-        <span class="faq-q-num">38</span> <span class="faq-q-text">The AI feedback says I missed something I clearly mentioned — what do I do?</span>
+        <span class="faq-q-num">37</span> <span class="faq-q-text">A task "timed out" and the task type disappeared</span>
         <span class="chevron">▼</span>
       </button>
       <div class="faq-a">
-        <p>The AI review system has known limitations. It sometimes misses things you've already addressed.</p>
-        <p>If you get feedback that seems clearly wrong, flag it to your pod lead — they can look at your actual submission and give you a more accurate read. In the meantime, treat AI feedback as one signal among many, not the final word on the quality of your work.</p>
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-q" aria-expanded="false">
-        <span class="faq-q-num">39</span> <span class="faq-q-text">How long does it take for tasks to be reviewed?</span>
-        <span class="chevron">▼</span>
-      </button>
-      <div class="faq-a">
-        <p>Auto-feedback runs once a day, so you can expect to see results within ~1 business day of completing a task. If a task has been sitting in Pending Review for more than 2 business days without any updates, reach out to your pod lead.</p>
+        <p>Tasks can time out, and the type may temporarily drop off your dashboard afterward. Refresh and check the other available task types — it typically reappears. We're aware tasks sometimes time out sooner than they should and it's on our fix list.</p>
       </div>
     </div>
 
@@ -1184,20 +1182,20 @@
   <!-- ── 07 Offboarding ── -->
   <div class="faq-section" data-section="07">
     <div class="section-header">
-      <div class="section-num">G</div>
+      <div class="section-num">F</div>
       <h2>Offboarding</h2>
     </div>
 
     <div class="faq-item">
       <button class="faq-q" aria-expanded="false">
-        <span class="faq-q-num">40</span> <span class="faq-q-text">What does it mean to be offboarded, and how does it affect me?</span>
+        <span class="faq-q-num">38</span> <span class="faq-q-text">What does it mean to be offboarded, and how does it affect me?</span>
         <span class="chevron">▼</span>
       </button>
       <div class="faq-a">
         <p>Offboarding means losing access to continue contributing at Workada. There are five reasons you may be removed from the platform:</p>
         <ol>
           <li>Low quality work — if your quality falls below an acceptable threshold</li>
-          <li>Dishonesty — copy/paste, spam, or time milking. First incident results in a warning; second results in offboarding</li>
+          <li>Dishonesty — using AI to do your work for you, copying/pasting someone else's or your own prior work without doing the task yourself, spam, or time milking. First incident results in a warning; second results in offboarding</li>
           <li>Inactivity — if you are inactive for 7+ days without notifying your Pod Lead</li>
           <li>Community guidelines violation — egregious violations result in immediate offboarding with no warning</li>
           <li>Failing training — failure to pass training may result in offboarding</li>
@@ -1208,7 +1206,7 @@
 
     <div class="faq-item">
       <button class="faq-q" aria-expanded="false">
-        <span class="faq-q-num">41</span> <span class="faq-q-text">I don't want to be a contributor at Workada anymore. How do I get offboarded?</span>
+        <span class="faq-q-num">39</span> <span class="faq-q-text">I don't want to be a contributor at Workada anymore. How do I get offboarded?</span>
         <span class="chevron">▼</span>
       </button>
       <div class="faq-a">
