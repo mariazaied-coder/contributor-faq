@@ -1768,15 +1768,15 @@
 
   /* Video Eval tab */
   #tab-mm .ve-intro{color:rgba(255,255,255,.92);font-size:16px;line-height:1.6;margin:0 0 20px;text-shadow:0 1px 2px rgba(0,0,0,.3);max-width:70ch}
-  #tab-mm .ve-card{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:26px 30px;box-shadow:0 1px 3px rgba(18,35,69,.05);margin-bottom:18px}
-  #tab-mm .ve-card h2{color:var(--navy);font-size:21px;font-weight:700;letter-spacing:-.01em;margin:0 0 10px}
-  #tab-mm .ve-card h4{color:var(--slate);font-size:13px;font-weight:700;letter-spacing:.02em;margin:18px 0 4px}
-  #tab-mm .ve-card p{color:#3d4e60;font-size:15px;line-height:1.65;margin:0 0 12px}
-  #tab-mm .ve-card p:last-child{margin-bottom:0}
-  #tab-mm .ve-card ul{margin:6px 0 4px;padding-left:22px}
-  #tab-mm .ve-card li{color:#3d4e60;font-size:15px;line-height:1.6;margin:0 0 9px}
-  #tab-mm .ve-card li:last-child{margin-bottom:0}
-  #tab-mm .ve-card b{color:var(--navy);font-weight:700}
+  #tab-mm .ve-card, #tab-chartography .ve-card{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:26px 30px;box-shadow:0 1px 3px rgba(18,35,69,.05);margin-bottom:18px}
+  #tab-mm .ve-card h2, #tab-chartography .ve-card h2{color:var(--navy);font-size:21px;font-weight:700;letter-spacing:-.01em;margin:0 0 10px}
+  #tab-mm .ve-card h4, #tab-chartography .ve-card h4{color:var(--slate);font-size:13px;font-weight:700;letter-spacing:.02em;margin:18px 0 4px}
+  #tab-mm .ve-card p, #tab-chartography .ve-card p{color:#3d4e60;font-size:15px;line-height:1.65;margin:0 0 12px}
+  #tab-mm .ve-card p:last-child, #tab-chartography .ve-card p:last-child{margin-bottom:0}
+  #tab-mm .ve-card ul, #tab-chartography .ve-card ul{margin:6px 0 4px;padding-left:22px}
+  #tab-mm .ve-card li, #tab-chartography .ve-card li{color:#3d4e60;font-size:15px;line-height:1.6;margin:0 0 9px}
+  #tab-mm .ve-card li:last-child, #tab-chartography .ve-card li:last-child{margin-bottom:0}
+  #tab-mm .ve-card b, #tab-chartography .ve-card b{color:var(--navy);font-weight:700}
   @media(max-width:600px){#tab-mm .ve-card{padding:20px 20px}}
 
   /* Code of Conduct (Contributor Guide) */
@@ -1797,17 +1797,17 @@
   #tab-paypolicy .ppv-wrap{margin:4px 0 24px}
   #tab-paypolicy .ppv-video{width:100%;max-width:720px;display:block;border-radius:14px;border:1px solid var(--border);background:#000;box-shadow:0 6px 22px rgba(18,35,69,.18)}
 
-  #tab-mm .cr-chan-full, #tab-sheets .cr-chan-full{grid-column:1 / -1;align-items:flex-start}
-  #tab-mm .cr-chan-full, #tab-sheets .cr-chan-full .cr-chan-body p:not(:first-of-type){margin-top:8px}
-  #tab-mm .cr-chan-body, #tab-sheets .cr-chan-body b{color:var(--navy);font-weight:700}
+  #tab-mm .cr-chan-full, #tab-sheets .cr-chan-full, #tab-chartography .cr-chan-full{grid-column:1 / -1;align-items:flex-start}
+  #tab-mm .cr-chan-full, #tab-sheets .cr-chan-full .cr-chan-body p:not(:first-of-type), #tab-chartography .cr-chan-full .cr-chan-body p:not(:first-of-type){margin-top:8px}
+  #tab-mm .cr-chan-body, #tab-sheets .cr-chan-body b, #tab-chartography .cr-chan-body b{color:var(--navy);font-weight:700}
 
   /* Time-tracking / Pay Policy embedded screenshots */
   #tab-paypolicy .tt-fig, #tab-faq .tt-fig{margin:16px 0;text-align:center}
   #tab-paypolicy .tt-fig img, #tab-faq .tt-fig img{max-width:100%;width:auto;max-height:560px;border:1px solid var(--border);border-radius:12px;box-shadow:0 4px 16px rgba(18,35,69,.14)}
   #tab-paypolicy .tt-fig figcaption, #tab-faq .tt-fig figcaption{font-size:13px;color:var(--text-muted);line-height:1.5;margin-top:8px;max-width:640px;margin-left:auto;margin-right:auto}
 
-  #tab-mm .ve-card ol{margin:6px 0 4px;padding-left:22px}
-  #tab-mm .ve-card ol li{color:#3d4e60;font-size:15px;line-height:1.6;margin:0 0 9px}
+  #tab-mm .ve-card ol, #tab-chartography .ve-card ol{margin:6px 0 4px;padding-left:22px}
+  #tab-mm .ve-card ol li, #tab-chartography .ve-card ol li{color:#3d4e60;font-size:15px;line-height:1.6;margin:0 0 9px}
   #tab-mm .ve-faqs h4{color:var(--navy);font-size:15px;font-weight:700;letter-spacing:0;margin:20px 0 5px}
   #tab-mm .ve-faqs h4:first-of-type{margin-top:8px}
   #tab-paypolicy .pp-note{background:#eff6ff;border:1px solid #bfdbfe;border-radius:12px;padding:14px 18px;font-size:14px;color:var(--navy);line-height:1.55;margin:14px 0}
@@ -1833,6 +1833,9 @@
   #tab-coc .coc-card{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:26px 32px;box-shadow:0 1px 3px rgba(18,35,69,.05);max-width:860px;font-size:15px;color:#3d4e60;line-height:1.7}
   #tab-sheets .sh-faq-pending{font-style:italic;color:var(--text-muted)}
   #tab-journey .branch-note{font-style:italic;color:var(--text-muted);font-size:13px;line-height:1.5;margin:10px 0 0}
+
+  /* Feedback bubble (bottom of tabs) */
+  .feedback-line{margin:36px 0 0;text-align:center;font-size:13.5px;color:rgba(255,255,255,.85);line-height:1;white-space:nowrap}
 </style>
 </head>
 <body>
@@ -2707,7 +2710,7 @@
         <div class="acc-panel-inner">
           <div class="acc-body">
 
-            <div class="flow-strip">Read the prompt <span>&rarr;</span> Compare A vs. B <span>&rarr;</span> Ask the four questions <span>&rarr;</span> Hunt for artifacts <span>&rarr;</span> Explain why <span>&rarr;</span> Stay consistent</div>
+            
 
             <div class="progress-wrap">
               <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
@@ -3456,7 +3459,7 @@
 
   </div>
 
-  <div class="flow-strip" style="margin-top:24px;">We’re always looking to improve this guide. If you’d like to see something added, let your Pod Lead know.</div>
+  
 
   <div class="lightbox" id="lightbox"><img id="lightbox-img" src="" alt=""></div>
 
@@ -3947,6 +3950,8 @@
       </div>
     
   </section>
+
+  <p class="feedback-line">We’re always looking to improve this guide. If you’d like to see something added, let your Pod Lead know.</p>
 </div>
 <div class="tab-panel" id="tab-sheets">
   <p class="mm-intro">Everything for the Sheets project: your Slack channels and the questions we hear most.</p>
@@ -4081,14 +4086,93 @@
       </div>
     </div>
   </section>
+
+  <p class="feedback-line">We’re always looking to improve this guide. If you’d like to see something added, let your Pod Lead know.</p>
 </div>
 
 <div class="tab-panel" id="tab-chartography">
-  <div class="mm-placeholder">
-    <h2 class="mm-h">Chartography</h2>
-    <p>Resources for the Chartography project are coming soon. In the meantime, reach out to your Pod Lead for anything you need.</p>
-  </div>
+  <p class="mm-intro">Get oriented, get connected, and start building chart tasks that a frontier model gets wrong.</p>
+  <nav class="mm-jump" aria-label="Jump to section">
+    <span class="mm-jump-label">Jump to</span>
+    <a href="#chart-channels">Channels</a>
+    <a href="#chart-about">About the project</a>
+    <a href="#chart-guide">Task guide</a>
+  </nav>
+  <section id="chart-channels" class="mm-section" style="scroll-margin-top:20px">
+    <h2 class="mm-h">Channels</h2>
+    <div class="cr-channels">
+        <a class="cr-chan" href="https://workada.slack.com/archives/C0BN75476RZ" target="_blank" rel="noopener">
+          <span class="cr-chan-ic" aria-hidden="true">#</span>
+          <div class="cr-chan-body"><span class="cr-chan-name">#chartography-onboarding</span><p>New to the project? Start here.</p></div>
+        </a>
+        <a class="cr-chan" href="https://workada.slack.com/archives/C0BNKKVDEF7" target="_blank" rel="noopener">
+          <span class="cr-chan-ic" aria-hidden="true">#</span>
+          <div class="cr-chan-body"><span class="cr-chan-name">#chartography-announcements</span><p>Chartography announcements from the team.</p></div>
+        </a>
+        <a class="cr-chan" href="https://workada.slack.com/archives/C0BN7NQME0P" target="_blank" rel="noopener">
+          <span class="cr-chan-ic" aria-hidden="true">#</span>
+          <div class="cr-chan-body"><span class="cr-chan-name">#chartography-community</span><p>Connect with other Chartography contributors.</p></div>
+        </a>
+        <a class="cr-chan" href="https://workada.slack.com/archives/C0BPHEHEC00" target="_blank" rel="noopener">
+          <span class="cr-chan-ic" aria-hidden="true">#</span>
+          <div class="cr-chan-body"><span class="cr-chan-name">#chartography-discussions</span><p>Discuss Chartography tasks and share tips.</p></div>
+        </a>
+    </div>
+  </section>
+  <section id="chart-about" class="mm-section" style="scroll-margin-top:20px">
+    <h2 class="mm-h">About the project</h2>
+    <div class="ve-card"><h2>What Chartography is</h2>
+    <p>Today’s frontier AI models read a simple bar chart without trouble. They fall apart on the charts professionals actually make decisions from: Kaplan-Meier survival curves, candlestick charts, contour maps, Sankey diagrams, Bode plots, phase diagrams, control charts, and weather soundings.</p>
+    <p>Chartography exists to find and document those failures. Each task pairs one complex chart with one hard question, one verified answer, and a clear step-by-step solution. Every task also has to clear the complexity bar, which means a frontier model has to get it wrong.</p>
+    <p>A brilliant question with a fuzzy answer isn’t usable. A rock-solid answer to a question the model already nails isn’t usable either. All five pieces together are what make a task deliverable.</p>
 </div>
+
+  <div class="ve-card"><h2>What makes a strong chart task</h2>
+    <ul>
+      <li>A <b>complex visualization</b> that rewards careful reading: multiple axes, overlapping series, dense or reused legend colors, a technical domain.</li>
+      <li>A <b>question with one definitive, checkable answer</b> that takes several reasoning steps to reach.</li>
+      <li>A <b>clean step-by-step solution</b> a reviewer could follow and independently verify.</li>
+      <li>A <b>model failure</b>, documented, not asserted.</li>
+    </ul>
+</div>
+
+  
+  </section>
+  <section id="chart-guide" class="mm-section" style="scroll-margin-top:20px">
+    <h2 class="mm-h">Task guide</h2>
+    <div class="ve-card"><h2>The bar: the model has to fail</h2>
+    <p>Every task you create runs against a frontier model three independent times. A task is at an acceptable complexity level if <b>two or more of those three attempts score as failures</b>. If the model gets it right, the task isn’t hard enough yet, and that’s not a dead end: it’s your signal to tighten the question and try again.</p>
+    <p>Iterating on your own prompt until the model breaks is the core skill of this project, and it’s the part we most want your feedback on.</p>
+</div>
+
+  <div class="ve-card"><h2>The domain field</h2>
+    <p>Every task is tagged with a domain. Pick the closest fit; use Other if nothing matches.</p>
+    <ul>
+      <li><b>Finance and economics:</b> Finance, Investing, Economics</li>
+      <li><b>Engineering:</b> General Engineering, Mechanical, Electrical, Civil, Environmental</li>
+      <li><b>Science:</b> General STEM, Chemistry, Biology, Physics, Geosciences</li>
+      <li><b>Applied:</b> Manufacturing, Supply Chain, Healthcare, Other</li>
+    </ul>
+</div>
+
+  <div class="ve-card"><h2>Where models reliably break</h2>
+    <ol>
+      <li><b>Multi-hop questions:</b> ask two or more things where missing any sub-part fails the whole task.</li>
+      <li><b>Miscounting:</b> dense, overlapping, or clustered markers push models into estimating when they should count.</li>
+      <li><b>Visual overlaps:</b> a point half-hidden behind another, a bar clipped by a gridline, a label cut off at the axis.</li>
+      <li><b>Legend and color traps:</b> charts that reuse a color across regions, or encode a series by fill plus outline.</li>
+      <li><b>Scale changes:</b> log axes, box sizes that shift partway down, dual axes, or units that change between panels.</li>
+      <li><b>Absence answers:</b> when the answer is zero or none, models tend to invent a plausible non-zero value.</li>
+      <li><b>Off-chart label reading:</b> answers that require scanning to a distant legend, a rotated axis label, or a footnote elsewhere in the figure.</li>
+    </ol>
+</div>
+
+  
+  </section>
+
+  <p class="feedback-line">We’re always looking to improve this guide. If you’d like to see something added, let your Pod Lead know.</p>
+</div>
+
 <div class="tab-panel" id="tab-coc">
   <div class="coc-card"><div class="coc">
 <p class="coc-intro">These are the standards for using Workada’s Dashboard and Slack. In short: use the platform only for legitimate task work, keep one secure account, submit accurate work, keep everything you access confidential, and treat everyone with respect. <a href="https://docs.google.com/document/d/1iBvxwFH6Gmo53xCSPWudB9Q5bqKM2fa60fvZroHQu_k/edit?usp=sharing" target="_blank" rel="noopener">Read the full Code of Conduct →</a></p>
@@ -4258,6 +4342,8 @@
     <div class="note-box note-grow"><strong>Room to grow</strong>There’s a path forward within Workada: Contributors who deliver consistently and have great metrics can grow into Pod Leads.</div>
     <div class="note-box note-offboard"><strong>Offboarding</strong>Offboarding can happen at any stage of the journey: either at your request (voluntary) or initiated by Workada (involuntary).</div>
   </div>
+
+  <p class="feedback-line">We’re always looking to improve this guide. If you’d like to see something added, let your Pod Lead know.</p>
 </div>
 
 
