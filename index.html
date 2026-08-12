@@ -1836,6 +1836,12 @@
 
   /* Feedback bubble (bottom of tabs) */
   .feedback-line{margin:36px 0 0;text-align:center;font-size:13.5px;color:rgba(255,255,255,.85);line-height:1;white-space:nowrap}
+
+  /* Back to top button */
+  .btt-btn{position:fixed;bottom:28px;right:28px;z-index:9998;background:var(--white);color:var(--navy);border:none;border-radius:40px;width:44px;height:44px;font-size:18px;font-weight:700;cursor:pointer;box-shadow:0 4px 16px rgba(18,35,69,.18);opacity:0;pointer-events:none;transition:opacity .25s ease,transform .25s ease;transform:translateY(10px)}
+  .btt-btn.visible{opacity:1;pointer-events:auto;transform:translateY(0)}
+  .btt-btn:hover{background:#eef3ff}
+  .btt-btn:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
 </style>
 </head>
 <body>
@@ -4653,6 +4659,19 @@
   lb.addEventListener('click', () => lb.classList.remove('on'));
 
   })();
+</script>
+<button id="back-to-top" class="btt-btn" aria-label="Back to top" title="Back to top">↑</button>
+<script>
+(function(){
+  var btt = document.getElementById('back-to-top');
+  if(!btt) return;
+  window.addEventListener('scroll', function(){
+    btt.classList.toggle('visible', window.scrollY > 400);
+  });
+  btt.addEventListener('click', function(){
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
+})();
 </script>
 </body>
 </html>
