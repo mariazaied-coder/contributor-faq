@@ -1820,13 +1820,13 @@
   .proj-item:hover,.proj-item:focus-visible{background:#eef3ff;outline:none}
   .proj-item[hidden]{display:none}
   .proj-toggle.active{background:#fff;color:var(--navy);border-color:#fff}
-  #tab-mm .mm-intro, #tab-sheets .mm-intro, #tab-chartography .mm-intro{color:rgba(255,255,255,.92);font-size:16px;line-height:1.6;margin:0 0 20px;max-width:70ch;text-shadow:0 1px 2px rgba(0,0,0,.3)}
+  #tab-mm .mm-intro, #tab-sheets .mm-intro, #tab-chartography .mm-intro, #tab-video-caption .mm-intro{color:rgba(255,255,255,.92);font-size:16px;line-height:1.6;margin:0 0 20px;max-width:70ch;text-shadow:0 1px 2px rgba(0,0,0,.3)}
   #tab-mm .mm-jump, #tab-sheets .mm-jump, #tab-chartography .mm-jump{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:8px;margin:0 0 36px}
-  #tab-mm .mm-jump-label, #tab-sheets .mm-jump-label, #tab-chartography .mm-jump-label{font-size:13px;font-weight:700;color:#fff;text-shadow:0 1px 2px rgba(0,0,0,.35)}
+  #tab-mm .mm-jump-label, #tab-sheets .mm-jump-label, #tab-chartography .mm-jump-label, #tab-video-caption .mm-jump-label{font-size:13px;font-weight:700;color:#fff;text-shadow:0 1px 2px rgba(0,0,0,.35)}
   #tab-mm .mm-jump a, #tab-sheets .mm-jump a, #tab-chartography .mm-jump a{background:var(--white);color:var(--navy);border-radius:40px;padding:8px 16px;font-size:13.5px;font-weight:600;text-decoration:none}
   #tab-mm .mm-jump a:hover{background:#eef3ff}
-  #tab-mm .mm-section, #tab-sheets .mm-section, #tab-chartography .mm-section{margin:0 0 46px}
-  #tab-mm .mm-h, #tab-sheets .mm-h, #tab-chartography .mm-h{color:#fff;font-size:23px;font-weight:700;margin:0 0 16px;text-shadow:0 1px 3px rgba(0,0,0,.45)}
+  #tab-mm .mm-section, #tab-sheets .mm-section, #tab-chartography .mm-section, #tab-video-caption .mm-section{margin:0 0 46px}
+  #tab-mm .mm-h, #tab-sheets .mm-h, #tab-chartography .mm-h, #tab-video-caption .mm-h{color:#fff;font-size:23px;font-weight:700;margin:0 0 16px;text-shadow:0 1px 3px rgba(0,0,0,.45)}
   #tab-sheets .mm-placeholder,#tab-chartography .mm-placeholder{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:26px 30px;box-shadow:0 1px 3px rgba(18,35,69,.05)}
   #tab-sheets .mm-placeholder h2,#tab-chartography .mm-placeholder h2{color:var(--navy);font-size:21px;margin:0 0 8px}
   #tab-sheets .mm-placeholder p,#tab-chartography .mm-placeholder p{color:#3d4e60;font-size:15px;line-height:1.65;margin:0}
@@ -1861,6 +1861,7 @@
     <button class="tab-btn proj-item" data-tab="mm" role="menuitem">Multimango &amp; Video Eval</button>
     <button class="tab-btn proj-item" data-tab="sheets" role="menuitem">Sheets</button>
     <button class="tab-btn proj-item" data-tab="chartography" role="menuitem">Chartography</button>
+    <button class="tab-btn proj-item" data-tab="video-caption" role="menuitem">Video Caption</button>
   </div>
 </div>
     <button class="tab-btn" data-tab="announcements" role="tab" aria-selected="false" hidden style="display:none">Announcements</button>
@@ -4173,6 +4174,10 @@
   <p class="feedback-line">We’re always looking to improve this guide. If you’d like to see something added, let your Pod Lead know.</p>
 </div>
 
+<div class="tab-panel" id="tab-video-caption">
+  <p class="mm-intro">Resources for the Video Caption project. More content is coming soon. In the meantime, reach out to your Pod Lead for anything you need.</p>
+  <p class="feedback-line">We’re always looking to improve this guide. If you’d like to see something added, let your Pod Lead know.</p>
+</div>
 <div class="tab-panel" id="tab-coc">
   <div class="coc-card"><div class="coc">
 <p class="coc-intro">These are the standards for using Workada’s Dashboard and Slack. In short: use the platform only for legitimate task work, keep one secure account, submit accurate work, keep everything you access confidential, and treat everyone with respect. <a href="https://docs.google.com/document/d/1iBvxwFH6Gmo53xCSPWudB9Q5bqKM2fa60fvZroHQu_k/edit?usp=sharing" target="_blank" rel="noopener">Read the full Code of Conduct →</a></p>
@@ -4369,7 +4374,7 @@
   const search = document.getElementById('search');
   const searchClear = document.getElementById('search-clear');
   const searchResults = document.getElementById('search-results');
-  const TAB_LABELS = {journey:'Contributor Journey', glance:'Workada at a Glance', paypolicy:'Pay Policy & Timer', faq:'FAQ', support:'Support Tickets', coc:'Code of Conduct', mm:'Multimango & Video Eval', sheets:'Sheets', chartography:'Chartography'};
+  const TAB_LABELS = {journey:'Contributor Journey', glance:'Workada at a Glance', paypolicy:'Pay Policy & Timer', faq:'FAQ', support:'Support Tickets', coc:'Code of Conduct', mm:'Multimango & Video Eval', sheets:'Sheets', chartography:'Chartography', 'video-caption':'Video Caption'};
   const esc = t => (t||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
   const norm = t => (t||'').replace(/\s+/g,' ').trim();
 
@@ -4414,7 +4419,9 @@
   function runSearch(q){
     const ql = q.toLowerCase();
     const hits = [];
+    const otherProjects = ['mm','sheets','chartography','video-caption'].filter(p => activeProjectRoute && p !== activeProjectRoute);
     for(const e of searchIndex){
+      if(otherProjects.includes(e.tab)) continue;
       const ti = e.title.toLowerCase().indexOf(ql);
       const bi = e.text.toLowerCase().indexOf(ql);
       if(ti > -1 || bi > -1) hits.push({e, score: (ti > -1 ? 0 : 1), pos: (ti > -1 ? ti : bi)});
@@ -4481,6 +4488,7 @@
     mm: { title: 'Multimango & Video Eval', sub: 'Your channels, how to evaluate image tasks, video training and calibration, and project questions.' },
     sheets: { title: 'Sheets', sub: 'Resources for the Sheets project.' },
     chartography: { title: 'Chartography', sub: 'Resources for the Chartography project.' },
+    'video-caption': { title: 'Video Caption', sub: 'Resources for the Video Caption project.' },
     faq:    { title: 'Contributor FAQ',         sub: 'These are the questions you\'ve been asking most, in one place. We\'re actively making Workada better, and we\'re here to support you while we do.' },
     glance: { title: 'Workada at a Glance',     sub: 'Our mission, values, and the standards that guide how we work together.' },
     paypolicy: { title: 'Pay Policy and Timer', sub: 'How working time is tracked and paid, plus what counts as active work on the timer.' },
@@ -4491,7 +4499,7 @@
 
   const projToggle = document.getElementById('proj-toggle');
   const projMenu = document.getElementById('proj-menu');
-  const PROJECT_TABS = ['mm','sheets','chartography'];
+  const PROJECT_TABS = ['mm','sheets','chartography','video-caption'];
   function closeProjMenu(){ if(projMenu){ projMenu.hidden = true; projToggle.setAttribute('aria-expanded','false'); } }
   function positionProjMenu(){ if(!projToggle||!projMenu) return; const r=projToggle.getBoundingClientRect(); projMenu.style.top=(r.bottom+8)+'px'; let left=r.left+r.width/2-projMenu.offsetWidth/2; left=Math.max(8,Math.min(left,window.innerWidth-projMenu.offsetWidth-8)); projMenu.style.left=left+'px'; }
   function activateTab(tab){
@@ -4517,15 +4525,17 @@
     window.addEventListener('resize', () => { if(!projMenu.hidden) positionProjMenu(); });
     document.addEventListener('click', e => { if(!e.target.closest('.proj-dropdown')) closeProjMenu(); });
   }
+  let activeProjectRoute = null;
   function applyRoute(initial){
     const params = new URLSearchParams(window.location.search);
     const query = (params.get('route') || params.get('project') || '').toLowerCase();
     const hash = window.location.hash.replace(/^#\/?/,'').toLowerCase();
     const path = window.location.pathname.replace(/\/+$/,'').split('/').pop().toLowerCase();
-    const valid = ['mm','sheets','chartography','coc'];
-    const projects = ['mm','sheets','chartography'];
+    const valid = ['mm','sheets','chartography','video-caption','coc'];
+    const projects = ['mm','sheets','chartography','video-caption'];
     const seg = [query, hash, path].find(r => valid.includes(r)) || '';
     if(seg) activateTab(seg);
+    activeProjectRoute = projects.includes(seg) ? seg : null;
     if(projects.includes(seg)){
       document.querySelectorAll('.proj-item').forEach(item => { const show = item.dataset.tab === seg; item.hidden = !show; item.style.display = show ? '' : 'none'; });
     } else if(initial){
