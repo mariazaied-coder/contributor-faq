@@ -968,13 +968,18 @@
   #tab-mm .flow-strip span { color: var(--blue); padding: 0 4px; }
 
   /* progress */
-  #tab-mm .progress-wrap { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
-  #tab-mm .progress-track { flex: 1; height: 6px; background: var(--border); border-radius: 40px; overflow: hidden; }
-  #tab-mm .progress-fill { height: 100%; width: 0%; background: var(--blue); border-radius: 40px; transition: width 0.25s ease; }
-  #tab-mm .progress-label { font-size: 12px; font-weight: 600; color: var(--text-muted); white-space: nowrap; }
+  #tab-mm .progress-wrap,
+#tab-video-caption .progress-wrap { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+  #tab-mm .progress-track,
+#tab-video-caption .progress-track { flex: 1; height: 6px; background: var(--border); border-radius: 40px; overflow: hidden; }
+  #tab-mm .progress-fill,
+#tab-video-caption .progress-fill { height: 100%; width: 0%; background: var(--blue); border-radius: 40px; transition: width 0.25s ease; }
+  #tab-mm .progress-label,
+#tab-video-caption .progress-label { font-size: 12px; font-weight: 600; color: var(--text-muted); white-space: nowrap; }
 
   /* checklist */
-  #tab-mm .check-group { margin-bottom: 18px; }
+  #tab-mm .check-group,
+#tab-video-caption .check-group { margin-bottom: 18px; }
   #tab-mm .check-group-label,
 #tab-video-caption .check-group-label {
     font-size: 11px;
@@ -986,8 +991,10 @@
     padding-bottom: 6px;
     border-bottom: 1px solid var(--border);
   }
-  #tab-mm .check-list { list-style: none; padding: 0; margin: 0; }
-  #tab-mm .check-item {
+  #tab-mm .check-list,
+#tab-video-caption .check-list { list-style: none; padding: 0; margin: 0; }
+  #tab-mm .check-item,
+#tab-video-caption .check-item {
     display: flex;
     align-items: flex-start;
     gap: 10px;
@@ -996,8 +1003,10 @@
     cursor: pointer;
     transition: background 0.12s ease;
   }
-  #tab-mm .check-item:hover { background: var(--bg); }
-  #tab-mm .box {
+  #tab-mm .check-item:hover,
+#tab-video-caption .check-item:hover { background: var(--bg); }
+  #tab-mm .box,
+#tab-video-caption .box {
     flex-shrink: 0;
     width: 18px; height: 18px;
     margin-top: 2px;
@@ -1006,8 +1015,10 @@
     position: relative;
     transition: background 0.12s, border-color 0.12s;
   }
-  #tab-mm .check-item.checked .box { background: var(--blue); border-color: var(--blue); }
-  #tab-mm .box::before {
+  #tab-mm .check-item.checked .box,
+#tab-video-caption .check-item.checked .box { background: var(--blue); border-color: var(--blue); }
+  #tab-mm .box::before,
+#tab-video-caption .box::before {
     content: '';
     position: absolute;
     top: 2px; left: 5px;
@@ -1017,9 +1028,12 @@
     transform: rotate(45deg);
     opacity: 0;
   }
-  #tab-mm .check-item.checked .box::before { opacity: 1; }
-  #tab-mm .check-text { font-size: 14.5px; color: #3d4e60; line-height: 1.55; }
-  #tab-mm .check-item.checked .check-text { color: var(--text-muted); }
+  #tab-mm .check-item.checked .box::before,
+#tab-video-caption .check-item.checked .box::before { opacity: 1; }
+  #tab-mm .check-text,
+#tab-video-caption .check-text { font-size: 14.5px; color: #3d4e60; line-height: 1.55; }
+  #tab-mm .check-item.checked .check-text,
+#tab-video-caption .check-item.checked .check-text { color: var(--text-muted); }
 
   /* traits */
   #tab-mm .traits-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 20px; }
@@ -1978,6 +1992,12 @@
   .lightbox img{max-width:100%;max-height:100%;border-radius:8px;box-shadow:0 10px 40px rgba(0,0,0,.45)}
   #tab-chartography .chart-ex img{cursor:zoom-in;transition:opacity .15s ease}
   #tab-chartography .chart-ex img:hover{opacity:.92}
+
+  /* Video Caption pre-submit checklist: each group label toggles its own list */
+  #vc-checklist .check-group-label{cursor:pointer;display:flex;align-items:baseline;justify-content:space-between;gap:10px;user-select:none}
+  #vc-checklist .check-group-label::after{content:"\25BE";font-size:10px;line-height:1;flex-shrink:0;transition:transform .18s ease}
+  #vc-checklist .check-group.collapsed .check-group-label::after{transform:rotate(-90deg)}
+  #vc-checklist .check-group.collapsed .check-list{display:none}
 </style>
 </head>
 <body>
@@ -2593,6 +2613,7 @@
       <li>Word</li>
       <li>Google Docs</li>
       <li>Email</li>
+      <li>Image hosting sites used by tasks (for opening a task's images in a new tab to zoom or compare)</li>
     </ul>
     <div class="pp-note">Your timer automatically pauses when you visit a denied site, for example amazon.com, tiktok.com, chatgpt.com, or linkedin.com. It picks back up when you return to approved work.</div>
 
@@ -3897,6 +3918,7 @@
           <li>Reference to Image Ranking</li>
         </ul>
         <p>These can appear and disappear at random, so you may not see all four at once: but everyone should have at least one available at any given time. If your usual type isn't showing (or won't let you pick up a task), work one of the others that has available tasks rather than sitting idle.</p>
+        <p><b>Prioritise video and image tasks.</b> Other task types sometimes appear on your dashboard, such as UD Caption or Caption Quality Ranking. Only work those if no video or image tasks are available to you.</p>
       </div>
     </div>
 
@@ -4016,6 +4038,21 @@
         </button>
         <div class="faq-a"><p>Move on to the next task. Once a task is closed you can’t go back to the same prompt.</p></div>
       </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-q-num">33</span> <span class="faq-q-text">Do I need to justify every dimension, or just the main errors?</span>
+          <span class="chevron">&#9660;</span>
+        </button>
+        <div class="faq-a"><p>Write a sentence for <b>every applicable dimension</b>, on every task type. Some tasks show all the dimensions to judge individually with a single justification box at the bottom: even then, cover each dimension you scored rather than writing one general comment.</p><p>It also helps a QA reviewer understand why you preferred one response over the other.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-q-num">34</span> <span class="faq-q-text">My dimension score is low. How do I bring it up?</span>
+          <span class="chevron">&#9660;</span>
+        </button>
+        <div class="faq-a"><p>Start with the definitions. Make sure you can say what each dimension covers and where the line sits between neighbouring ones: most low dimension scores come from scoring an issue under the wrong dimension rather than from missing it.</p><p>Re-walking the training modules is the fastest way to re-ground yourself, and your Pod Lead can quiz you on the definitions or run a shadow session with you. If you think a dimension score is wrong, reach out to your Pod Lead.</p></div>
+      </div>
+
     
   
     <div class="faq-section" data-section="04">
@@ -4026,7 +4063,7 @@
 
     <div class="faq-item">
       <button class="faq-q" aria-expanded="false">
-        <span class="faq-q-num">33</span> <span class="faq-q-text">How do I access tasks?</span>
+        <span class="faq-q-num">35</span> <span class="faq-q-text">How do I access tasks?</span>
         <span class="chevron">▼</span>
       </button>
       <div class="faq-a">
@@ -4036,7 +4073,7 @@
 
     <div class="faq-item">
       <button class="faq-q" aria-expanded="false">
-        <span class="faq-q-num">34</span> <span class="faq-q-text">What do the different task statuses mean?</span>
+        <span class="faq-q-num">36</span> <span class="faq-q-text">What do the different task statuses mean?</span>
         <span class="chevron">▼</span>
       </button>
       <div class="faq-a">
@@ -4055,18 +4092,18 @@
 
     <div class="faq-item">
       <button class="faq-q" aria-expanded="false">
-        <span class="faq-q-num">35</span> <span class="faq-q-text">How long should it take me to do each task?</span>
+        <span class="faq-q-num">37</span> <span class="faq-q-text">How long should it take me to do each task?</span>
         <span class="chevron">▼</span>
       </button>
       <div class="faq-a">
-        <p>There's no strict time limit, but aim for around 12–17 minutes on image (picture) tasks and around 20 minutes on video tasks in the Multimango project. Tasks on multimango.com are capped at 20 minutes, and image and video calibration tasks at 30 minutes, so going over these can affect your metrics. Other projects may differ. Trust your gut on the obvious calls, zoom in where it matters, and only fact-check claims that are actually checkable: a count, a label, a spelling. Don't go down rabbit holes.</p>
+        <p>There's no strict time limit, but aim for around 12–17 minutes on Text To Image Compare tasks and around 20 minutes on video tasks in the Multimango project. The 12–17 minute range applies to Text To Image Compare specifically: other task types, such as Reference to Image Ranking or the caption task types, routinely take longer and aren't held to it. Tasks on multimango.com are capped at 20 minutes, and image and video calibration tasks at 30 minutes, so going over these can affect your metrics. Other projects may differ. Trust your gut on the obvious calls, zoom in where it matters, and only fact-check claims that are actually checkable: a count, a label, a spelling. Don't go down rabbit holes.</p>
         <p>Quality is what matters most, so take the time you need to do the work well. As you build experience, you'll naturally get faster without losing that quality.</p>
       </div>
     </div>
 
     <div class="faq-item">
       <button class="faq-q" aria-expanded="false">
-        <span class="faq-q-num">36</span> <span class="faq-q-text">I passed training but I still can't see tasks</span>
+        <span class="faq-q-num">38</span> <span class="faq-q-text">I passed training but I still can't see tasks</span>
         <span class="chevron">▼</span>
       </button>
       <div class="faq-a">
@@ -4079,7 +4116,7 @@
   
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">
-          <span class="faq-q-num">37</span> <span class="faq-q-text">When a task looks like one I've already done, should I refresh the page?</span>
+          <span class="faq-q-num">39</span> <span class="faq-q-text">When a task looks like one I've already done, should I refresh the page?</span>
           <span class="chevron">▼</span>
         </button>
         <div class="faq-a">
@@ -4089,7 +4126,7 @@
     
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">
-          <span class="faq-q-num">38</span> <span class="faq-q-text">When Overall Preference is the only thing I'm rating on an image, should I weight instruction following more?</span>
+          <span class="faq-q-num">40</span> <span class="faq-q-text">When Overall Preference is the only thing I'm rating on an image, should I weight instruction following more?</span>
           <span class="chevron">▼</span>
         </button>
         <div class="faq-a">
@@ -4099,7 +4136,7 @@
     
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">
-          <span class="faq-q-num">39</span> <span class="faq-q-text">Slightly vs. strongly, how do I decide?</span>
+          <span class="faq-q-num">41</span> <span class="faq-q-text">Slightly vs. strongly, how do I decide?</span>
           <span class="chevron">▼</span>
         </button>
         <div class="faq-a">
@@ -4109,7 +4146,7 @@
     
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">
-          <span class="faq-q-num">40</span> <span class="faq-q-text">How long should a Text-to-Video task take?</span>
+          <span class="faq-q-num">42</span> <span class="faq-q-text">How long should a Text-to-Video task take?</span>
           <span class="chevron">▼</span>
         </button>
         <div class="faq-a">
@@ -4119,11 +4156,40 @@
     </div>
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">
-          <span class="faq-q-num">41</span> <span class="faq-q-text">I received a prompt in a foreign language, what should I do?</span>
+          <span class="faq-q-num">43</span> <span class="faq-q-text">I received a prompt in a foreign language, what should I do?</span>
           <span class="chevron">▼</span>
         </button>
         <div class="faq-a"><p>Refresh the page to load a new prompt.</p></div>
       </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-q-num">44</span> <span class="faq-q-text">How should I handle a very long prompt?</span>
+          <span class="chevron">&#9660;</span>
+        </button>
+        <div class="faq-a"><p>Long prompts on image and video tasks can eat your whole handle time. Work them in this order:</p><ol><li>Review the outputs on their own, before you read the prompt.</li><li>Read the prompt and identify the <b>primary prompt</b>: what the output basically has to be.</li><li>Skim the rest, separating the details that matter from the minor ones.</li><li>Make your selection on that basis.</li><li>Write your justification against the details you judged important.</li></ol><p>If a prompt is so long that this still isn't workable, let your Pod Lead know.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-q-num">45</span> <span class="faq-q-text">What if a task genuinely can't be done well within the time cap?</span>
+          <span class="chevron">&#9660;</span>
+        </button>
+        <div class="faq-a"><p>Take the time the task actually needs. Where it is unreasonable to complete a task properly inside the limit for that type, quality comes first.</p><p>You won't be blocked for going long while you're working in good faith. That only becomes a problem when the time is far above average and starts to look like time milking.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-q-num">46</span> <span class="faq-q-text">Can I use a read-aloud extension for long prompts?</span>
+          <span class="chevron">&#9660;</span>
+        </button>
+        <div class="faq-a"><p>Yes, as long as your Workada timer still shows MultiMango as your active tab. Don't use one if it significantly increases your handle time for little or no gain in quality.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-q-num">47</span> <span class="faq-q-text">What changed about MTQ and LAIG?</span>
+          <span class="chevron">&#9660;</span>
+        </button>
+        <div class="faq-a"><p>The two axes no longer overlap:</p><ul><li><b>MTQ (Motion &amp; Temporal Quality)</b> has been <b>narrowed</b> to traditional motion-quality issues only: <b>flickering, smoothness, and camera jitter</b>.</li><li><b>LAIG (Less AI Generated)</b> has been <b>expanded</b> to cover <b>physics issues, phasing in and out of reality, extra limbs, and other generative artifacts</b>.</li></ul><p>Physics and AI-related artifacts used to get scored under MTQ. They now belong under LAIG. The change separates the two axes and lines annotators up with auditors.</p><p>Training, calibration answers, and the tearsheet are being updated to match. Until then, use the training and calibration examples as your reference.</p></div>
+      </div>
+
     
   </section>
 
@@ -4640,6 +4706,7 @@
     <a href="#vc-channels">Channels</a>
     <a href="#vc-about">About the project</a>
     <a href="#vc-training">Training</a>
+    <a href="#vc-checklist">Before you submit</a>
     <a href="#vc-faq">Project FAQ</a>
   </nav>
 
@@ -4653,6 +4720,14 @@
       <a class="cr-chan" href="https://workada.slack.com/archives/C0BMHUXDPM5" target="_blank" rel="noopener">
         <span class="cr-chan-ic" aria-hidden="true">#</span>
         <div class="cr-chan-body"><span class="cr-chan-name">#video-caption-announcements</span><p>Project announcements from the Video Caption team.</p></div>
+      </a>
+      <a class="cr-chan" href="https://workada.slack.com/archives/C0BSBK4QVEW" target="_blank" rel="noopener">
+        <span class="cr-chan-ic" aria-hidden="true">#</span>
+        <div class="cr-chan-body"><span class="cr-chan-name">#video-sc-community</span><p>Connect with other Video Caption Contributors.</p></div>
+      </a>
+      <a class="cr-chan" href="https://workada.slack.com/archives/C0BS5CNPQTD" target="_blank" rel="noopener">
+        <span class="cr-chan-ic" aria-hidden="true">#</span>
+        <div class="cr-chan-body"><span class="cr-chan-name">#video-sc-discussion</span><p>Discuss Video Caption tasks and share tips.</p></div>
       </a>
       <a class="cr-chan cr-chan-no-link" tabindex="0">
         <span class="cr-chan-ic" aria-hidden="true">#</span>
@@ -5033,6 +5108,138 @@
 
   </section>
 
+
+
+  <section id="vc-checklist" class="mm-section" style="scroll-margin-top:20px">
+    <h2 class="mm-h">Before You Submit</h2>
+
+    <div class="ve-card">
+      <p>Use this as a final quality check before you submit a Video Caption task. It doesn't replace the <a href="https://docs.google.com/document/d/1N6sntuEXwWEDs8jBEB463OjeWvZxrig1f1vQ0ijhqYA/edit?tab=t.d2cs61b10l6f#heading=h.p22vtg50bzto" target="_blank" rel="noopener">Training Document</a>: it's here to catch the small details that are easy to miss once you've been working on a caption for a while.</p>
+      <p>Most quality issues come from one missed detail rather than a caption that's wrong throughout. Pay particular attention to shot boundaries, missing Characters and Actions, camera changes, speech and audio, and timing.</p>
+      <p>The groups below follow the same order as the 11 sections in the task, so you can work down the list as you review. Tick items off as you go: your progress is only kept while this page is open.</p>
+
+      <div class="progress-wrap">
+        <div class="progress-track"><div class="progress-fill" id="vc-progress-fill"></div></div>
+        <span class="progress-label" id="vc-progress-label">0 / 53 checked</span>
+      </div>
+
+            <div class="check-group collapsed">
+              <div class="check-group-label">1 &middot; Shot Boundaries</div>
+              <ul class="check-list">
+                <li class="check-item"><span class="box"></span><span class="check-text">Watched the full clip before placing any boundaries?</span></li>
+                <li class="check-item"><span class="box"></span><span class="check-text">For an abrupt cut, the boundary sits on the <b>first frame of the new footage</b>: for a gradual transition, at its <b>approximate midpoint</b>?</span></li>
+                <li class="check-item"><span class="box"></span><span class="check-text">Every shot after S1 has the correct type under <b>Into this shot</b>, rather than defaulting to hard cut, and compound transitions record <b>Out of previous shot</b>?</span></li>
+                <li class="check-item"><span class="box"></span><span class="check-text">A brief flash of different footage at the start of the clip is marked as its own shot?</span></li>
+              </ul>
+            </div>
+            <div class="check-group collapsed">
+              <div class="check-group-label">2 &middot; Style</div>
+              <ul class="check-list">
+                <li class="check-item"><span class="box"></span><span class="check-text">All five clip-level categories set: Capture, Lighting, Color, Depth of field, Aspect ratio?</span></li>
+                <li class="check-item"><span class="box"></span><span class="check-text">Where a category changes between shots, selected <b>Other&hellip;</b> and written which value applies to which shots?</span></li>
+                <li class="check-item"><span class="box"></span><span class="check-text"><b>Not Determinable</b> used only where the clip genuinely gives you nothing to judge?</span></li>
+              </ul>
+            </div>
+            <div class="check-group collapsed">
+              <div class="check-group-label">3 &middot; Characters</div>
+              <ul class="check-list">
+                <li class="check-item"><span class="box"></span><span class="check-text">Every visible person is covered, either by an individual C# or by a collective group C# whose description applies to them?</span></li>
+                <li class="check-item"><span class="box"></span><span class="check-text"><b>15 or fewer people:</b> an individual C# for each. <b>More than 15:</b> individual C#s for anyone who speaks, performs an action you reference, is singled out by the camera, or appears prominently in the foreground, and collective groups for the rest?</span></li>
+                <li class="check-item"><span class="box"></span><span class="check-text">Descriptions use stable, visible details (hair, clothing, accessories, distinguishing features) rather than assumptions the video doesn't support?</span></li>
+                <li class="check-item"><span class="box"></span><span class="check-text">The same C# is kept for a person throughout, including where their appearance changes?</span></li>
+                <li class="check-item"><span class="box"></span><span class="check-text"><b>Present in</b> answered for every shot, including any shot you added later, and the voice fields completed for everyone marked <b>Speaks</b>?</span></li>
+              </ul>
+            </div>
+            <div class="check-group collapsed">
+              <div class="check-group-label">4 &middot; Objects</div>
+              <ul class="check-list">
+                <li class="check-item"><span class="box"></span><span class="check-text">An O# for every object a Character <b>handles</b>: picks up, moves, passes or hands over, throws or drops, operates, or consumes?</span></li>
+                <li class="check-item"><span class="box"></span><span class="check-text">Unhandled, non-living items left in <b>Scene</b>, whatever their size or prominence?</span></li>
+                <li class="check-item"><span class="box"></span><span class="check-text">Small, common handled objects left in Scene where a separate O# would add no useful clarity?</span></li>
+                <li class="check-item"><span class="box"></span><span class="check-text">The same O# kept across shots, with <b>Scope</b> set to a single object or several identical instances?</span></li>
+              </ul>
+            </div>
+            <div class="check-group collapsed">
+              <div class="check-group-label">5 &middot; Speech</div>
+              <ul class="check-list">
+                <li class="check-item"><span class="box"></span><span class="check-text">Every audible utterance captured, including quick words, brief interjections, background voices, and speech right at the end of the clip?</span></li>
+                <li class="check-item"><span class="box"></span><span class="check-text">Words transcribed <b>verbatim</b>, keeping repetitions, fillers, stutters, false starts, self-corrections, partial words, and grammatical errors?</span></li>
+                <li class="check-item"><span class="box"></span><span class="check-text">A new entry started after any pause longer than <b>0.5 seconds</b>, with the silence left outside both ranges?</span></li>
+                <li class="check-item"><span class="box"></span><span class="check-text">Speech that crosses a shot boundary is split between the shots, using <b>[mid-sentence cut]</b> where it applies?</span></li>
+                <li class="check-item"><span class="box"></span><span class="check-text">Approved markers used exactly as written, and anything marked <b>&lt;unintelligible&gt;</b> also recorded in the Audio field under <b>Concerns</b>?</span></li>
+                <li class="check-item"><span class="box"></span><span class="check-text">A <b>Subject</b> is set for every entry: where you can't confidently identify the speaker, chose the best-supported Character and recorded the uncertainty in Concerns rather than guessing?</span></li>
+                <li class="check-item"><span class="box"></span><span class="check-text"><b>On or off screen</b> reflects the speaker's visibility during that utterance, and <b>Delivery</b> describes how that line is spoken?</span></li>
+              </ul>
+            </div>
+            <div class="check-group collapsed">
+              <div class="check-group-label">6 &middot; On-screen text</div>
+              <ul class="check-list">
+                <li class="check-item"><span class="box"></span><span class="check-text">Swept the clip for text presented to the viewer: subtitles, titles, pop-ups, watermarks, logos, readable signs, and words on clothing or objects?</span></li>
+                <li class="check-item"><span class="box"></span><span class="check-text">Text entered verbatim, preserving wording, spelling, capitalization, punctuation, and abbreviations?</span></li>
+                <li class="check-item"><span class="box"></span><span class="check-text">Non-Latin scripts replaced with <b>&lt;multilingual&gt;</b>, keeping any Latin portion as it appears?</span></li>
+                <li class="check-item"><span class="box"></span><span class="check-text"><b>Color</b>, <b>Border</b>, and <b>Placement</b> set, and <b>Paired sound effect</b> completed where a distinct sound lands with the text?</span></li>
+              </ul>
+            </div>
+            <div class="check-group collapsed">
+              <div class="check-group-label">7 &middot; Shot detail</div>
+              <ul class="check-list">
+                <li class="check-item"><span class="box"></span><span class="check-text"><b>Shot size</b>, <b>Angle</b>, and <b>Direction</b> completed for every M# entry?</span></li>
+                <li class="check-item"><span class="box"></span><span class="check-text">A new Camera entry started whenever shot size, angle, movement type, or direction changes, and on a reversal, a pause, or a shift into handheld drift?</span></li>
+                <li class="check-item"><span class="box"></span><span class="check-text">Camera movement kept here and out of Actions, with cut and transition types kept in Shot Boundaries?</span></li>
+                <li class="check-item"><span class="box"></span><span class="check-text"><b>What enters or leaves frame</b> filled in where the camera makes something visible or hidden?</span></li>
+                <li class="check-item"><span class="box"></span><span class="check-text"><b>Playback Speed</b> set for every shot: Regular, Slow motion, or Fast?</span></li>
+              </ul>
+            </div>
+            <div class="check-group collapsed">
+              <div class="check-group-label">8 &middot; Scene</div>
+              <ul class="check-list">
+                <li class="check-item"><span class="box"></span><span class="check-text">All five fields completed for every shot: Setting and layout, Ground/floor/surface, Lighting quality, Background and depth, Characters at shot start?</span></li>
+                <li class="check-item"><span class="box"></span><span class="check-text">The ground field describes the surface, or reads exactly <b>&ldquo;The ground is not visible in this shot.&rdquo;</b> &mdash; never <b>N/A</b>?</span></li>
+                <li class="check-item"><span class="box"></span><span class="check-text">Every Character marked present at the start of the shot is accounted for, with position, posture, direction faced, and what they hold in which hand?</span></li>
+                <li class="check-item"><span class="box"></span><span class="check-text">Left and right judged from the <b>Character's own perspective</b>, with frame-left and frame-right used for position in the image?</span></li>
+                <li class="check-item"><span class="box"></span><span class="check-text">Later movement kept out of Scene and recorded as timed Actions, and the whole-clip <b>Scene</b> summary written at the bottom of the sidebar?</span></li>
+              </ul>
+            </div>
+            <div class="check-group collapsed">
+              <div class="check-group-label">9 &middot; Actions</div>
+              <ul class="check-list">
+                <li class="check-item"><span class="box"></span><span class="check-text">Every meaningful movement or reaction captured, including hand reaches, head turns, gaze shifts, facial reactions, visible lip movement, and handoffs?</span></li>
+                <li class="check-item"><span class="box"></span><span class="check-text">One Character and one defined action per entry, with simultaneous actions split into separate entries?</span></li>
+                <li class="check-item"><span class="box"></span><span class="check-text">Descriptions start with a verb, without repeating the Subject and without camera movement?</span></li>
+                <li class="check-item"><span class="box"></span><span class="check-text"><b>Object</b> and <b>Hand</b> are correct and consistent with what Scene says the Character is holding?</span></li>
+                <li class="check-item"><span class="box"></span><span class="check-text">Entries timed to when the action actually happens, rather than stretched across the whole shot, with an entry in each shot an action continues into?</span></li>
+              </ul>
+            </div>
+            <div class="check-group collapsed">
+              <div class="check-group-label">10 &middot; Audio</div>
+              <ul class="check-list">
+                <li class="check-item"><span class="box"></span><span class="check-text"><b>Audible sound in this shot</b> set to Sound present or Silent for every shot?</span></li>
+                <li class="check-item"><span class="box"></span><span class="check-text">Every distinct non-speech sound captured: laughter, breathing, grunts, impacts, eating, environmental sound, music?</span></li>
+                <li class="check-item"><span class="box"></span><span class="check-text">Descriptions name the actual sound and never use the words <b>ambient</b>, <b>non-diegetic</b>, or <b>music audio</b>: the field blocks them?</span></li>
+                <li class="check-item"><span class="box"></span><span class="check-text"><b>Who</b> set only where a specific Character clearly makes the sound, with that C# left out of the Description?</span></li>
+                <li class="check-item"><span class="box"></span><span class="check-text">Events timed to when the sound actually occurs, and the whole-clip <b>Audio Overview</b> written?</span></li>
+              </ul>
+            </div>
+            <div class="check-group collapsed">
+              <div class="check-group-label">11 &middot; Concerns</div>
+              <ul class="check-list">
+                <li class="check-item"><span class="box"></span><span class="check-text"><b>Visual</b> records anything ambiguous or incomplete that stopped you annotating confidently, such as an unfinished transition?</span></li>
+                <li class="check-item"><span class="box"></span><span class="check-text"><b>Audio</b> records speech that is hard to hear, understand, or attribute, including anything you marked &lt;unintelligible&gt;?</span></li>
+                <li class="check-item"><span class="box"></span><span class="check-text">Fields left blank where there is genuinely nothing to report, and any warning about a shot with no Actions entry reviewed before dismissing it?</span></li>
+              </ul>
+            </div>
+            <div class="check-group collapsed">
+              <div class="check-group-label">Final pass</div>
+              <ul class="check-list">
+                <li class="check-item"><span class="box"></span><span class="check-text">Replayed the clip once without editing: no person, object, action, camera change, word, or sound missed?</span></li>
+                <li class="check-item"><span class="box"></span><span class="check-text">Timestamps tight, with entries sitting on the frames where things actually start and end?</span></li>
+                <li class="check-item"><span class="box"></span><span class="check-text">Everything written describes what you can actually see and hear, rather than what you assume?</span></li>
+              </ul>
+            </div>
+
+      <div class="note" style="margin-top:16px">If something in the clip genuinely can't be annotated confidently, record it under Concerns rather than guessing. If you're unsure how a rule applies, ask your Pod Lead.</div>
+    </div>
+  </section>
 
   <section id="vc-faq" class="mm-section" style="scroll-margin-top:20px">
     <h2 class="mm-h">Project FAQ</h2>
@@ -5585,6 +5792,40 @@
     });
   })();
 
+
+  // Video Caption pre-submit checklist (scoped, separate from the Multimango list)
+  (function() {
+    const items = document.querySelectorAll('#vc-checklist .check-item');
+    const fill  = document.getElementById('vc-progress-fill');
+    const label = document.getElementById('vc-progress-label');
+    if (!items.length || !fill || !label) return;
+    const total = items.length;
+    function update() {
+      const done = document.querySelectorAll('#vc-checklist .check-item.checked').length;
+      fill.style.width = (done / total * 100) + '%';
+      label.textContent = done + ' / ' + total + ' checked';
+    }
+    items.forEach(item => {
+      item.addEventListener('click', () => { item.classList.toggle('checked'); update(); });
+    });
+    update();
+  })();
+
+  // Video Caption checklist: collapse/expand each group from its label
+  (function() {
+    document.querySelectorAll('#vc-checklist .check-group-label').forEach(lab => {
+      lab.setAttribute('role', 'button');
+      lab.setAttribute('tabindex', '0');
+      const group = lab.closest('.check-group');
+      const set = () => lab.setAttribute('aria-expanded', String(!group.classList.contains('collapsed')));
+      set();
+      const toggle = () => { group.classList.toggle('collapsed'); set(); };
+      lab.addEventListener('click', toggle);
+      lab.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); }
+      });
+    });
+  })();
 </script>
 </body>
 </html>
