@@ -2018,6 +2018,24 @@
 .mmfaq-seg{border:none;background:transparent;border-radius:9px;padding:9px 22px;font:inherit;font-size:14.5px;font-weight:600;color:var(--text-muted);cursor:pointer;transition:background .14s,color .14s}
 .mmfaq-seg:hover{color:var(--navy)}
 .mmfaq-seg.active{background:var(--white);color:var(--navy);box-shadow:0 1px 4px rgba(18,35,69,.14)}
+
+  /* ── Video Eval collapsibles + slight/strong/tie tiles ── */
+#tab-mm .score-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 14px 0 16px; }
+#tab-mm .score-tile { background: #f8fafc; border: 1px solid var(--border); border-radius: 10px; padding: 14px 15px; }
+#tab-mm .score-tile .score-badge { display: inline-block; font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; padding: 3px 9px; border-radius: 999px; margin-bottom: 8px; }
+#tab-mm .score-tile p { font-size: 13.5px; line-height: 1.55; margin: 0; color: #3d4e60; }
+#tab-mm .score-badge.slight { background: #e0f2fe; color: #075985; }
+#tab-mm .score-badge.strong { background: var(--navy); color: #ffffff; }
+#tab-mm .score-badge.tie { background: #e2e8f0; color: #475569; }
+#tab-mm details.ve-collapse { padding: 0; }
+#tab-mm details.ve-collapse > summary { list-style: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 20px 30px; user-select: none; }
+#tab-mm details.ve-collapse > summary::-webkit-details-marker { display: none; }
+#tab-mm details.ve-collapse > summary h2 { margin: 0; }
+#tab-mm details.ve-collapse > summary:hover h2 { color: var(--blue); }
+#tab-mm details.ve-collapse .ve-chev { flex: 0 0 auto; width: 28px; height: 28px; border-radius: 999px; border: 1px solid var(--border); background: #f8fafc; position: relative; transition: transform .25s ease; }
+#tab-mm details.ve-collapse .ve-chev::before { content: ""; position: absolute; left: 50%; top: 50%; width: 8px; height: 8px; border-right: 2px solid var(--slate); border-bottom: 2px solid var(--slate); transform: translate(-50%, -68%) rotate(45deg); }
+#tab-mm details.ve-collapse[open] .ve-chev { transform: rotate(180deg); }
+#tab-mm details.ve-collapse .ve-collapse-body { padding: 0 30px 24px; }
 </style>
 </head>
 <body>
@@ -2373,7 +2391,6 @@
       </button>
       <div class="faq-a">
         <p>Go to <strong>Dashboard &gt; Sessions &gt; + Add Manual Session</strong>. Enter the time window you worked and a brief description of the work completed. Submit it for review.</p>
-        <p>Only add manual time when the timer didn’t capture your work because of a bug. Submit it in <strong>30-minute chunks</strong>, and for each chunk include details about what you were working on during that time, so we can review it quickly.</p>
         <div class="note">Time added manually is still paid if approved by Workada.</div>
         <p>Manual sessions that are approved by Workada are paid out in the next scheduled payment cycle.</p>
       </div>
@@ -3699,8 +3716,9 @@
     <p>You become eligible for video training once you’ve built a track record on image work: <b>15 active hours</b> on multimango.com image tasks. Once you hit 15 image hours, you’re moved into video eval setup automatically.</p>
   </div>
 
-  <div class="ve-card">
-    <h2>What you’ll do</h2>
+  <details class="ve-card ve-collapse">
+    <summary><h2>What you’ll do</h2><span class="ve-chev" aria-hidden="true"></span></summary>
+    <div class="ve-collapse-body">
     <p>Qualifying is two steps:</p>
     <ol>
       <li><b>Video training</b> walks you through the video task and the quality dimensions you’ll be judging. You’ll need at least 75% to move on to calibration, and you get two attempts on each knowledge check.</li>
@@ -3710,21 +3728,36 @@
     <p>You get <b>3 paid hours</b> for training and calibration, and you complete your 4 calibration tasks within that time. Your timer warns you as you approach the cap, and time beyond 3 hours isn’t paid, so pace yourself. It’s built to fit inside the window.</p>
     <h4>While your Pod Lead reviews</h4>
     <p>You can’t continue tasking until you’ve completed all 4 calibration tasks, so get them done within your time cap. Once they’re in, you can go back to tasking on Multimango while you wait for your Pod Lead to grade them. Once you pass, video tasks unlock. To be clear, you don’t switch to video-only: you’ll see the same standard mix of image and video tasks you had on your dashboard before.</p>
-  </div>
+    </div>
+  </details>
 
-  <div class="ve-card">
-    <h2>How to score: slightly, strongly, or tie</h2>
-    <p>Each task shows you two AI-generated videos and asks which is better on each dimension. Once you know which side wins a dimension, say by how much:</p>
-    <ul>
-      <li><b>Slightly prefer:</b> the two are close, with a small edge in one direction. This is your default.</li>
-      <li><b>Strongly prefer:</b> one clearly outperforms the other, meeting noticeably more of the request or avoiding a serious failure like a missing key element or heavy distortion.</li>
-      <li><b>Tie:</b> allowed, a model almost never produces two truly equal outputs, so before you call a tie, ask which side's issues are more glaring. If it's a genuine tie, mark it and explain specifically why.</li>
-    </ul>
+  <details class="ve-card ve-collapse">
+    <summary><h2>How to score: slightly, strongly, or tie</h2><span class="ve-chev" aria-hidden="true"></span></summary>
+    <div class="ve-collapse-body">
+    <p>Each task shows you two AI-generated videos. For every dimension, decide which side wins and by how much — it’s a per-dimension call, made fresh on each line.</p>
+    <div class="score-grid">
+      <div class="score-tile"><span class="score-badge slight">Slightly prefer</span><p>One video is better, but the gap is small. You can name the specific advantage — yet another careful rater could reasonably call it a tie or lean the other way.</p></div>
+      <div class="score-tile"><span class="score-badge strong">Strongly prefer</span><p>One video is clearly better on that dimension and you’re convinced of it. Not a lean — a conviction you’d hold even if pushed back on.</p></div>
+      <div class="score-tile"><span class="score-badge tie">Tie</span><p>The dimension genuinely doesn’t separate them: no relevant advantage, or strengths and weaknesses offset. The videos don’t need to be identical.</p></div>
+    </div>
+    <div class="rule-strip"><b>A strong pick doesn’t have to be flawless.</b> Garbled on-screen text can still clearly beat heavy distortion. If your strong pick has a visible defect, name it and say why it still wins — if you can’t write that sentence, it’s a slight.</div>
+    <h4>Slight vs. strong at a glance</h4>
+    <table class="qref-table">
+      <thead><tr><th>What to consider</th><th>Slightly prefer</th><th>Strongly prefer</th></tr></thead>
+      <tbody>
+        <tr><td>Why it wins</td><td>Better, but by a fairly small margin.</td><td>A clear, immediately visible advantage separates the two.</td></tr>
+        <tr><td>Winner’s flaws?</td><td>Yes — and they may make the call closer.</td><td>Maybe, but not enough to change the outcome.</td></tr>
+        <tr><td>The other video?</td><td>Has problems, but balances them with strengths.</td><td>Its problems widen the gap.</td></tr>
+        <tr><td>Room to disagree?</td><td>Yes — a careful rater could call it a tie or flip it.</td><td>Probably not — a careful rater should land in the same place.</td></tr>
+      </tbody>
+    </table>
     <p>One difference from image work: on video tasks, <b>Overall Preference is your gut-feel call</b>, unlike image tasks where it’s an in-depth final choice weighing all dimensions.</p>
-  </div>
+    </div>
+  </details>
 
-  <div class="ve-card">
-    <h2>Common Calibration Errors</h2>
+  <details class="ve-card ve-collapse">
+    <summary><h2>Common Calibration Errors</h2><span class="ve-chev" aria-hidden="true"></span></summary>
+    <div class="ve-collapse-body">
     <p>These are the most frequent issues identified in calibration and quality reviews:</p>
     <ul>
       <li><b>Same pick every time:</b> choosing the same video for every dimension instead of judging each one on its own.</li>
@@ -3733,7 +3766,8 @@
       <li><b>Contradiction:</b> writing a rationale that argues for the video you didn't actually pick.</li>
       <li><b>No explanation or cut off:</b> leaving an explanation box blank, or submitting a justification mid-thought.</li>
     </ul>
-  </div>
+    </div>
+  </details>
 
 
   </section>
@@ -3755,7 +3789,6 @@
         <button class="faq-hot" data-q="no longer eligible to submit">“No longer eligible”</button>
         <button class="faq-hot" data-q="How does calibration work">Calibration &amp; the 70%</button>
         <button class="faq-hot" data-q="offensive, NSFW">NSFW / offensive tasks</button>
-        <button class="faq-hot" data-q="What is Multimango?">What is Multimango?</button>
       </div>
       <div class="faq-toolbar-row faq-chip-row">
         <span class="faq-chip-label">Filter by</span>
@@ -3782,18 +3815,7 @@
 
     <div class="faq-item">
       <button class="faq-q" aria-expanded="false">
-        <span class="faq-q-num">1</span> <span class="faq-q-text">What is Multimango?</span>
-        <span class="chevron">▼</span>
-      </button>
-      <div class="faq-a">
-        <p>Multimango (MM) is the new task platform that Contributors are moving to. Going forward, work that used to live on your Workada dashboard (comparing images, ranking model outputs, evaluating text-to-video results, and similar tasks) happens on Multimango instead.</p>
-        <p>For most Contributors, getting there means completing a short calibration on Workada first: a minimum of 10 tasks, up to 20 attempts, with a 70% pass rate needed to move on.</p>
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-q" aria-expanded="false">
-        <span class="faq-q-num">2</span> <span class="faq-q-text">How does calibration work, and how is the 70% calculated?</span>
+        <span class="faq-q-num">1</span> <span class="faq-q-text">How does calibration work, and how is the 70% calculated?</span>
         <span class="chevron">▼</span>
       </button>
       <div class="faq-a">
@@ -3804,7 +3826,7 @@
 
     <div class="faq-item">
       <button class="faq-q" aria-expanded="false">
-        <span class="faq-q-num">3</span> <span class="faq-q-text">When can I create my Multimango account?</span>
+        <span class="faq-q-num">2</span> <span class="faq-q-text">When can I create my Multimango account?</span>
         <span class="chevron">▼</span>
       </button>
       <div class="faq-a">
@@ -3814,7 +3836,7 @@
 
     <div class="faq-item">
       <button class="faq-q" aria-expanded="false">
-        <span class="faq-q-num">4</span> <span class="faq-q-text">How do I create my Multimango account, step by step?</span>
+        <span class="faq-q-num">3</span> <span class="faq-q-text">How do I create my Multimango account, step by step?</span>
         <span class="chevron">▼</span>
       </button>
       <div class="faq-a">
@@ -3833,7 +3855,7 @@
 
     <div class="faq-item">
       <button class="faq-q" aria-expanded="false">
-        <span class="faq-q-num">5</span> <span class="faq-q-text">Which email should I use to sign up for Multimango?</span>
+        <span class="faq-q-num">4</span> <span class="faq-q-text">Which email should I use to sign up for Multimango?</span>
         <span class="chevron">▼</span>
       </button>
       <div class="faq-a">
@@ -3843,7 +3865,7 @@
 
     <div class="faq-item">
       <button class="faq-q" aria-expanded="false">
-        <span class="faq-q-num">6</span> <span class="faq-q-text">I didn't get the 6-digit verification code. What should I do?</span>
+        <span class="faq-q-num">5</span> <span class="faq-q-text">I didn't get the 6-digit verification code. What should I do?</span>
         <span class="chevron">▼</span>
       </button>
       <div class="faq-a">
@@ -3853,7 +3875,7 @@
 
     <div class="faq-item">
       <button class="faq-q" aria-expanded="false">
-        <span class="faq-q-num">7</span> <span class="faq-q-text">I clicked "I created my account." How long until I'm approved?</span>
+        <span class="faq-q-num">6</span> <span class="faq-q-text">I clicked "I created my account." How long until I'm approved?</span>
         <span class="chevron">▼</span>
       </button>
       <div class="faq-a">
@@ -3863,7 +3885,7 @@
 
     <div class="faq-item">
       <button class="faq-q" aria-expanded="false">
-        <span class="faq-q-num">8</span> <span class="faq-q-text">Which task type should I work on?</span>
+        <span class="faq-q-num">7</span> <span class="faq-q-text">Which task type should I work on?</span>
         <span class="chevron">▼</span>
       </button>
       <div class="faq-a">
@@ -3881,7 +3903,7 @@
 
     <div class="faq-item">
       <button class="faq-q" aria-expanded="false">
-        <span class="faq-q-num">9</span> <span class="faq-q-text">I'm getting "No Active ELO Evaluations"</span>
+        <span class="faq-q-num">8</span> <span class="faq-q-text">I'm getting "No Active ELO Evaluations"</span>
         <span class="chevron">▼</span>
       </button>
       <div class="faq-a">
@@ -3891,7 +3913,7 @@
 
     <div class="faq-item">
       <button class="faq-q" aria-expanded="false">
-        <span class="faq-q-num">10</span> <span class="faq-q-text">A task "timed out" and the task type disappeared</span>
+        <span class="faq-q-num">9</span> <span class="faq-q-text">A task "timed out" and the task type disappeared</span>
         <span class="chevron">▼</span>
       </button>
       <div class="faq-a">
@@ -3902,7 +3924,7 @@
   
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">
-          <span class="faq-q-num">11</span> <span class="faq-q-text">Besides my QA and GS scores, how is my quality assessed?</span>
+          <span class="faq-q-num">10</span> <span class="faq-q-text">Besides my QA and GS scores, how is my quality assessed?</span>
           <span class="chevron">▼</span>
         </button>
         <div class="faq-a">
@@ -3912,7 +3934,7 @@
     
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">
-          <span class="faq-q-num">12</span> <span class="faq-q-text">I received a warning from Multimango: “You’re no longer eligible to submit for this task.” What does that mean?</span>
+          <span class="faq-q-num">11</span> <span class="faq-q-text">I received a warning from Multimango: “You’re no longer eligible to submit for this task.” What does that mean?</span>
           <span class="chevron">▼</span>
         </button>
         <div class="faq-a">
@@ -3935,56 +3957,56 @@
     
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">
-          <span class="faq-q-num">13</span> <span class="faq-q-text">What if I get a QA (quality review) that looks wrong?</span>
+          <span class="faq-q-num">12</span> <span class="faq-q-text">What if I get a QA (quality review) that looks wrong?</span>
           <span class="chevron">▼</span>
         </button>
         <div class="faq-a"><p>Let your Pod Lead know. They can review it and escalate it for you if the QA looks incorrect.</p></div>
       </div>
       <div class="faq-item">
       <button class="faq-q" aria-expanded="false">
-        <span class="faq-q-num">14</span> <span class="faq-q-text">Can I work from outside the US or Canada?</span>
+        <span class="faq-q-num">13</span> <span class="faq-q-text">Can I work from outside the US or Canada?</span>
         <span class="chevron">▼</span>
       </button>
       <div class="faq-a"><p>The only locations you can work from are the US and Canada, plus US territories by default (PR, GU, VI, AS, MP).</p></div>
     </div>
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">
-          <span class="faq-q-num">15</span> <span class="faq-q-text">How do I avoid repeating myself across categories?</span>
+          <span class="faq-q-num">14</span> <span class="faq-q-text">How do I avoid repeating myself across categories?</span>
           <span class="chevron">▼</span>
         </button>
         <div class="faq-a"><p>Review the dimensions first, then split your answers up by category, calling out different inaccuracies for each dimension instead of repeating the same point.</p></div>
       </div>
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">
-          <span class="faq-q-num">16</span> <span class="faq-q-text">What’s the difference between Instruction Following and Correctness?</span>
+          <span class="faq-q-num">15</span> <span class="faq-q-text">What’s the difference between Instruction Following and Correctness?</span>
           <span class="chevron">▼</span>
         </button>
         <div class="faq-a"><p><b>Instruction Following</b> asks “did the image do what the prompt asked?” You’re checking the prompt’s requirements: subjects, objects, and actions; counts; attributes like color and clothing; style and setting; and negative constraints like “no text” or “sun not visible.”</p><p><b>Correctness</b> asks “are the checkable facts and structures right?”, whether or not the prompt asked for them: spelling and legible text, accurate counts, anatomy and physics (limbs, shadows, reflections), and factual labels, logos, and flags.</p><p><b>Rule of thumb:</b> Instruction Following is prompt faithfulness; Correctness is verifiable errors.</p></div>
       </div>
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">
-          <span class="faq-q-num">17</span> <span class="faq-q-text">I accidentally closed my task and lost my work. What do I do?</span>
+          <span class="faq-q-num">16</span> <span class="faq-q-text">I accidentally closed my task and lost my work. What do I do?</span>
           <span class="chevron">▼</span>
         </button>
         <div class="faq-a"><p>Move on to the next task. Once a task is closed you can’t go back to the same prompt.</p></div>
       </div>
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">
-          <span class="faq-q-num">18</span> <span class="faq-q-text">Do I need to justify every dimension, or just the main errors?</span>
+          <span class="faq-q-num">17</span> <span class="faq-q-text">Do I need to justify every dimension, or just the main errors?</span>
           <span class="chevron">&#9660;</span>
         </button>
         <div class="faq-a"><p>Write a sentence for <b>every applicable dimension</b>, on every task type. Some tasks show all the dimensions to judge individually with a single justification box at the bottom: even then, cover each dimension you scored rather than writing one general comment.</p><p>It also helps a QA reviewer understand why you preferred one response over the other.</p></div>
       </div>
           <div class="faq-item">
       <button class="faq-q" aria-expanded="false">
-        <span class="faq-q-num">19</span> <span class="faq-q-text">What should I do if a task contains offensive, NSFW, or possible CSAM material?</span>
+        <span class="faq-q-num">18</span> <span class="faq-q-text">What should I do if a task contains offensive, NSFW, or possible CSAM material?</span>
         <span class="chevron">▼</span>
       </button>
       <div class="faq-a"><p>Refresh the page to get a new task. Don’t post screenshots of the material in community channels: sharing it exposes other Contributors to the same content. We share reported examples with the Multimango team and are pushing for better filtering on their end, but unfortunately can’t make any guarantees.</p></div>
     </div>
     <div class="faq-item">
       <button class="faq-q" aria-expanded="false">
-        <span class="faq-q-num">20</span> <span class="faq-q-text">Should I flag prompts involving celebrities (deepfakes) to the MM Task Issues channel?</span>
+        <span class="faq-q-num">19</span> <span class="faq-q-text">Should I flag prompts involving celebrities (deepfakes) to the MM Task Issues channel?</span>
         <span class="chevron">▼</span>
       </button>
       <div class="faq-a"><p>No, these don’t need to be flagged to the MM Task Issues channel.</p></div>
@@ -3999,7 +4021,7 @@
 
     <div class="faq-item">
       <button class="faq-q" aria-expanded="false">
-        <span class="faq-q-num">21</span> <span class="faq-q-text">How do I access tasks?</span>
+        <span class="faq-q-num">20</span> <span class="faq-q-text">How do I access tasks?</span>
         <span class="chevron">▼</span>
       </button>
       <div class="faq-a">
@@ -4009,7 +4031,7 @@
 
     <div class="faq-item">
       <button class="faq-q" aria-expanded="false">
-        <span class="faq-q-num">22</span> <span class="faq-q-text">What do the different task statuses mean?</span>
+        <span class="faq-q-num">21</span> <span class="faq-q-text">What do the different task statuses mean?</span>
         <span class="chevron">▼</span>
       </button>
       <div class="faq-a">
@@ -4028,7 +4050,7 @@
 
     <div class="faq-item">
       <button class="faq-q" aria-expanded="false">
-        <span class="faq-q-num">23</span> <span class="faq-q-text">How long should it take me to do each task?</span>
+        <span class="faq-q-num">22</span> <span class="faq-q-text">How long should it take me to do each task?</span>
         <span class="chevron">▼</span>
       </button>
       <div class="faq-a">
@@ -4039,7 +4061,7 @@
 
     <div class="faq-item">
       <button class="faq-q" aria-expanded="false">
-        <span class="faq-q-num">24</span> <span class="faq-q-text">I passed training but I still can't see tasks</span>
+        <span class="faq-q-num">23</span> <span class="faq-q-text">I passed training but I still can't see tasks</span>
         <span class="chevron">▼</span>
       </button>
       <div class="faq-a">
@@ -4052,7 +4074,7 @@
   
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">
-          <span class="faq-q-num">25</span> <span class="faq-q-text">When a task looks like one I've already done, should I refresh the page?</span>
+          <span class="faq-q-num">24</span> <span class="faq-q-text">When a task looks like one I've already done, should I refresh the page?</span>
           <span class="chevron">▼</span>
         </button>
         <div class="faq-a">
@@ -4062,7 +4084,7 @@
     
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">
-          <span class="faq-q-num">26</span> <span class="faq-q-text">When Overall Preference is the only thing I'm rating on an image, should I weight instruction following more?</span>
+          <span class="faq-q-num">25</span> <span class="faq-q-text">When Overall Preference is the only thing I'm rating on an image, should I weight instruction following more?</span>
           <span class="chevron">▼</span>
         </button>
         <div class="faq-a">
@@ -4072,7 +4094,7 @@
     
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">
-          <span class="faq-q-num">27</span> <span class="faq-q-text">Slightly vs. strongly, how do I decide?</span>
+          <span class="faq-q-num">26</span> <span class="faq-q-text">Slightly vs. strongly, how do I decide?</span>
           <span class="chevron">▼</span>
         </button>
         <div class="faq-a">
@@ -4083,28 +4105,28 @@
       
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">
-          <span class="faq-q-num">28</span> <span class="faq-q-text">I received a prompt in a foreign language, what should I do?</span>
+          <span class="faq-q-num">27</span> <span class="faq-q-text">I received a prompt in a foreign language, what should I do?</span>
           <span class="chevron">▼</span>
         </button>
         <div class="faq-a"><p>Refresh the page to load a new prompt.</p></div>
       </div>
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">
-          <span class="faq-q-num">29</span> <span class="faq-q-text">How should I handle a very long prompt?</span>
+          <span class="faq-q-num">28</span> <span class="faq-q-text">How should I handle a very long prompt?</span>
           <span class="chevron">&#9660;</span>
         </button>
         <div class="faq-a"><p>Long prompts on image and video tasks can eat your whole handle time. Work them in this order:</p><ol><li>Review the outputs on their own, before you read the prompt.</li><li>Read the prompt and identify the <b>primary prompt</b>: what the output basically has to be.</li><li>Skim the rest, separating the details that matter from the minor ones.</li><li>Make your selection on that basis.</li><li>Write your justification against the details you judged important.</li></ol><p>If a prompt is so long that this still isn't workable, let your Pod Lead know.</p></div>
       </div>
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">
-          <span class="faq-q-num">30</span> <span class="faq-q-text">What if a task genuinely can't be done well within the time cap?</span>
+          <span class="faq-q-num">29</span> <span class="faq-q-text">What if a task genuinely can't be done well within the time cap?</span>
           <span class="chevron">&#9660;</span>
         </button>
         <div class="faq-a"><p>Take the time the task actually needs. Where it is unreasonable to complete a task properly inside the limit for that type, quality comes first.</p><p>You won't be blocked for going long while you're working in good faith. That only becomes a problem when the time is far above average and starts to look like time milking.</p></div>
       </div>
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">
-          <span class="faq-q-num">31</span> <span class="faq-q-text">Can I use a read-aloud extension for long prompts?</span>
+          <span class="faq-q-num">30</span> <span class="faq-q-text">Can I use a read-aloud extension for long prompts?</span>
           <span class="chevron">&#9660;</span>
         </button>
         <div class="faq-a"><p>Yes, as long as your Workada timer still shows MultiMango as your active tab. Don't use one if it significantly increases your handle time for little or no gain in quality.</p></div>
@@ -4117,7 +4139,7 @@
       </div>
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">
-          <span class="faq-q-num">32</span> <span class="faq-q-text">If I’m offboarded after failing training or calibration, can I apply for other Workada roles?</span>
+          <span class="faq-q-num">31</span> <span class="faq-q-text">If I’m offboarded after failing training or calibration, can I apply for other Workada roles?</span>
           <span class="chevron">▼</span>
         </button>
         <div class="faq-a"><p>Yes, you may apply if you’d like. Keep in mind that the Data Labeling Specialist role has the easiest training and calibration, so other roles may be more challenging.</p></div>
@@ -5324,24 +5346,7 @@
 
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">
-          <span class="faq-q-num">1</span> <span class="faq-q-text">How does calibration work?</span>
-          <span class="chevron">&#9660;</span>
-        </button>
-        <div class="faq-a">
-          <p>Calibration is a short set of practice tasks you do right after training, before real work starts. Your Pod Lead reviews each one and scores it from 1 to 5.</p>
-          <ul style="margin:12px 0 12px 1.4em;padding:0;line-height:1.9">
-            <li>A <b>4 or 5</b> passes a task.</li>
-            <li>You get <b>3 tries</b> per task. After each try, your Pod Lead sends feedback so you know what to fix before you resubmit.</li>
-            <li>Pass all your calibration tasks and you move into regular work.</li>
-            <li>If a task is still below 4 after 3 tries, it doesn’t pass, and your account is paused from new tasks.</li>
-          </ul>
-          <p>If you don’t pass, read your Pod Lead’s feedback to see what to improve, then reach out to them to go over your work.</p>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" aria-expanded="false">
-          <span class="faq-q-num">2</span> <span class="faq-q-text">How long should training and calibration take?</span>
+          <span class="faq-q-num">1</span> <span class="faq-q-text">How long should training and calibration take?</span>
           <span class="chevron">&#9660;</span>
         </button>
         <div class="faq-a">
@@ -5352,7 +5357,7 @@
 
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">
-          <span class="faq-q-num">3</span> <span class="faq-q-text">How long does a captioning task usually take?</span>
+          <span class="faq-q-num">2</span> <span class="faq-q-text">How long does a captioning task usually take?</span>
           <span class="chevron">&#9660;</span>
         </button>
         <div class="faq-a">
@@ -5362,7 +5367,7 @@
 
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">
-          <span class="faq-q-num">4</span> <span class="faq-q-text">Where can I work from?</span>
+          <span class="faq-q-num">3</span> <span class="faq-q-text">Where can I work from?</span>
           <span class="chevron">&#9660;</span>
         </button>
         <div class="faq-a">
