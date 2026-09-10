@@ -4437,6 +4437,7 @@
     <a href="#chart-about">About the project</a>
     <a href="#chart-guide">How to build a task</a>
     <a href="#chart-sourcing">Sourcing your own chart</a>
+    <a href="#chart-stump">Better ways to stump SOTA</a>
     <a href="#chart-stellar">Stellar work</a>
   </nav>
   <section id="chart-channels" class="mm-section" style="scroll-margin-top:20px">
@@ -4810,6 +4811,216 @@
               <li class="check-item"><span class="box"></span><span class="check-text">Have you matched the question type to what the chart actually supports, rather than the other way around?</span></li>
             </ul>
             <p>If you can say yes to all four, you&rsquo;re working from a chart that gives your prompt room to succeed.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </section>
+
+  <section id="chart-stump" class="mm-section" style="scroll-margin-top:20px">
+    <h2 class="mm-h">Better ways to stump SOTA</h2>
+
+    <section class="acc-item" data-index="0">
+      <span class="corner-bl"></span><span class="corner-br"></span>
+      <button class="acc-header" aria-expanded="false">
+        <div class="acc-header-left">
+          <span class="acc-tag">01</span>
+          <div>
+            <div class="acc-title">Stumping the Model Is About Reasoning, Not Wording</div>
+            <div class="acc-sub">Why difficulty should come from the chart, not confusing language</div>
+          </div>
+        </div>
+        <span class="loupe"></span>
+      </button>
+      <div class="acc-panel">
+        <div class="acc-panel-inner">
+          <div class="acc-body">
+            <p>Stumping the model is not about making the language of the prompt confusing or relying on clever wording. Rather, the difficulty should come from the reasoning required to solve the task. The strongest prompts contain a genuinely analytical step grounded in the chart, the domain, or both. That might involve interpreting an ambiguous pattern, connecting multiple variables, applying domain knowledge, performing a multi-step calculation, or deciding between competing conclusions using evidence from the chart.</p>
+            <p>Contributors with strong SOTA pass rates are generally not making their prompts harder to read. They are choosing charts and questions where the underlying reasoning is genuinely difficult, while keeping the prompt itself specific, detailed, and answerable.</p>
+            <p><strong>Precision on the specific, not the general.</strong> The strongest prompts are often narrowly scoped. Instead of asking about the chart as a whole, direct the model to a specific part of the figure where careful reasoning is required. This could be a particular y-axis threshold, a defined region of the parameter space, a specific panel, or the behavior of a set of lines within a limited window.</p>
+            <p>Keep prompts short whenever possible, ideally one or two questions. Define the panel, time or value range, boundary rule, and whether the bounds are inclusive, then stop. Avoid adding extra layers that do not contribute to the core reasoning.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="acc-item" data-index="1">
+      <span class="corner-bl"></span><span class="corner-br"></span>
+      <button class="acc-header" aria-expanded="false">
+        <div class="acc-header-left">
+          <span class="acc-tag">02</span>
+          <div>
+            <div class="acc-title">Look for the Chart's Own Ambiguity</div>
+            <div class="acc-sub">What to look for before you ever write the prompt</div>
+          </div>
+        </div>
+        <span class="loupe"></span>
+      </button>
+      <div class="acc-panel">
+        <div class="acc-panel-inner">
+          <div class="acc-body">
+            <p>A strong model-stumping task usually starts with choosing the right chart. Focus on what the chart makes the viewer work to distinguish, not simply on the subject matter it covers.</p>
+            <p>Charts with overlapping series, unlabeled points, closely spaced values, multiple variables, crowded legends, or competing visual patterns tend to support harder questions than clean charts with a few clearly separated lines.</p>
+            <p>Before writing the prompt, spend a few minutes identifying where the chart itself requires careful interpretation. Look for regions where series converge or cross, values are difficult to distinguish, multiple conditions must be considered at once, or the same observation can be interpreted differently depending on context.</p>
+            <p>The goal is not to exploit poor readability, but to find a part of the figure where careful visual reasoning and domain understanding are genuinely required.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="acc-item" data-index="2">
+      <span class="corner-bl"></span><span class="corner-br"></span>
+      <button class="acc-header" aria-expanded="false">
+        <div class="acc-header-left">
+          <span class="acc-tag">03</span>
+          <div>
+            <div class="acc-title">The Seven Stumping Patterns</div>
+            <div class="acc-sub">Recurring patterns to check for when picking a chart and a question</div>
+          </div>
+        </div>
+        <span class="loupe"></span>
+      </button>
+      <div class="acc-panel">
+        <div class="acc-panel-inner">
+          <div class="acc-body">
+            <p>Beyond the general principle of finding ambiguity, these are seven recurring patterns worth checking for when picking a chart and a question.</p>
+            <p><strong>Pattern 1: The sliver.</strong> The answer depends on something tiny: a thin line inside a bar, a near-zero bar next to tall ones, a 1% slice, a hairline ribbon, a tiny squeezed region. The model reads coarsely and misses anything a few pixels wide, even when a "none" or "zero" answer is correct. The model would rather find something than report nothing.</p>
+            <ul>
+              <li>Look for: a thin line in a bar, a near-zero bar, a 1% slice, a hairline ribbon, a tiny region</li>
+              <li>Ask: count, which one, or is there any, so that missing the sliver changes the answer</li>
+            </ul>
+            <p><strong>Pattern 2: Shade discrimination.</strong> Two similar colours, and the answer depends on telling them apart: several steps of the same hue, adjacent similar hues, or a legend with more entries than you can hold in your head. The model lands one step off on a colour ramp and confidently matches the wrong legend entry. The colour is the category here, not decoration.</p>
+            <ul>
+              <li>Look for: 6 or more legend colours, a colour ramp with 4 or more steps, similar neighbouring hues</li>
+              <li>Ask: which category or which band, named exactly as the key names it</li>
+            </ul>
+            <p><strong>Pattern 3: The decoy.</strong> The right answer isn't where your eye goes first. The model goes for whatever is biggest, steepest, or most obvious, so if the correct answer sits in a squashed or off-to-the-side part of the chart while something large and obvious is wrong, it takes the bait. Reading conventions make great decoys: box top vs. whisker end, local vs. global peak, a log or flipped axis.</p>
+            <ul>
+              <li>Look for: a squashed region near an axis, local vs. global maximum, box top vs. whisker, a log or inverted axis</li>
+              <li>Ask: largest, first, or highest, defined precisely, where the obvious answer is wrong</li>
+            </ul>
+            <p><strong>Pattern 4: Two-key filter.</strong> Each condition is easy alone. Both at once is not. Colour and shape, series and panel, a threshold on x and on y: holding two visual conditions across many candidates makes the model drop items that qualify and admit ones that don't. Per-panel legends are especially effective, since the model reads the wrong panel's key.</p>
+            <ul>
+              <li>Look for: colour and shape legends, per-panel legends, thresholds on both axes</li>
+              <li>Ask: which items meet both conditions, with a small answer set</li>
+            </ul>
+            <p><strong>Pattern 5: Near-ties and hairline crossings.</strong> The model rounds small differences away: two bars almost the same height, a curve poking a hair above another, two close crossings. This has become the most popular pattern, which is a problem: on multi-line charts it can turn into a tolerance argument rather than a real stump. Use it only where the gap is genuinely visible.</p>
+            <ul>
+              <li>Look for: almost-equal bars, hairline crossings, two crossings in a narrow window</li>
+              <li>Ask: strictly higher or lower within a stated window, or how many crossings between a and b</li>
+            </ul>
+            <p><strong>Pattern 6: Boundary gap.</strong> Ask for the width of a band, not the position of its edge: the thickness of a stacked slice or ring, not a drawn boundary. The chart never prints that number, so the model reads the edge, or the running total, instead of the individual gap. The bands can be perfectly ordinary in size. This isn't about something small. It's about measuring the wrong thing.</p>
+            <ul>
+              <li>Look for: stacked areas or bars, ribbon or band charts, radial stacks, anything drawn as a thickness</li>
+              <li>Ask: how thick is this band at x, where the outer edge peaks somewhere else entirely</li>
+            </ul>
+            <p><strong>Pattern 7: Occlusion recovery.</strong> The data is there, just hidden behind something else: a marker or line segment covered by another mark. Distinct from Pattern 1 (small but visible) and Pattern 6 (genuinely absent), this is plotted but hidden, and the answer has to be reconstructed from what's on either side. Never tell the model the value is hidden. That collapses it into an ordinary read.</p>
+            <ul>
+              <li>Look for: crowded time series with overlapping lines, stacked scatter markers, later series drawn over earlier ones</li>
+              <li>Ask: what is X's value at this point, where X is buried under other series there</li>
+            </ul>
+            <p><em>For all seven: the pattern tells you which chart to pick and where the hard part is. It doesn't change how you word the question. That still has to be the ordinary thing a professional in the field would ask, in the chart's own vocabulary. A question that only makes sense as a way of catching the model out will be sent back as unrealistic.</em></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="acc-item" data-index="3">
+      <span class="corner-bl"></span><span class="corner-br"></span>
+      <button class="acc-header" aria-expanded="false">
+        <div class="acc-header-left">
+          <span class="acc-tag">04</span>
+          <div>
+            <div class="acc-title">Use Domain and Chart-Specific Vocabulary</div>
+            <div class="acc-sub">Why the source article matters, and how to ask like a professional would</div>
+          </div>
+        </div>
+        <span class="loupe"></span>
+      </button>
+      <div class="acc-panel">
+        <div class="acc-panel-inner">
+          <div class="acc-body">
+            <p>Before working on the prompt, take time to review the source URL from which the chart was derived. This will give you the broader context needed to understand what the chart is measuring, what each variable represents, and what relationships or trends the figure is intended to highlight.</p>
+            <p>Reviewing the source also helps you use the correct domain-specific terminology and frame the task in a way that reflects how a professional in that field would reasonably interpret the figure. That context should inform the prompt, Golden Answer, and Step-by-Step solution so that all three are conceptually accurate, technically precise, and grounded in the source material rather than relying only on surface-level visual reading.</p>
+            <p><strong>Ask the question a professional would ask.</strong> Focus on three things: what the underlying data represents, how the figure contributes to the broader analysis or argument, and what someone working in that field would realistically want to learn from it.</p>
+            <p>Use that context to frame the prompt around a meaningful analytical objective rather than a surface-level visual task. The question should reflect how a domain professional would interpret, compare, or use the data, while the Golden Answer and Step-by-Step solution should apply the same terminology and reasoning consistently.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="acc-item" data-index="4">
+      <span class="corner-bl"></span><span class="corner-br"></span>
+      <button class="acc-header" aria-expanded="false">
+        <div class="acc-header-left">
+          <span class="acc-tag">05</span>
+          <div>
+            <div class="acc-title">Combine Conceptual Interpretation With Multi-Step Reasoning</div>
+            <div class="acc-sub">Why value extraction alone is usually too easy for the model</div>
+          </div>
+        </div>
+        <span class="loupe"></span>
+      </button>
+      <div class="acc-panel">
+        <div class="acc-panel-inner">
+          <div class="acc-body">
+            <p>Of the six question types outlined in the <a href="https://docs.google.com/document/d/1g6teUC8t5NGuJBt2RSb3RZbww1D2ZlBLD1K6Gvh_Tew/edit?usp=sharing" target="_blank" rel="noopener">Chartography Question Types and Writing Guide</a>, prompts that combine conceptual interpretation with multi-step reasoning are generally the most effective at challenging the model. By contrast, simple value extraction is usually the easiest question type for the model to answer correctly.</p>
+            <p>If your prompts are passing too easily, check whether they are asking the model only to read values from the chart rather than reason with them. Stronger prompts should require the model to connect multiple observations, perform calculations or comparisons, and interpret what those results mean in the context of the chart.</p>
+            <p>Reaching that level of depth often requires going beyond the figure itself. Read the source article or paper, understand what the variables represent, and spend a few minutes looking up unfamiliar terminology. That context makes it much easier to create a question that reflects genuine domain reasoning rather than surface-level chart reading.</p>
+            <p>Difficulty should come from the reasoning required, not from complicated wording. Ask a question that a professional in the field could reasonably ask, and make sure two careful reviewers looking at the same evidence would arrive at the same answer.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="acc-item" data-index="5">
+      <span class="corner-bl"></span><span class="corner-br"></span>
+      <button class="acc-header" aria-expanded="false">
+        <div class="acc-header-left">
+          <span class="acc-tag">06</span>
+          <div>
+            <div class="acc-title">Know When the Chart, Not the Prompt, Is the Limit</div>
+            <div class="acc-sub">When to stop reworking a task and switch charts instead</div>
+          </div>
+        </div>
+        <span class="loupe"></span>
+      </button>
+      <div class="acc-panel">
+        <div class="acc-panel-inner">
+          <div class="acc-body">
+            <p>Sometimes a prompt fails to challenge the model because the chart itself does not contain enough complexity to support a difficult, meaningful question. Precise wording cannot fully compensate for a figure with limited data, relationships, or analytical depth.</p>
+            <p>If you have already tried clearly defining the scope, using appropriate domain-specific terminology, and combining conceptual interpretation with multi-step reasoning, but the task still passes too easily, the chart itself may be the limiting factor.</p>
+            <p>At that point, avoid forcing complexity through convoluted wording, arbitrary conditions, or unnecessary question chaining. It is usually more effective to select a different chart that naturally supports deeper comparison, calculation, and interpretation than to continue reworking a fundamentally simple figure.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="acc-item" data-index="6">
+      <span class="corner-bl"></span><span class="corner-br"></span>
+      <button class="acc-header" aria-expanded="false">
+        <div class="acc-header-left">
+          <span class="acc-tag">07</span>
+          <div>
+            <div class="acc-title">Quick Checklist</div>
+            <div class="acc-sub">Seven questions to ask before you submit</div>
+          </div>
+        </div>
+        <span class="loupe"></span>
+      </button>
+      <div class="acc-panel">
+        <div class="acc-panel-inner">
+          <div class="acc-body">
+            <ul id="chart-stump-checklist" class="check-list">
+              <li class="check-item"><span class="box"></span><span class="check-text">Have I reviewed the source URL and understood what the chart is actually measuring, why it matters, and how someone in the domain would use it?</span></li>
+              <li class="check-item"><span class="box"></span><span class="check-text">Would a professional in this field reasonably ask this question, or does it feel like a visual scavenger hunt created only to stump the model?</span></li>
+              <li class="check-item"><span class="box"></span><span class="check-text">Am I using the chart's domain-specific terminology rather than generic language?</span></li>
+              <li class="check-item"><span class="box"></span><span class="check-text">Does the task require conceptual interpretation, calculation, comparison, or multi-step reasoning rather than simply reading a value, colour, label, or count?</span></li>
+              <li class="check-item"><span class="box"></span><span class="check-text">Does the chart itself contain enough complexity to support the question, such as overlapping series, unlabeled observations, multiple variables, crossings, thresholds, or competing patterns?</span></li>
+              <li class="check-item"><span class="box"></span><span class="check-text">Am I using the chart's underlying data as part of the reasoning rather than asking only about visual characteristics?</span></li>
+              <li class="check-item"><span class="box"></span><span class="check-text">Is the prompt short and focused, ideally one or two connected questions, rather than a chain of unrelated tasks?</span></li>
+              <li class="check-item"><span class="box"></span><span class="check-text">Does each question build naturally on the previous one, rather than question hopping between unrelated parts of the figure?</span></li>
+            </ul>
           </div>
         </div>
       </div>
@@ -6208,6 +6419,13 @@
   // Chartography sourcing checklist (scoped, simple toggle only)
   (function() {
     document.querySelectorAll('#chart-sourcing-checklist .check-item').forEach(item => {
+      item.addEventListener('click', () => { item.classList.toggle('checked'); });
+    });
+  })();
+
+  // Chartography stump-SOTA checklist (scoped, simple toggle only)
+  (function() {
+    document.querySelectorAll('#chart-stump-checklist .check-item').forEach(item => {
       item.addEventListener('click', () => { item.classList.toggle('checked'); });
     });
   })();
