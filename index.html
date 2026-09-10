@@ -856,7 +856,8 @@
 
   /* accordion cards: mirrors .faq-item */
   #tab-mm .acc-item,
-#tab-video-caption .acc-item {
+#tab-video-caption .acc-item ,
+#tab-remedy .acc-item{
     border: 1px solid var(--border);
     border-radius: var(--radius);
     margin-bottom: 10px;
@@ -865,18 +866,22 @@
     transition: box-shadow 0.15s ease;
   }
   #tab-mm .acc-item:hover,
-#tab-video-caption .acc-item:hover { box-shadow: 0 2px 12px rgba(18,35,69,0.08); }
+#tab-video-caption .acc-item:hover ,
+#tab-remedy .acc-item:hover{ box-shadow: 0 2px 12px rgba(18,35,69,0.08); }
   #tab-mm .acc-item.open,
-#tab-video-caption .acc-item.open {
+#tab-video-caption .acc-item.open ,
+#tab-remedy .acc-item.open{
     border-color: var(--slate);
     box-shadow: 0 2px 16px rgba(74,124,155,0.12);
   }
   #tab-mm .corner-bl, #tab-mm .corner-br,
 #tab-video-caption .corner-bl,
-#tab-video-caption .corner-br { display: none; }
+#tab-video-caption .corner-br ,
+#tab-remedy .corner-bl, #tab-remedy .corner-br{ display: none; }
 
   #tab-mm .acc-header,
-#tab-video-caption .acc-header {
+#tab-video-caption .acc-header ,
+#tab-remedy .acc-header{
     width: 100%;
     text-align: left;
     background: none;
@@ -890,9 +895,11 @@
     font-family: inherit;
   }
   #tab-mm .acc-header-left,
-#tab-video-caption .acc-header-left { display: flex; align-items: center; gap: 14px; }
+#tab-video-caption .acc-header-left ,
+#tab-remedy .acc-header-left{ display: flex; align-items: center; gap: 14px; }
   #tab-mm .acc-tag,
-#tab-video-caption .acc-tag {
+#tab-video-caption .acc-tag ,
+#tab-remedy .acc-tag{
     width: 32px;
     height: 32px;
     background: var(--navy);
@@ -906,15 +913,19 @@
     flex-shrink: 0;
   }
   #tab-mm .acc-title,
-#tab-video-caption .acc-title { font-size: 15.5px; font-weight: 700; color: var(--navy); line-height: 1.35; }
+#tab-video-caption .acc-title ,
+#tab-remedy .acc-title{ font-size: 15.5px; font-weight: 700; color: var(--navy); line-height: 1.35; }
   #tab-mm .acc-header:hover .acc-title,
-#tab-video-caption .acc-header:hover .acc-title { color: var(--blue); }
+#tab-video-caption .acc-header:hover .acc-title ,
+#tab-remedy .acc-header:hover .acc-title{ color: var(--blue); }
   #tab-mm .acc-sub,
-#tab-video-caption .acc-sub { font-size: 13px; color: var(--text-muted); margin-top: 2px; }
+#tab-video-caption .acc-sub ,
+#tab-remedy .acc-sub{ font-size: 13px; color: var(--text-muted); margin-top: 2px; }
 
   /* chevron: mirrors .faq-q .chevron */
   #tab-mm .loupe,
-#tab-video-caption .loupe {
+#tab-video-caption .loupe ,
+#tab-remedy .loupe{
     flex-shrink: 0;
     width: 22px;
     height: 22px;
@@ -924,7 +935,8 @@
     transition: transform 0.2s ease, background 0.15s, border-color 0.15s;
   }
   #tab-mm .loupe::before,
-#tab-video-caption .loupe::before {
+#tab-video-caption .loupe::before ,
+#tab-remedy .loupe::before{
     content: '';
     position: absolute;
     top: 6px; left: 7px;
@@ -934,24 +946,31 @@
     transform: rotate(45deg);
   }
   #tab-mm .loupe::after,
-#tab-video-caption .loupe::after { content: none; }
+#tab-video-caption .loupe::after ,
+#tab-remedy .loupe::after{ content: none; }
   #tab-mm .acc-item.open .loupe,
-#tab-video-caption .acc-item.open .loupe {
+#tab-video-caption .acc-item.open .loupe ,
+#tab-remedy .acc-item.open .loupe{
     transform: rotate(180deg);
     background: var(--navy);
     border-color: var(--navy);
   }
   #tab-mm .acc-item.open .loupe::before,
-#tab-video-caption .acc-item.open .loupe::before { border-color: #ffffff; }
+#tab-video-caption .acc-item.open .loupe::before ,
+#tab-remedy .acc-item.open .loupe::before{ border-color: #ffffff; }
 
   #tab-mm .acc-panel,
-#tab-video-caption .acc-panel { display: none; border-top: 1px solid var(--border); }
+#tab-video-caption .acc-panel ,
+#tab-remedy .acc-panel{ display: none; border-top: 1px solid var(--border); }
   #tab-mm .acc-item.open .acc-panel,
-#tab-video-caption .acc-item.open .acc-panel { display: block; }
+#tab-video-caption .acc-item.open .acc-panel ,
+#tab-remedy .acc-item.open .acc-panel{ display: block; }
   #tab-mm .acc-panel-inner,
-#tab-video-caption .acc-panel-inner { padding: 20px; }
+#tab-video-caption .acc-panel-inner ,
+#tab-remedy .acc-panel-inner{ padding: 20px; }
   #tab-mm .acc-body,
-#tab-video-caption .acc-body { font-size: 15px; color: #3d4e60; line-height: 1.7; }
+#tab-video-caption .acc-body ,
+#tab-remedy .acc-body{ font-size: 15px; color: #3d4e60; line-height: 1.7; }
 
   /* flow strip */
   #tab-mm .flow-strip {
@@ -969,21 +988,27 @@
 
   /* progress */
   #tab-mm .progress-wrap,
-#tab-video-caption .progress-wrap { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+#tab-video-caption .progress-wrap ,
+#tab-remedy .progress-wrap{ display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
   #tab-mm .progress-track,
-#tab-video-caption .progress-track { flex: 1; height: 6px; background: var(--border); border-radius: 40px; overflow: hidden; }
+#tab-video-caption .progress-track ,
+#tab-remedy .progress-track{ flex: 1; height: 6px; background: var(--border); border-radius: 40px; overflow: hidden; }
   #tab-mm .progress-fill,
-#tab-video-caption .progress-fill { height: 100%; width: 0%; background: var(--blue); border-radius: 40px; transition: width 0.25s ease; }
+#tab-video-caption .progress-fill ,
+#tab-remedy .progress-fill{ height: 100%; width: 0%; background: var(--blue); border-radius: 40px; transition: width 0.25s ease; }
   #tab-mm .progress-label,
-#tab-video-caption .progress-label { font-size: 12px; font-weight: 600; color: var(--text-muted); white-space: nowrap; }
+#tab-video-caption .progress-label ,
+#tab-remedy .progress-label{ font-size: 12px; font-weight: 600; color: var(--text-muted); white-space: nowrap; }
 
   /* checklist */
   #tab-mm .check-group,
 #tab-video-caption .check-group ,
-#tab-chartography .check-group{ margin-bottom: 18px; }
+#tab-chartography .check-group,
+#tab-remedy .check-group{ margin-bottom: 18px; }
   #tab-mm .check-group-label,
 #tab-video-caption .check-group-label ,
-#tab-chartography .check-group-label{
+#tab-chartography .check-group-label,
+#tab-remedy .check-group-label{
     font-size: 11px;
     font-weight: 700;
     text-transform: uppercase;
@@ -995,10 +1020,12 @@
   }
   #tab-mm .check-list,
 #tab-video-caption .check-list ,
-#tab-chartography .check-list{ list-style: none; padding: 0; margin: 0; }
+#tab-chartography .check-list,
+#tab-remedy .check-list{ list-style: none; padding: 0; margin: 0; }
   #tab-mm .check-item,
 #tab-video-caption .check-item ,
-#tab-chartography .check-item{
+#tab-chartography .check-item,
+#tab-remedy .check-item{
     display: flex;
     align-items: flex-start;
     gap: 10px;
@@ -1009,10 +1036,12 @@
   }
   #tab-mm .check-item:hover,
 #tab-video-caption .check-item:hover ,
-#tab-chartography .check-item:hover{ background: var(--bg); }
+#tab-chartography .check-item:hover,
+#tab-remedy .check-item:hover{ background: var(--bg); }
   #tab-mm .box,
 #tab-video-caption .box ,
-#tab-chartography .box{
+#tab-chartography .box,
+#tab-remedy .box{
     flex-shrink: 0;
     width: 18px; height: 18px;
     margin-top: 2px;
@@ -1023,10 +1052,12 @@
   }
   #tab-mm .check-item.checked .box,
 #tab-video-caption .check-item.checked .box ,
-#tab-chartography .check-item.checked .box{ background: var(--blue); border-color: var(--blue); }
+#tab-chartography .check-item.checked .box,
+#tab-remedy .check-item.checked .box{ background: var(--blue); border-color: var(--blue); }
   #tab-mm .box::before,
 #tab-video-caption .box::before ,
-#tab-chartography .box::before{
+#tab-chartography .box::before,
+#tab-remedy .box::before{
     content: '';
     position: absolute;
     top: 2px; left: 5px;
@@ -1038,13 +1069,16 @@
   }
   #tab-mm .check-item.checked .box::before,
 #tab-video-caption .check-item.checked .box::before ,
-#tab-chartography .check-item.checked .box::before{ opacity: 1; }
+#tab-chartography .check-item.checked .box::before,
+#tab-remedy .check-item.checked .box::before{ opacity: 1; }
   #tab-mm .check-text,
 #tab-video-caption .check-text ,
-#tab-chartography .check-text{ font-size: 14.5px; color: #3d4e60; line-height: 1.55; }
+#tab-chartography .check-text,
+#tab-remedy .check-text{ font-size: 14.5px; color: #3d4e60; line-height: 1.55; }
   #tab-mm .check-item.checked .check-text,
 #tab-video-caption .check-item.checked .check-text ,
-#tab-chartography .check-item.checked .check-text{ color: var(--text-muted); }
+#tab-chartography .check-item.checked .check-text,
+#tab-remedy .check-item.checked .check-text{ color: var(--text-muted); }
 
   /* traits */
   #tab-mm .traits-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 20px; }
@@ -1461,9 +1495,11 @@
 
 
   #tab-mm .tip-list,
-#tab-video-caption .tip-list { list-style: none; padding: 0; margin: 0 0 8px; }
+#tab-video-caption .tip-list ,
+#tab-remedy .tip-list{ list-style: none; padding: 0; margin: 0 0 8px; }
   #tab-mm .tip-list li,
-#tab-video-caption .tip-list li {
+#tab-video-caption .tip-list li ,
+#tab-remedy .tip-list li{
     font-size: 14px;
     color: #3d4e60;
     line-height: 1.6;
@@ -1472,11 +1508,14 @@
     border-bottom: 1px solid var(--border);
   }
   #tab-mm .tip-list li:last-child,
-#tab-video-caption .tip-list li:last-child { border-bottom: none; }
+#tab-video-caption .tip-list li:last-child ,
+#tab-remedy .tip-list li:last-child{ border-bottom: none; }
   #tab-mm .tip-list li::before,
-#tab-video-caption .tip-list li::before { content: '\2022'; position: absolute; left: 0; color: var(--blue); font-weight: 700; }
+#tab-video-caption .tip-list li::before ,
+#tab-remedy .tip-list li::before{ content: '\2022'; position: absolute; left: 0; color: var(--blue); font-weight: 700; }
   #tab-mm .tip-list strong,
-#tab-video-caption .tip-list strong { color: var(--navy); }
+#tab-video-caption .tip-list strong ,
+#tab-remedy .tip-list strong{ color: var(--navy); }
 
 
   /* ══════════ Contributor Journey tab ══════════ */
@@ -1820,23 +1859,32 @@
   /* Video Eval tab */
   #tab-mm .ve-intro{color:rgba(255,255,255,.92);font-size:16px;line-height:1.6;margin:0 0 20px;text-shadow:0 1px 2px rgba(0,0,0,.3);max-width:70ch}
   #tab-mm .ve-card, #tab-chartography .ve-card,
-#tab-video-caption .ve-card {background:var(--white);border:1px solid var(--border);border-radius:16px;padding:26px 30px;box-shadow:0 1px 3px rgba(18,35,69,.05);margin-bottom:18px}
+#tab-video-caption .ve-card ,
+#tab-remedy .ve-card{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:26px 30px;box-shadow:0 1px 3px rgba(18,35,69,.05);margin-bottom:18px}
   #tab-mm .ve-card h2, #tab-chartography .ve-card h2,
-#tab-video-caption .ve-card h2 {color:var(--navy);font-size:21px;font-weight:700;letter-spacing:-.01em;margin:0 0 10px}
+#tab-video-caption .ve-card h2 ,
+#tab-remedy .ve-card h2{color:var(--navy);font-size:21px;font-weight:700;letter-spacing:-.01em;margin:0 0 10px}
   #tab-mm .ve-card h4, #tab-chartography .ve-card h4,
-#tab-video-caption .ve-card h4 {color:var(--slate);font-size:13px;font-weight:700;letter-spacing:.02em;margin:18px 0 4px}
+#tab-video-caption .ve-card h4 ,
+#tab-remedy .ve-card h4{color:var(--slate);font-size:13px;font-weight:700;letter-spacing:.02em;margin:18px 0 4px}
   #tab-mm .ve-card p, #tab-chartography .ve-card p,
-#tab-video-caption .ve-card p {color:#3d4e60;font-size:15px;line-height:1.65;margin:0 0 12px}
+#tab-video-caption .ve-card p ,
+#tab-remedy .ve-card p{color:#3d4e60;font-size:15px;line-height:1.65;margin:0 0 12px}
   #tab-mm .ve-card p:last-child, #tab-chartography .ve-card p:last-child,
-#tab-video-caption .ve-card p:last-child {margin-bottom:0}
+#tab-video-caption .ve-card p:last-child ,
+#tab-remedy .ve-card p:last-child{margin-bottom:0}
   #tab-mm .ve-card ul, #tab-chartography .ve-card ul,
-#tab-video-caption .ve-card ul {margin:6px 0 4px;padding-left:22px}
+#tab-video-caption .ve-card ul ,
+#tab-remedy .ve-card ul{margin:6px 0 4px;padding-left:22px}
   #tab-mm .ve-card li, #tab-chartography .ve-card li,
-#tab-video-caption .ve-card li {color:#3d4e60;font-size:15px;line-height:1.6;margin:0 0 9px}
+#tab-video-caption .ve-card li ,
+#tab-remedy .ve-card li{color:#3d4e60;font-size:15px;line-height:1.6;margin:0 0 9px}
   #tab-mm .ve-card li:last-child, #tab-chartography .ve-card li:last-child,
-#tab-video-caption .ve-card li:last-child {margin-bottom:0}
+#tab-video-caption .ve-card li:last-child ,
+#tab-remedy .ve-card li:last-child{margin-bottom:0}
   #tab-mm .ve-card b, #tab-chartography .ve-card b,
-#tab-video-caption .ve-card b {color:var(--navy);font-weight:700}
+#tab-video-caption .ve-card b ,
+#tab-remedy .ve-card b{color:var(--navy);font-weight:700}
   @media(max-width:600px){#tab-mm .ve-card{padding:20px 20px}}
 
   /* Code of Conduct (Contributor Guide) */
@@ -1867,9 +1915,11 @@
   #tab-paypolicy .tt-fig figcaption, #tab-faq .tt-fig figcaption{font-size:13px;color:var(--text-muted);line-height:1.5;margin-top:8px;max-width:640px;margin-left:auto;margin-right:auto}
 
   #tab-mm .ve-card ol, #tab-chartography .ve-card ol,
-#tab-video-caption .ve-card ol {margin:6px 0 4px;padding-left:22px}
+#tab-video-caption .ve-card ol ,
+#tab-remedy .ve-card ol{margin:6px 0 4px;padding-left:22px}
   #tab-mm .ve-card ol li, #tab-chartography .ve-card ol li,
-#tab-video-caption .ve-card ol li {color:#3d4e60;font-size:15px;line-height:1.6;margin:0 0 9px}
+#tab-video-caption .ve-card ol li ,
+#tab-remedy .ve-card ol li{color:#3d4e60;font-size:15px;line-height:1.6;margin:0 0 9px}
   #tab-mm .ve-faqs h4{color:var(--navy);font-size:15px;font-weight:700;letter-spacing:0;margin:20px 0 5px}
   #tab-mm .ve-faqs h4:first-of-type{margin-top:8px}
   #tab-paypolicy .pp-note{background:#eff6ff;border:1px solid #bfdbfe;border-radius:12px;padding:14px 18px;font-size:14px;color:var(--navy);line-height:1.55;margin:14px 0}
@@ -1882,16 +1932,23 @@
   .proj-item:hover,.proj-item:focus-visible{background:#eef3ff;outline:none}
   .proj-item[hidden]{display:none}
   .proj-toggle.active{background:#fff;color:var(--navy);border-color:#fff}
-  #tab-mm .mm-intro, #tab-sheets .mm-intro, #tab-chartography .mm-intro, #tab-video-caption .mm-intro{color:rgba(255,255,255,.92);font-size:16px;line-height:1.6;margin:0 0 20px;max-width:70ch;text-shadow:0 1px 2px rgba(0,0,0,.3)}
+  #tab-mm .mm-intro, #tab-sheets .mm-intro, #tab-chartography .mm-intro, #tab-video-caption .mm-intro,
+#tab-remedy .mm-intro{color:rgba(255,255,255,.92);font-size:16px;line-height:1.6;margin:0 0 20px;max-width:70ch;text-shadow:0 1px 2px rgba(0,0,0,.3)}
   #tab-mm .mm-jump, #tab-sheets .mm-jump, #tab-chartography .mm-jump,
-#tab-video-caption .mm-jump {display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:8px;margin:0 0 36px}
-  #tab-mm .mm-jump-label, #tab-sheets .mm-jump-label, #tab-chartography .mm-jump-label, #tab-video-caption .mm-jump-label{font-size:13px;font-weight:700;color:#fff;text-shadow:0 1px 2px rgba(0,0,0,.35)}
+#tab-video-caption .mm-jump ,
+#tab-remedy .mm-jump{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:8px;margin:0 0 36px}
+  #tab-mm .mm-jump-label, #tab-sheets .mm-jump-label, #tab-chartography .mm-jump-label, #tab-video-caption .mm-jump-label,
+#tab-remedy .mm-jump-label{font-size:13px;font-weight:700;color:#fff;text-shadow:0 1px 2px rgba(0,0,0,.35)}
   #tab-mm .mm-jump a, #tab-sheets .mm-jump a, #tab-chartography .mm-jump a,
-#tab-video-caption .mm-jump a {background:var(--white);color:var(--navy);border-radius:40px;padding:8px 16px;font-size:13.5px;font-weight:600;text-decoration:none;white-space:nowrap}
+#tab-video-caption .mm-jump a ,
+#tab-remedy .mm-jump a{background:var(--white);color:var(--navy);border-radius:40px;padding:8px 16px;font-size:13.5px;font-weight:600;text-decoration:none;white-space:nowrap}
   #tab-mm .mm-jump a:hover,
-#tab-video-caption .mm-jump a:hover {background:#eef3ff}
-  #tab-mm .mm-section, #tab-sheets .mm-section, #tab-chartography .mm-section, #tab-video-caption .mm-section{margin:0 0 46px}
-  #tab-mm .mm-h, #tab-sheets .mm-h, #tab-chartography .mm-h, #tab-video-caption .mm-h{color:#fff;font-size:23px;font-weight:700;margin:0 0 16px;text-shadow:0 1px 3px rgba(0,0,0,.45)}
+#tab-video-caption .mm-jump a:hover ,
+#tab-remedy .mm-jump a:hover{background:#eef3ff}
+  #tab-mm .mm-section, #tab-sheets .mm-section, #tab-chartography .mm-section, #tab-video-caption .mm-section,
+#tab-remedy .mm-section{margin:0 0 46px}
+  #tab-mm .mm-h, #tab-sheets .mm-h, #tab-chartography .mm-h, #tab-video-caption .mm-h,
+#tab-remedy .mm-h{color:#fff;font-size:23px;font-weight:700;margin:0 0 16px;text-shadow:0 1px 3px rgba(0,0,0,.45)}
   #tab-sheets .mm-placeholder,#tab-chartography .mm-placeholder{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:26px 30px;box-shadow:0 1px 3px rgba(18,35,69,.05)}
   #tab-sheets .mm-placeholder h2,#tab-chartography .mm-placeholder h2{color:var(--navy);font-size:21px;margin:0 0 8px}
   #tab-sheets .mm-placeholder p,#tab-chartography .mm-placeholder p{color:#3d4e60;font-size:15px;line-height:1.65;margin:0}
@@ -1910,40 +1967,57 @@
 
   /* Chartography accordion styles */
   #tab-chartography .acc-item,
-#tab-video-caption .acc-item {background:var(--white);border:1px solid var(--border);border-radius:16px;margin-bottom:14px;overflow:hidden;position:relative}
+#tab-video-caption .acc-item ,
+#tab-remedy .acc-item{background:var(--white);border:1px solid var(--border);border-radius:16px;margin-bottom:14px;overflow:hidden;position:relative}
   #tab-chartography .acc-header,
-#tab-video-caption .acc-header {display:flex;align-items:center;justify-content:space-between;width:100%;padding:18px 22px;background:none;border:none;cursor:pointer;font-family:inherit;text-align:left}
+#tab-video-caption .acc-header ,
+#tab-remedy .acc-header{display:flex;align-items:center;justify-content:space-between;width:100%;padding:18px 22px;background:none;border:none;cursor:pointer;font-family:inherit;text-align:left}
   #tab-chartography .acc-header-left,
-#tab-video-caption .acc-header-left {display:flex;align-items:center;gap:16px}
+#tab-video-caption .acc-header-left ,
+#tab-remedy .acc-header-left{display:flex;align-items:center;gap:16px}
   #tab-chartography .acc-tag,
-#tab-video-caption .acc-tag {display:inline-flex;align-items:center;justify-content:center;min-width:32px;height:32px;border-radius:8px;background:var(--navy);color:#fff;font-size:13px;font-weight:700;flex-shrink:0}
+#tab-video-caption .acc-tag ,
+#tab-remedy .acc-tag{display:inline-flex;align-items:center;justify-content:center;min-width:32px;height:32px;border-radius:8px;background:var(--navy);color:#fff;font-size:13px;font-weight:700;flex-shrink:0}
   #tab-chartography .acc-title,
-#tab-video-caption .acc-title {font-size:15.5px;font-weight:700;color:var(--navy);line-height:1.35}
+#tab-video-caption .acc-title ,
+#tab-remedy .acc-title{font-size:15.5px;font-weight:700;color:var(--navy);line-height:1.35}
   #tab-chartography .acc-sub,
-#tab-video-caption .acc-sub {font-size:13px;color:var(--text-muted);margin-top:2px}
+#tab-video-caption .acc-sub ,
+#tab-remedy .acc-sub{font-size:13px;color:var(--text-muted);margin-top:2px}
   #tab-chartography .acc-panel,
-#tab-video-caption .acc-panel {display:none}
+#tab-video-caption .acc-panel ,
+#tab-remedy .acc-panel{display:none}
   #tab-chartography .acc-item.open .acc-panel,
-#tab-video-caption .acc-item.open .acc-panel {display:block}
+#tab-video-caption .acc-item.open .acc-panel ,
+#tab-remedy .acc-item.open .acc-panel{display:block}
   #tab-chartography .acc-panel-inner,
-#tab-video-caption .acc-panel-inner {padding:20px}
+#tab-video-caption .acc-panel-inner ,
+#tab-remedy .acc-panel-inner{padding:20px}
   #tab-chartography .acc-body,
-#tab-video-caption .acc-body {font-size:15px;color:#3d4e60;line-height:1.7}
+#tab-video-caption .acc-body ,
+#tab-remedy .acc-body{font-size:15px;color:#3d4e60;line-height:1.7}
   #tab-chartography .acc-body p,
-#tab-video-caption .acc-body p {margin-bottom:12px}
+#tab-video-caption .acc-body p ,
+#tab-remedy .acc-body p{margin-bottom:12px}
   #tab-chartography .acc-body ul, #tab-chartography .acc-body ol,
 #tab-video-caption .acc-body ul,
-#tab-video-caption .acc-body ol {margin:6px 0 12px;padding-left:22px}
+#tab-video-caption .acc-body ol ,
+#tab-remedy .acc-body ul, #tab-remedy .acc-body ol{margin:6px 0 12px;padding-left:22px}
   #tab-chartography .acc-body li,
-#tab-video-caption .acc-body li {margin-bottom:6px}
+#tab-video-caption .acc-body li ,
+#tab-remedy .acc-body li{margin-bottom:6px}
   #tab-chartography .acc-body h4,
-#tab-video-caption .acc-body h4 {color:var(--slate);font-size:13px;font-weight:700;letter-spacing:.02em;margin:18px 0 4px}
+#tab-video-caption .acc-body h4 ,
+#tab-remedy .acc-body h4{color:var(--slate);font-size:13px;font-weight:700;letter-spacing:.02em;margin:18px 0 4px}
   #tab-chartography .acc-body b,
-#tab-video-caption .acc-body b {color:var(--navy)}
+#tab-video-caption .acc-body b ,
+#tab-remedy .acc-body b{color:var(--navy)}
   #tab-chartography .acc-body a,
-#tab-video-caption .acc-body a {color:#2563eb;font-weight:600;text-decoration:none}
+#tab-video-caption .acc-body a ,
+#tab-remedy .acc-body a{color:#2563eb;font-weight:600;text-decoration:none}
   #tab-chartography .acc-body a:hover,
-#tab-video-caption .acc-body a:hover {text-decoration:underline}
+#tab-video-caption .acc-body a:hover ,
+#tab-remedy .acc-body a:hover{text-decoration:underline}
   #tab-chartography .loupe {display:inline-block;width:24px;height:24px;text-align:center;line-height:24px;color:var(--text-muted);font-size:14px;transition:transform .2s}
   #tab-chartography .loupe::after {content:"\25BC"}
   #tab-chartography .acc-item.open .loupe {transform:rotate(180deg)}
@@ -2073,6 +2147,7 @@
     <button class="tab-btn proj-item" data-tab="sheets" role="menuitem">Sheets</button>
     <button class="tab-btn proj-item" data-tab="chartography" role="menuitem">Chartography</button>
     <button class="tab-btn proj-item" data-tab="video-caption" role="menuitem">Video Caption</button>
+    <button class="tab-btn proj-item" data-tab="remedy" role="menuitem">Remedy</button>
   </div>
 </div>
     <button class="tab-btn" data-tab="announcements" role="tab" aria-selected="false" hidden style="display:none">Announcements</button>
@@ -4439,6 +4514,7 @@
     <a href="#chart-sourcing">Sourcing your own chart</a>
     <a href="#chart-stump">Better ways to stump SOTA</a>
     <a href="#chart-stellar">Stellar work</a>
+    <a href="#chart-faq">FAQ</a>
   </nav>
   <section id="chart-channels" class="mm-section" style="scroll-margin-top:20px">
     <h2 class="mm-h">Channels</h2>
@@ -5183,6 +5259,112 @@
           </div>
     </div>
   </section>
+
+  <section id="chart-faq" class="mm-section" style="scroll-margin-top:20px">
+    <h2 class="mm-h">Chartography FAQ</h2>
+    <div class="faq-section">
+      <div class="section-header">
+        <div class="section-num">A</div>
+        <h2>Training and Calibration</h2>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-q-num">1</span> <span class="faq-q-text">How long do I have to complete training and calibration?</span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="faq-a"><p>Training and calibration have a combined paid time cap of 1.5 hours for Chartography. This limit has been set to cover everything you need to complete both and we're confident it provides enough time for most contributors. Once you reach the cap, you're welcome to continue with your timer turned off, but any time beyond that won't be compensated.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-q-num">2</span> <span class="faq-q-text">I just finished training, what's next?</span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="faq-a"><p>Your Pod Lead reviews your training and you are notified once they've gone over it. Once you pass, you move on to calibration.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-q-num">3</span> <span class="faq-q-text">What is calibration, and how long does it take to review?</span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="faq-a"><p>Calibration is a task you complete once you've passed training. You get two attempts to pass it. If your first attempt doesn't pass, it comes back to you to revise and try again. Your Pod Lead reviews your calibration task, so if you've been waiting a while, check in with them for the current timeline in your pod.</p></div>
+      </div>
+    </div>
+    <div class="faq-section">
+      <div class="section-header">
+        <div class="section-num">B</div>
+        <h2>Writing strong tasks</h2>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-q-num">4</span> <span class="faq-q-text">What does "Within SOTA capability" mean?</span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="faq-a"><p>It means a frontier model can already answer your question reliably, so the task isn't usable as is. The bar in Chartography is that the model has to fail. If a task comes back "Within SOTA capability," iterate to make it harder: more multi-step reasoning, more disambiguation, fewer direct reads.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-q-num">5</span> <span class="faq-q-text">What does "SOTA-EVAL-FAILED" mean in my history?</span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="faq-a"><p>This one trips people up because it sounds negative, but it's good news. It means the model failed to answer your question, which is the goal. If a task instead comes back as "Within SOTA capability" (you may also see "previous attempt" or "draft"), that means your question wasn't strong enough yet.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-q-num">6</span> <span class="faq-q-text">When should I skip a chart versus mark it "not suitable for task creation"?</span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="faq-a"><p>Skip a chart when you can't make it both single-answer/verifiable and hard enough, even after trying the usual difficulty levers: multi-hop reasoning, miscounting traps, overlaps, legend or color traps, scale changes, absence answers, off-chart label reading. Mark a chart "not suitable for task creation" when the chart itself is the problem: too trivial, answer labels already printed on it, illegible or cropped, or it requires outside data to solve.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-q-num">7</span> <span class="faq-q-text">What's the expected time per task?</span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="faq-a"><p>Plan for roughly an hour on average, including revisions and resubmission. Some tasks take longer if you need extra iterations to stump the model.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-q-num">8</span> <span class="faq-q-text">Is it okay for a prompt to include a false presupposition, like asking when a line exceeds a value it never actually exceeds?</span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="faq-a"><p>Yes, as long as the prompt still has exactly one defensible answer (for example, "it never exceeds that value"). Two things to watch: don't word it so it sounds like you're assuming the event happens, and make the "none/never" outcome an explicitly acceptable answer.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-q-num">9</span> <span class="faq-q-text">Are counting-based prompts acceptable?</span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="faq-a"><p>Yes, as long as there's one defensible answer that's answerable from the chart alone, and the count isn't trivial or already labeled. Strong counting tasks usually involve real visual reasoning, like overlapping marks, ambiguous grouping, or legend/color categories, rather than just reading a printed number.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-q-num">10</span> <span class="faq-q-text">What's the criteria for a task to be accepted?</span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="faq-a"><p>Reviewers grade against the <a href="https://docs.google.com/document/d/1EvkMLF0QBf5ftoBztqSndGpIX6PUNlDlXxbmxy4ZYy0/edit?tab=t.0" target="_blank" rel="noopener">Chartography Quality Rubric</a>, across these dimensions:</p><ul><li>Chart Quality</li><li>Prompt Realism</li><li>Reasoning Requirement</li><li>Self-Containment</li><li>Defensible and Verifiable Answer</li><li>Answer Correctness</li></ul></div>
+      </div>
+    </div>
+    <div class="faq-section">
+      <div class="section-header">
+        <div class="section-num">C</div>
+        <h2>Reviews and feedback</h2>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-q-num">11</span> <span class="faq-q-text">What do I do if I disagree with a review decision?</span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="faq-a"><p>Bring it to your Pod Lead with the task link and the specific rubric dimension you think was mis-scored.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-q-num">12</span> <span class="faq-q-text">Is there a form to appeal an AI Quality review?</span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="faq-a"><p>There's no standard appeal form. Take the same route as above: bring it to your Pod Lead with the task link and the dimension in question.</p></div>
+      </div>
+    </div>
+  </section>
   <p class="feedback-line">We’re always looking to improve this guide. If you’d like to see something added, let your Pod Lead know.</p>
 </div>
 
@@ -5785,6 +5967,66 @@
   <p class="feedback-line" style="margin-top:40px">We're always looking to improve this guide. If you'd like to see something added, let your Pod Lead know.</p>
 
 </div>
+<div class="tab-panel" id="tab-remedy">
+  <p class="mm-intro">Everything for the Remedy project: your Slack channels, what the project is about, and how to complete a task.</p>
+  <nav class="mm-jump" aria-label="Jump to section">
+    <span class="mm-jump-label">Jump to</span>
+    <a href="#rem-channels">Channels</a>
+    <a href="#rem-about">About the project</a>
+    <a href="#rem-faq">Project FAQ</a>
+  </nav>
+
+  <section id="rem-channels" class="mm-section" style="scroll-margin-top:20px">
+    <h2 class="mm-h">Channels</h2>
+    <div class="cr-channels">
+      <a class="cr-chan cr-chan-no-link" tabindex="0">
+        <span class="cr-chan-ic" aria-hidden="true">#</span>
+        <div class="cr-chan-body"><span class="cr-chan-name">#remedy-onboarding</span><p>New to the project? Start here for setup, guidelines, and getting started.</p></div>
+      </a>
+      <a class="cr-chan cr-chan-no-link" tabindex="0">
+        <span class="cr-chan-ic" aria-hidden="true">#</span>
+        <div class="cr-chan-body"><span class="cr-chan-name">#remedy-announcements</span><p>Project announcements from the Remedy team.</p></div>
+      </a>
+      <a class="cr-chan cr-chan-no-link" tabindex="0">
+        <span class="cr-chan-ic" aria-hidden="true">#</span>
+        <div class="cr-chan-body"><span class="cr-chan-name">#pod-(name)-remedy</span><p>Your pod-specific channel. Your Pod Lead will add you when you join the project.</p></div>
+      </a>
+      <a class="cr-chan" href="https://workada.slack.com/archives/C0B2KBC3WES" target="_blank" rel="noopener">
+        <span class="cr-chan-ic" aria-hidden="true">#</span>
+        <div class="cr-chan-body"><span class="cr-chan-name">#workada-announcements</span><p>Company-wide Workada announcements. Check daily before you task.</p></div>
+      </a>
+    </div>
+  </section>
+
+  <section id="rem-about" class="mm-section" style="scroll-margin-top:20px">
+    <h2 class="mm-h">About the project</h2>
+    <div class="ve-card">
+      <h3>Project overview coming soon</h3>
+      <p>This section will cover what the Remedy project is, what a task looks like, and what good work looks like. Send the project overview and training document to your Workada contact and it will be added here.</p>
+    </div>
+  </section>
+
+  <section id="rem-faq" class="mm-section" style="scroll-margin-top:20px">
+    <h2 class="mm-h">Project FAQ</h2>
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-q-num">1</span> <span class="faq-q-text">Who do I ask if I have a question about a Remedy task?</span>
+          <span class="chevron">&#9660;</span>
+        </button>
+        <div class="faq-a">
+          <p>Ask in your pod channel first so your Pod Lead and the rest of your pod can see it. If it is urgent or account-related, open a support ticket.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <p class="feedback-line" style="margin-top:40px">We're always looking to improve this guide. If you'd like to see something added, let your Pod Lead know.</p>
+
+</div>
+
 <div class="tab-panel" id="tab-coc">
   <div class="coc-card"><div class="coc">
 <p class="coc-intro">These are the standards for using Workada’s Dashboard and Slack. In short: use the platform only for legitimate task work, keep one secure account, submit accurate work, keep everything you access confidential, and treat everyone with respect. <a href="https://docs.google.com/document/d/1iBvxwFH6Gmo53xCSPWudB9Q5bqKM2fa60fvZroHQu_k/edit?usp=sharing" target="_blank" rel="noopener">Read the full Code of Conduct →</a></p>
@@ -5983,7 +6225,7 @@
   const search = document.getElementById('search');
   const searchClear = document.getElementById('search-clear');
   const searchResults = document.getElementById('search-results');
-  const TAB_LABELS = {journey:'Contributor Journey', glance:'Workada at a Glance', paypolicy:'Pay Policy & Timer', faq:'FAQ', support:'Support Tickets', coc:'Code of Conduct', mm:'Multimango', sheets:'Sheets', chartography:'Chartography', 'video-caption':'Video Caption'};
+  const TAB_LABELS = {journey:'Contributor Journey', glance:'Workada at a Glance', paypolicy:'Pay Policy & Timer', faq:'FAQ', support:'Support Tickets', coc:'Code of Conduct', mm:'Multimango', sheets:'Sheets', chartography:'Chartography', 'video-caption':'Video Caption', remedy:'Remedy'};
   const esc = t => (t||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
   const norm = t => (t||'').replace(/\s+/g,' ').trim();
 
@@ -6103,6 +6345,7 @@
     sheets: { title: 'Sheets', sub: 'Resources for the Sheets project.' },
     chartography: { title: 'Chartography', sub: 'Resources for the Chartography project.' },
     'video-caption': { title: 'Video Caption', sub: 'Resources for the Video Caption project.' },
+    remedy: { title: 'Remedy', sub: 'Resources for the Remedy project.' },
     faq:    { title: 'Contributor FAQ',         sub: 'These are the questions you\'ve been asking most, in one place. We\'re actively making Workada better, and we\'re here to support you while we do.' },
     glance: { title: 'Workada at a Glance',     sub: 'Our mission, values, and the standards that guide how we work together.' },
     paypolicy: { title: 'Pay Policy and Timer', sub: 'How working time is tracked and paid, plus what counts as active work on the timer.' },
@@ -6145,8 +6388,8 @@
     const query = (params.get('route') || params.get('project') || '').toLowerCase();
     const hash = window.location.hash.replace(/^#\/?/,'').toLowerCase();
     const path = window.location.pathname.replace(/\/+$/,'').split('/').pop().toLowerCase();
-    const valid = ['mm','sheets','chartography','video-caption','coc'];
-    const projects = ['mm','sheets','chartography','video-caption'];
+    const valid = ['mm','sheets','chartography','video-caption','remedy','coc'];
+    const projects = ['mm','sheets','chartography','video-caption','remedy'];
     const seg = [query, hash, path].find(r => valid.includes(r)) || '';
     if(seg) activateTab(seg);
     activeProjectRoute = projects.includes(seg) ? seg : null;
