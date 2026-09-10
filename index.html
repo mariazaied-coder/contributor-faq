@@ -5989,7 +5989,11 @@
       </a>
       <a class="cr-chan cr-chan-no-link" tabindex="0">
         <span class="cr-chan-ic" aria-hidden="true">#</span>
-        <div class="cr-chan-body"><span class="cr-chan-name">#pod-(name)-remedy</span><p>Your pod-specific channel. Your Pod Lead will add you when you join the project.</p></div>
+        <div class="cr-chan-body"><span class="cr-chan-name">#remedy-community</span><p>Connect with other Remedy Contributors.</p></div>
+      </a>
+      <a class="cr-chan cr-chan-no-link" tabindex="0">
+        <span class="cr-chan-ic" aria-hidden="true">#</span>
+        <div class="cr-chan-body"><span class="cr-chan-name">#remedy-discussions</span><p>Discuss Remedy tasks and get help from the team, we're online most of the day.</p></div>
       </a>
       <a class="cr-chan" href="https://workada.slack.com/archives/C0B2KBC3WES" target="_blank" rel="noopener">
         <span class="cr-chan-ic" aria-hidden="true">#</span>
@@ -6008,18 +6012,218 @@
 
   <section id="rem-faq" class="mm-section" style="scroll-margin-top:20px">
     <h2 class="mm-h">Project FAQ</h2>
-    <div class="faq-list">
+    <p style="font-size:15px; color:rgba(255,255,255,0.75); margin:-8px 0 20px;">Can't find what you need? Post in #remedy-discussions, we're online most of the day.</p>
 
+    <div class="faq-section">
+      <div class="section-header">
+        <div class="section-num">A</div>
+        <h2>Getting started</h2>
+      </div>
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">
-          <span class="faq-q-num">1</span> <span class="faq-q-text">Who do I ask if I have a question about a Remedy task?</span>
-          <span class="chevron">&#9660;</span>
+          <span class="faq-q-num">1</span> <span class="faq-q-text">What do I need to work on Project Remedy?</span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="faq-a"><p>You'll need a login on workada.com (use the email tied to your interview) and access to GPT 5.6 Sol on High Reasoning. If you don't already have a GPT Plus subscription, ask your project lead. Workada covers a month of it and arranges it directly with you.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-q-num">2</span> <span class="faq-q-text">Where do I start a task?</span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="faq-a"><p>From your dashboard, open Tasks in the left sidebar, then claim "Create Remedy Task" under "Available to Claim." That opens the intake form where you'll submit your scrubbed input files, the source paper link, and your prompt.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-q-num">3</span> <span class="faq-q-text">Where can I read the full project instructions?</span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="faq-a"><p>The <a href="https://docs.google.com/document/d/1l7zgOL0rawiRU_Tco622FscitZhZsMOUjC5YCZdUifs/edit?tab=t.0" target="_blank" rel="noopener">Project Remedy Instructions</a> doc covers the workflow end to end. Read it in full before your onboarding session, and revisit it alongside the Prompt Writing and Golden Response guidelines as you go.</p></div>
+      </div>
+    </div>
+
+    <div class="faq-section">
+      <div class="section-header">
+        <div class="section-num">B</div>
+        <h2>Writing prompts</h2>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-q-num">4</span> <span class="faq-q-text">What makes a prompt strong enough to stump the model?</span>
+          <span class="chevron">▼</span>
         </button>
         <div class="faq-a">
-          <p>Ask in your pod channel first so your Pod Lead and the rest of your pod can see it. If it is urgent or account-related, open a support ticket.</p>
+          <p>The best prompts integrate multiple pieces of experimental evidence the way a domain expert actually reasons through a paper, not a single lookup. Two patterns reviewers consistently point to:</p>
+          <ul>
+            <li>Ask the model to combine results across several figures, assays, or data files to reach one conclusion, rather than reading a single value off one source.</li>
+            <li>Give the model a real decision point, one where a plausible but wrong analytical route exists, and specify a fallback like NOT_IDENTIFIABLE for when the data doesn't support a clear answer.</li>
+          </ul>
+          <p>Once a task has a well-formed prompt, the rest of the task tends to follow. Full guidance and examples live in the <a href="https://docs.google.com/document/d/1l7zgOL0rawiRU_Tco622FscitZhZsMOUjC5YCZdUifs/edit?tab=t.f824gpgqgmbo" target="_blank" rel="noopener">Prompt Writing Guidelines</a>.</p>
         </div>
       </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-q-num">5</span> <span class="faq-q-text">How specific does the prompt need to be about method?</span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="faq-a"><p>Specific enough that there's exactly one defensible way to do the analysis. Reviewers will flag a prompt if there are multiple reasonable interpretations. For example, several valid ways to define a fold-change calculation, which time points to require, or whether to rank by FDR or raw p-value all count as ambiguity. If more than one defensible answer exists, tighten the prompt until only one does.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-q-num">6</span> <span class="faq-q-text">What if my prompt doesn't cause a model failure?</span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="faq-a">
+          <p>That's still useful data. Log it in the Prompts With No Model Failure sheet:</p>
+          <ul>
+            <li>Add a new row with the prompt, the model's response, and a shareable chat link.</li>
+            <li>You can leave the notes column blank for now.</li>
+            <li>Copy the task ID from the three-dot menu on the task and paste it into column A.</li>
+          </ul>
+          <p>If the model seems close to failing, keep the same task open and try a revised prompt. If it's not close, it's usually faster to start a new task.</p>
+        </div>
+      </div>
+    </div>
 
+    <div class="faq-section">
+      <div class="section-header">
+        <div class="section-num">C</div>
+        <h2>Scrubbing &amp; data prep</h2>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-q-num">7</span> <span class="faq-q-text">Why does scrubbing matter so much?</span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="faq-a"><p>Models are surprisingly resourceful about extracting an answer from metadata rather than the analysis itself. One task looked like a clean model failure until the reviewer noticed the file name itself contained the answer. Once it was renamed to something opaque, the model actually started failing as intended. Treat file names, sample labels, and folder structure as part of the prompt.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-q-num">8</span> <span class="faq-q-text">Do I need to submit my original files as well as the scrubbed ones?</span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="faq-a"><p>Yes. The task form has fields for both, plus a short text field explaining what you scrubbed. Reviewers use the original-to-scrubbed comparison to spot lingering answer-revealing details and to build better guidance on what to scrub next time.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-q-num">9</span> <span class="faq-q-text">The model keeps referencing the source paper even though I scrubbed my files. What do I do?</span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="faq-a"><p>Renaming files and sample identifiers has resolved this for other contributors, and it's often enough on its own to stop the model from recognizing the paper. If it persists, share the files you're using with your project lead in #remedy-discussions and they'll help identify what's leaking.</p></div>
+      </div>
+    </div>
+
+    <div class="faq-section">
+      <div class="section-header">
+        <div class="section-num">D</div>
+        <h2>Working with the model</h2>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-q-num">10</span> <span class="faq-q-text">Can I ask the model follow-up questions to debug an unexpected answer?</span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="faq-a"><p>Yes, you can do this in the same conversation you'll submit. Just make sure the prompt and response you paste into the task are the ones from the first turn, not the debugging exchange that follows.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-q-num">11</span> <span class="faq-q-text">If I turn memory off and start a new task, will it carry anything over from a previous task?</span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="faq-a"><p>No. With memory off, a new task starts clean even if the earlier task hasn't been deleted. This is the recommended way to work through multiple prompts drawn from the same publication without cross-contamination.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-q-num">12</span> <span class="faq-q-text">What exactly should I paste into the task as the model's response?</span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="faq-a"><p>Paste the visible response and include the shareable chat link. Hidden portions, like reasoning traces or "thought for X seconds" content, don't need to be pasted in for now; the chat link covers that.</p></div>
+      </div>
+    </div>
+
+    <div class="faq-section">
+      <div class="section-header">
+        <div class="section-num">E</div>
+        <h2>Reviews &amp; feedback</h2>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-q-num">13</span> <span class="faq-q-text">How do I check the status of a task I've submitted?</span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="faq-a"><p>The [Remedy] Attempted Tasks and Reviews Tracking sheet is the source of truth for every task's status and score. It shows whether a task is good to go, needs changes, or needs a new sub-decision, and reviewer notes on what to fix live in column J.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-q-num">14</span> <span class="faq-q-text">What's the process once I get reviewer feedback?</span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="faq-a">
+          <ul>
+            <li>Read the feedback in column J of the tracking sheet.</li>
+            <li>Questions about it go in #remedy-discussions, where each task gets its own thread.</li>
+            <li>Make the update in your Workada Dashboard, and confirm the model still fails after the change.</li>
+            <li>Once resubmitted, mark column M, "Updated By Attempter."</li>
+          </ul>
+          <p>Reviewers do another pass from there, and this can take more than one round for a task to land.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-q-num">15</span> <span class="faq-q-text">What are the Golden Response Guidelines?</span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="faq-a"><p>The <a href="https://docs.google.com/document/d/1l7zgOL0rawiRU_Tco622FscitZhZsMOUjC5YCZdUifs/edit?tab=t.s8lg1fc4899w" target="_blank" rel="noopener">Golden Response Guidelines</a> are a companion doc to the Prompt Writing Guidelines, clarifying exactly what belongs in the golden response field, added after reviewers noticed contributors interpreting that field differently. Worth reading in full before you submit your next task.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-q-num">16</span> <span class="faq-q-text">What do reviewers mean by "the prompt is ambiguous"?</span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="faq-a"><p>It means there's more than one defensible way to reach an answer, so the task doesn't have a single objectively correct result. The fix is usually to pin down the exact analytical decisions in the prompt itself: which comparisons to make, how to define the metric, which statistical threshold to use, and so on. See "Writing prompts" above.</p></div>
+      </div>
+    </div>
+
+    <div class="faq-section">
+      <div class="section-header">
+        <div class="section-num">F</div>
+        <h2>Pay &amp; referrals</h2>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-q-num">17</span> <span class="faq-q-text">When do I get paid?</span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="faq-a"><p>Payouts run weekly. Your GPT Plus reimbursement is added to the payout following your subscription, not the same one, so expect it to show up a few days after you first mention the expense to your project lead.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-q-num">18</span> <span class="faq-q-text">Can I refer other researchers to the project?</span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="faq-a"><p>Yes, referrals are welcome. You'll receive $150 per referral for anyone who completes an accepted task. Reach out to your project lead directly to make the introduction.</p></div>
+      </div>
+    </div>
+
+    <div class="faq-section">
+      <div class="section-header">
+        <div class="section-num">G</div>
+        <h2>Support</h2>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-q-num">19</span> <span class="faq-q-text">A site or app I need is blocked by the Workada Timer. What should I do?</span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="faq-a"><p>Log it in the [Remedy Sites] Being Blocked by Workada Timer sheet and message your project lead directly. They'll get the timer updated as soon as possible.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-q-num">20</span> <span class="faq-q-text">Is there live help if written feedback isn't clear?</span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="faq-a"><p>Yes. Drop-in Zoom office hours run periodically, no need to stay for the whole session. Bring your task and your questions, get aligned with a reviewer, and head out once you're unblocked. Announcements for these go out in #remedy-announcements.</p></div>
+      </div>
     </div>
   </section>
 
