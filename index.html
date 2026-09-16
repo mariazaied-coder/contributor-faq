@@ -2010,6 +2010,17 @@
   #tab-sheets .mm-placeholder h2,#tab-chartography .mm-placeholder h2{color:var(--navy);font-size:21px;margin:0 0 8px}
   #tab-sheets .mm-placeholder p,#tab-chartography .mm-placeholder p{color:#3d4e60;font-size:15px;line-height:1.65;margin:0}
   #tab-coc .coc-card{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:26px 32px;box-shadow:0 1px 3px rgba(18,35,69,.05);max-width:860px;font-size:15px;color:#3d4e60;line-height:1.7}
+  /* Workada Policies — policy link list */
+  #tab-coc .policies-card{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:26px 32px;box-shadow:0 1px 3px rgba(18,35,69,.05);max-width:860px;margin-top:22px}
+  #tab-coc .policies-card h3{margin:0 0 6px;font-size:18px;color:var(--navy)}
+  #tab-coc .policies-card .policies-intro{margin:0 0 18px;font-size:14px;color:var(--text-muted);line-height:1.6}
+  #tab-coc .policy-row{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 0;border-top:1px solid var(--border)}
+  #tab-coc .policy-row:first-of-type{border-top:none}
+  #tab-coc .policy-row .policy-name{font-size:15px;font-weight:600;color:#3d4e60}
+  #tab-coc .policy-row .policy-desc{display:block;font-size:13px;font-weight:400;color:var(--text-muted);margin-top:2px;line-height:1.5}
+  #tab-coc .policy-btn{flex:0 0 auto;background:var(--navy);color:var(--white);border:none;border-radius:8px;padding:9px 18px;font-size:13.5px;font-weight:600;text-decoration:none;white-space:nowrap;transition:background .2s ease}
+  #tab-coc .policy-btn:hover{background:var(--blue)}
+  #tab-coc .policy-btn:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
   #tab-sheets .sh-faq-pending{font-style:italic;color:var(--text-muted)}
   #tab-journey .branch-note{font-style:italic;color:var(--text-muted);font-size:13px;line-height:1.5;margin:10px 0 0}
 
@@ -2213,7 +2224,7 @@
     <button class="tab-btn" data-tab="paypolicy" role="tab" aria-selected="false">Pay Policy and Timer</button>
     <button class="tab-btn" data-tab="faq" role="tab" aria-selected="false">FAQ</button>
     <button class="tab-btn" data-tab="support" role="tab" aria-selected="false">Support Tickets</button>
-<button class="tab-btn" data-tab="coc" role="tab" aria-selected="false">Code of Conduct</button>
+<button class="tab-btn" data-tab="coc" role="tab" aria-selected="false">Workada Policies</button>
 <div class="proj-dropdown">
   <button class="tab-btn proj-toggle" id="proj-toggle" aria-haspopup="true" aria-expanded="false">Project Resources ▾</button>
   <div class="proj-menu" id="proj-menu" role="menu" hidden>
@@ -3019,6 +3030,10 @@
   <section id="mm-channels" class="mm-section" style="scroll-margin-top:20px">
     <h2 class="mm-h">Channels</h2>
     <div class="cr-channels">
+      <a class="cr-chan" href="https://workada.slack.com/archives/C0BNDCBDVHA" target="_blank" rel="noopener">
+        <span class="cr-chan-ic" aria-hidden="true">#</span>
+        <div class="cr-chan-body"><span class="cr-chan-name">#mm-onboarding</span><p>Your channel while you complete Multimango onboarding: post timer, browser, walkthrough, and calibration questions here. Once you move into tasking, you’ll get access to the rest of the MM channels.</p></div>
+      </a>
       <a class="cr-chan" href="https://workada.slack.com/archives/C0BM108LR8S" target="_blank" rel="noopener">
         <span class="cr-chan-ic" aria-hidden="true">#</span>
         <div class="cr-chan-body"><span class="cr-chan-name">#video-comp-eval-onboarding</span><p>Onboarding for the Video Comparison and Evaluation project.</p></div>
@@ -6388,6 +6403,22 @@
 <p class="coc-intro">These are the standards for using Workada’s Dashboard and Slack. In short: use the platform only for legitimate task work, keep one secure account, submit accurate work, keep everything you access confidential, and treat everyone with respect. <a href="https://docs.google.com/document/d/1iBvxwFH6Gmo53xCSPWudB9Q5bqKM2fa60fvZroHQu_k/edit?usp=sharing" target="_blank" rel="noopener">Read the full Code of Conduct →</a></p>
 <div class="coc-part"><h4 class="coc-part-title">On the Dashboard</h4><div class="coc-tldr"><b>In short:</b> use the platform only for legitimate task work. One account, keep your credentials secure, submit accurate work, treat all task and customer data as confidential, don’t reverse-engineer anything, and don’t try to game the system. Everything you create belongs to Workada.</div><div class="coc-rule"><h5>Account integrity</h5><ul><li>Keep only one account. Don’t create another after a suspension or termination without written permission.</li><li>Keep your login credentials secure, and never share, sell, or transfer access to your account.</li><li>Make sure your personal and payment information is accurate, current, and in your own name.</li><li>Complete any identity-verification request from Workada right away.</li></ul></div><div class="coc-rule"><h5>Performing tasks</h5><ul><li>Take on only tasks you can complete accurately and on time.</li><li>Follow the scope, specifications, and instructions provided with each task.</li><li>Don’t submit work that’s fabricated, copied from unauthorized sources, or done by someone else in your place.</li><li>Don’t try to game quality-control or verification. Repeated inaccurate work can lead to removal from projects or account deactivation.</li></ul></div><div class="coc-rule"><h5>Confidentiality and data</h5><ul><li>Treat all Workada materials, customer data, and task content as confidential.</li><li>Don’t download, copy, or store confidential information beyond what a task requires.</li><li>Don’t share task details or customer data with third parties, on social media, or anywhere else.</li><li>When a task ends or your account closes, delete all confidential information from your devices and cloud storage.</li></ul></div><div class="coc-rule"><h5>Intellectual property</h5><ul><li>Everything you create through the Dashboard belongs to Workada. Don’t keep copies or try to use, sell, or license it on your own.</li><li>Don’t submit content that infringes anyone else’s intellectual property.</li><li>Don’t use Workada’s materials for anything outside your tasks.</li></ul></div><div class="coc-rule"><h5>Software and systems</h5><ul><li>Use only approved browsers and apps. Don’t reverse-engineer, decompile, or extract source code from any Workada software or extension.</li><li>Don’t probe, scan, or test the security of the Dashboard or any connected system.</li><li>Don’t introduce malware, scripts, or bots that manipulate the platform or task results.</li><li>Report any security issue or suspected breach to support@workada.co right away.</li></ul></div><div class="coc-rule"><h5>Compliance</h5><ul><li>Use the Dashboard only for lawful purposes, following all applicable laws.</li><li>Don’t work from, or on behalf of, any country or party under applicable sanctions or export controls.</li><li>Don’t upload or submit content that’s illegal, discriminatory, harassing, or otherwise harmful.</li></ul></div><p class="coc-note">Workada can investigate suspected breaches, hold payment during an investigation, remove you from projects, or suspend or deactivate your account, at its reasonable discretion under the Terms of Use.</p></div><div class="coc-part"><h4 class="coc-part-title">On Slack</h4><div class="coc-tldr"><b>In short:</b> be professional and respectful. Keep conversations work-related and on-topic. Never share task details, customer data, or confidential info in any channel. No spam, harassment, or solicitation. Workada can monitor and remove content, and serious violations can deactivate your account.</div><div class="coc-rule"><h5>Professional standards</h5><ul><li>Communicate respectfully at all times. Personal attacks, insults, and hostile behavior aren’t allowed.</li><li>No harassment, discrimination, or bullying on the basis of race, gender, age, religion, disability, national origin, sexual orientation, or any other protected characteristic.</li><li>Handle disagreements constructively, and escalate anything unresolved to support@workada.co rather than letting it become a public argument.</li><li>Keep your language inclusive and appropriate for a professional, international audience.</li></ul></div><div class="coc-rule"><h5>Permitted use</h5><ul><li>Use Slack to discuss Workada tasks, workflows, platform updates, and professional development.</li><li>Post in the right channel, and keep messages concise. Off-topic or repetitive posts may be removed.</li><li>Don’t use Slack to solicit business, advertise third-party services, or recruit Contributors away from Workada.</li></ul></div><div class="coc-rule"><h5>Confidentiality and content</h5><ul><li>Don’t share confidential information, task details, customer data, materials, or work product, in any channel, DM, or thread.</li><li>Don’t post screenshots, documents, or files from the Dashboard unless Workada authorizes it.</li><li>Don’t post anything illegal, defamatory, obscene, threatening, or harmful, and don’t post spam or phishing links.</li><li>Don’t share or endorse misinformation about Workada, its customers, or other Contributors.</li></ul></div><div class="coc-rule"><h5>Privacy and moderation</h5><ul><li>Don’t share copyrighted material or third-party personal data without authorization.</li><li>Don’t record, screenshot, or distribute private conversations without everyone’s consent.</li><li>Moderators may monitor channels and remove content that breaks these standards. Report violations to support@workada.co.</li><li>Repeated or serious violations can lead to removal from the workspace, suspension, or account deactivation.</li></ul></div></div>
 </div></div>
+<div class="policies-card">
+  <h3>Workada policies</h3>
+  <p class="policies-intro">The full policies that govern your work on Workada. Please read each one — they apply to every CB across all projects.</p>
+  <div class="policy-row">
+    <span class="policy-name">Terms of Use<span class="policy-desc">The agreement you accept to work on Workada.</span></span>
+    <a class="policy-btn" href="https://app.workada.com/legal/terms-of-use" target="_blank" rel="noopener">View policy &rarr;</a>
+  </div>
+  <div class="policy-row">
+    <span class="policy-name">Working Location Policy<span class="policy-desc">Where you're allowed to work from, and the rules around location.</span></span>
+    <a class="policy-btn" href="https://app.workada.com/legal/working-location-policy" target="_blank" rel="noopener">View policy &rarr;</a>
+  </div>
+  <div class="policy-row">
+    <span class="policy-name">Privacy Policy<span class="policy-desc">How Workada collects, uses, and protects your personal information.</span></span>
+    <a class="policy-btn" href="https://app.workada.com/legal/privacy-policy" target="_blank" rel="noopener">View policy &rarr;</a>
+  </div>
+</div>
 </div>
 <div class="tab-panel" id="tab-support">
   <p class="glance-intro">Running into a snag mid-task is frustrating: we get it, and we’re always working to make Workada better. Here’s how our support process works, plus a few tips that help us take care of you faster.</p>
