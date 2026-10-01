@@ -1598,8 +1598,8 @@
     padding: 26px 28px;
     box-shadow: 0 1px 3px rgba(18,35,69,0.04);
   }
-  #tab-journey .steps { list-style: none; padding: 0; margin: 0; counter-reset: jstep; }
-  #tab-journey .steps li {
+  #tab-journey .steps, #tab-mm .steps{ list-style: none; padding: 0; margin: 0; counter-reset: jstep; }
+  #tab-journey .steps li, #tab-mm .steps li{
     counter-increment: jstep;
     position: relative;
     padding: 0 0 18px 46px;
@@ -1607,8 +1607,8 @@
     color: #092E65;
     line-height: 1.7;
   }
-  #tab-journey .steps li:last-child { padding-bottom: 0; }
-  #tab-journey .steps li::before {
+  #tab-journey .steps li:last-child, #tab-mm .steps li:last-child{ padding-bottom: 0; }
+  #tab-journey .steps li::before, #tab-mm .steps li::before{
     content: counter(jstep);
     position: absolute;
     left: 0; top: 0;
@@ -1622,14 +1622,14 @@
     font-size: 13px;
     font-weight: 700;
   }
-  #tab-journey .steps li:not(:last-child)::after {
+  #tab-journey .steps li:not(:last-child)::after, #tab-mm .steps li:not(:last-child)::after{
     content: '';
     position: absolute;
     left: 14.5px; top: 34px; bottom: 4px;
     width: 1px;
     background: var(--border);
   }
-  #tab-journey .steps strong { color: var(--navy); }
+  #tab-journey .steps strong, #tab-mm .steps strong{ color: var(--navy); }
   #tab-journey .sub-steps {
     list-style: none;
     margin: 10px 0 4px;
@@ -2333,6 +2333,59 @@
   @media (max-width: 760px) {
     .section-jump-nav { right: 8px; }
   }
+
+  /* Multimango pay policy block (always open, not collapsible) */
+  #tab-mm .acc-item.acc-static .acc-header{cursor:default;width:100%;text-align:left}
+  #tab-mm .acc-item.acc-static .acc-header:hover .acc-title{color:var(--navy)}
+  #tab-mm .pay-h{color:var(--navy);font-family:inherit;font-size:16px;font-weight:700;letter-spacing:0;line-height:1.35;margin:26px 0 9px}
+  #tab-mm .pay-h:first-of-type{margin-top:18px}
+  #tab-mm .pay-tiles{display:flex;flex-wrap:wrap;gap:14px;margin:16px 0 18px}
+  #tab-mm .pay-tile{flex:1 1 220px;min-width:0;border-radius:14px;padding:18px 20px 20px;display:flex;flex-direction:column;gap:6px}
+  #tab-mm .pay-tile-dark{background:var(--navy);color:#fff}
+  #tab-mm .pay-tile-light{background:#bfe0f2;color:var(--navy)}
+  #tab-mm .pay-tile-label{font-size:11.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;opacity:.85}
+  #tab-mm .pay-tile-num{font-size:46px;font-weight:700;line-height:1.05;letter-spacing:-.02em}
+  #tab-mm .pay-tile-num em{font-style:italic;font-size:34px;font-weight:600}
+  #tab-mm .pay-tile-sub{font-size:13.5px;line-height:1.5;margin-top:4px;opacity:.92}
+  @media (max-width:640px){ #tab-mm .pay-tile{flex:1 1 100%} #tab-mm .pay-tile-num{font-size:38px} }
+
+  /* Multimango sign-up flow: timeline */
+  #tab-mm .tl{position:relative;margin:24px 0 0}
+  #tab-mm .tl-rail{position:absolute;left:21px;top:24px;bottom:24px;width:3px;border-radius:3px;background:linear-gradient(180deg,var(--navy) 0%,#2f5f93 55%,var(--blue) 100%);opacity:.78}
+  #tab-mm .tl-list{list-style:none;margin:0;padding:0;position:relative}
+  #tab-mm .tl-stage{position:relative;display:flex;align-items:flex-start;gap:16px;padding:0 0 0 0;min-height:46px}
+  #tab-mm .tl-dot{flex:0 0 46px;width:46px;height:46px;border-radius:50%;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;line-height:1;box-shadow:0 0 0 5px #fff,0 2px 6px rgba(18,35,69,.22);position:relative;z-index:2}
+  #tab-mm .tl-stage-end .tl-dot{background:var(--blue);box-shadow:0 0 0 5px #fff,0 2px 10px rgba(59,130,246,.4)}
+  #tab-mm .tl-card{padding-top:3px}
+  #tab-mm .tl-name{display:block;color:var(--navy);font-size:15.5px;font-weight:700;line-height:1.35}
+  #tab-mm .tl-desc{display:block;color:#4a5e73;font-size:14.5px;line-height:1.6;margin-top:3px}
+  #tab-mm .tl-wait{position:relative;display:flex;align-items:center;height:52px;padding-left:46px}
+  #tab-mm .tl-tick{width:18px;height:2px;background:#aac6e4;flex:0 0 18px;margin-left:-23px;border-radius:2px}
+  #tab-mm .tl-pill{margin-left:11px;padding:4px 13px;border-radius:40px;background:#eef3ff;border:1px solid #cfdcfb;color:var(--navy);font-size:12.5px;font-weight:700;letter-spacing:.02em;line-height:1.5;white-space:nowrap}
+  #tab-mm .tl-total{display:flex;align-items:center;flex-wrap:wrap;gap:10px;margin:22px 0 0;padding:13px 17px;border-radius:12px;background:#f3f7fd;border:1px solid #e0e9f6;color:var(--navy);font-size:14.5px;font-weight:600;line-height:1.5}
+  #tab-mm .tl-total span{padding:3px 11px;border-radius:40px;background:var(--navy);color:#fff;font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+  #tab-mm .info-strip{background:#eff6ff;border:1px solid #bfdbfe;border-radius:12px;padding:13px 17px;font-size:14px;color:var(--navy);line-height:1.55;margin:18px 0 0}
+  @media (max-width:560px){
+    #tab-mm .tl-rail{left:18px;width:2px}
+    #tab-mm .tl-stage{gap:13px}
+    #tab-mm .tl-dot{flex:0 0 38px;width:38px;height:38px;font-size:14px;box-shadow:0 0 0 4px #fff,0 2px 6px rgba(18,35,69,.22)}
+    #tab-mm .tl-wait{height:46px;padding-left:38px}
+    #tab-mm .tl-tick{margin-left:-19px;width:14px;flex:0 0 14px}
+    #tab-mm .tl-name{font-size:15px}
+    #tab-mm .tl-desc{font-size:14px}
+  }
+
+  /* Cross-reference callout to the Project Resources tab */
+  #tab-journey .xref-callout, #tab-paypolicy .xref-callout{
+    display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+    margin:18px 0 0;padding:13px 18px;border-radius:12px;
+    background:#faf6ea;border:1px solid #ece0c6}
+  #tab-journey .xref-text, #tab-paypolicy .xref-text{
+    flex:1 1 240px;min-width:0;color:#3f3a24;font-size:14.5px;line-height:1.6}
+  @media (max-width:520px){
+    #tab-journey .xref-callout, #tab-paypolicy .xref-callout{gap:10px;padding:12px 15px}
+    #tab-journey .xref-text, #tab-paypolicy .xref-text{font-size:14px}
+  }
 </style>
 </head>
 <body>
@@ -2926,6 +2979,8 @@
 
     <p>This policy explains how working time is tracked and paid. The principle is straightforward: you're paid for time spent actively doing approved tasking work. Below is how time is categorized and what counts toward payment.</p>
 
+    <div class="xref-callout"><span class="xref-text"><em>For more information about your project specific Pay and Timer Policy, go to the Project Resources tab.</em></span></div>
+
         <h3 class="paypolicy-title">Timer walkthrough</h3>
     <p>Here’s a short walkthrough of the timer and how your paid time is tracked.</p>
     <div class="ppv-wrap">
@@ -3203,12 +3258,153 @@
   
   <div class="accordion" id="accordion">
 
+    <!-- SECTION 0a: Sign-up flow and timeframes (always open, not collapsible) -->
+    <section class="acc-item acc-static open" id="mm-signup-flow">
+      <span class="corner-bl"></span><span class="corner-br"></span>
+      <div class="acc-header">
+        <div class="acc-header-left">
+          <span class="acc-tag">01</span>
+          <div>
+            <div class="acc-title">Sign-Up Flow and Timeframes</div>
+            <div class="acc-sub">About 12 days from applying to your Multimango approval</div>
+          </div>
+        </div>
+      </div>
+      <div class="acc-panel">
+        <div class="acc-panel-inner">
+          <div class="acc-body">
+
+            <div class="tl">
+              <span class="tl-rail" aria-hidden="true"></span>
+              <ol class="tl-list">
+                <li class="tl-stage">
+                  <span class="tl-dot">1</span>
+                  <div class="tl-card">
+                    <span class="tl-name">Apply</span>
+                    <span class="tl-desc">Submit your application to Workada.</span>
+                  </div>
+                </li>
+                <li class="tl-wait">
+                  <span class="tl-tick"></span><span class="tl-pill">4 days</span>
+                </li>
+                <li class="tl-stage">
+                  <span class="tl-dot">2</span>
+                  <div class="tl-card">
+                    <span class="tl-name">Welcome</span>
+                    <span class="tl-desc">We create your account and send your welcome email.</span>
+                  </div>
+                </li>
+                <li class="tl-wait">
+                  <span class="tl-tick"></span><span class="tl-pill">24 hours</span>
+                </li>
+                <li class="tl-stage">
+                  <span class="tl-dot">3</span>
+                  <div class="tl-card">
+                    <span class="tl-name">Setup</span>
+                    <span class="tl-desc">You complete your account setup: Slack access, identity verification with Persona, your bank account, and your timer.</span>
+                  </div>
+                </li>
+                <li class="tl-wait">
+                  <span class="tl-tick"></span><span class="tl-pill">24 hours</span>
+                </li>
+                <li class="tl-stage">
+                  <span class="tl-dot">4</span>
+                  <div class="tl-card">
+                    <span class="tl-name">Training and calibration</span>
+                    <span class="tl-desc">You work through training and your calibration tasks.</span>
+                  </div>
+                </li>
+                <li class="tl-wait">
+                  <span class="tl-tick"></span><span class="tl-pill">48 hours</span>
+                </li>
+                <li class="tl-stage">
+                  <span class="tl-dot">5</span>
+                  <div class="tl-card">
+                    <span class="tl-name">Multimango setup</span>
+                    <span class="tl-desc">We get your Multimango access ready.</span>
+                  </div>
+                </li>
+                <li class="tl-wait">
+                  <span class="tl-tick"></span><span class="tl-pill">72 hours</span>
+                </li>
+                <li class="tl-stage tl-stage-end">
+                  <span class="tl-dot">6</span>
+                  <div class="tl-card">
+                    <span class="tl-name">Approved</span>
+                    <span class="tl-desc">You get your approval email and can start tasking on Multimango.</span>
+                  </div>
+                </li>
+              </ol>
+            </div>
+
+            <p class="tl-total"><span>Total</span> About 12 days from applying to your approval email</p>
+
+            <div class="info-strip">Check in with your Pod Lead if you&#8217;re experiencing longer than normal wait times.</div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 0: Pay and Timer Policy (always open, not collapsible) -->
+    <section class="acc-item acc-static open" id="mm-pay-policy">
+      <span class="corner-bl"></span><span class="corner-br"></span>
+      <div class="acc-header">
+        <div class="acc-header-left">
+          <span class="acc-tag">02</span>
+          <div>
+            <div class="acc-title">Pay and Timer Policy</div>
+            <div class="acc-sub">How task time and your weekly allowance are paid</div>
+          </div>
+        </div>
+      </div>
+      <div class="acc-panel">
+        <div class="acc-panel-inner">
+          <div class="acc-body">
+
+            <h4 class="pay-h">Task time is paid in full</h4>
+            <ul class="tip-list">
+              <li><strong>Task time is time you spend actively on a task page</strong>. It&#8217;s the only time that counts as productive, and there&#8217;s no cap on it.</li>
+              <li><strong>Some tasks have a time limit.</strong> If you reach it without submitting, your timer pauses and you&#8217;ll see a &#8220;Task expired&#8221; notice. That time is still paid. Once you acknowledge it, you go back to the task list and the task returns to the pool for someone else, and your timer starts again when you claim a new task.</li>
+              <li><strong>Domain research while you&#8217;re tasking and the quality task of the week check-ins are already built into task time</strong>, so there&#8217;s no separate time to log for them.</li>
+            </ul>
+
+            <h4 class="pay-h">Everything else is paid up to a weekly allowance</h4>
+            <div class="pay-tiles">
+              <div class="pay-tile pay-tile-dark">
+                <span class="pay-tile-label">Weekly allowance</span>
+                <span class="pay-tile-num">1.5<em>h</em></span>
+                <span class="pay-tile-sub">Under 30 hours of task time that week</span>
+              </div>
+              <div class="pay-tile pay-tile-light">
+                <span class="pay-tile-label">Weekly allowance</span>
+                <span class="pay-tile-num">2.5<em>h</em></span>
+                <span class="pay-tile-sub">Once you reach 30 hours of task time that week. It goes up automatically the moment you hit 30.</span>
+              </div>
+            </div>
+
+            <ul class="tip-list">
+              <li><strong>The time allowance is for work-related things around tasks</strong>, Slack, Zoom or Meet with your Pod Lead.</li>
+              <li><strong>Once you&#8217;ve used it, your timer keeps running</strong>, but time off task isn&#8217;t paid until the allowance resets.</li>
+              <li><strong>Training and calibration within the training cap don&#8217;t count against it</strong>, on both image and video projects.</li>
+            </ul>
+
+            <h4 class="pay-h">Where to track it</h4>
+            <p>Sessions and Activity are now one page at <a href="https://workada.com/sessions" target="_blank" rel="noopener">workada.com/sessions</a>. It shows your paid task time, how much allowance you have left, any unpaid time past the allowance, paused time, and when your allowance resets.</p>
+
+            <h4 class="pay-h">Aim for 85% productive time</h4>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- SECTION 1 -->
     <section class="acc-item" data-index="0">
       <span class="corner-bl"></span><span class="corner-br"></span>
       <button class="acc-header" aria-expanded="false">
         <div class="acc-header-left">
-          <span class="acc-tag">01</span>
+          <span class="acc-tag">03</span>
           <div>
             <div class="acc-title">Set of Questions You Should Ask Yourself on Every Task</div>
             <div class="acc-sub">Six steps, start to submit</div>
@@ -3292,7 +3488,7 @@
       <span class="corner-bl"></span><span class="corner-br"></span>
       <button class="acc-header" aria-expanded="false">
         <div class="acc-header-left">
-          <span class="acc-tag">02</span>
+          <span class="acc-tag">04</span>
           <div>
             <div class="acc-title">Examples of Stellar Work</div>
             <div class="acc-sub">Real 5/5 tasks, and what made them land</div>
@@ -3388,7 +3584,7 @@
       <span class="corner-bl"></span><span class="corner-br"></span>
       <button class="acc-header" aria-expanded="false">
         <div class="acc-header-left">
-          <span class="acc-tag">03</span>
+          <span class="acc-tag">05</span>
           <div>
             <div class="acc-title">Image Evaluation Instructions</div>
             <div class="acc-sub">The five questions in depth, and where tricky observations belong</div>
@@ -3563,7 +3759,7 @@
       <span class="corner-bl"></span><span class="corner-br"></span>
       <button class="acc-header" aria-expanded="false">
         <div class="acc-header-left">
-          <span class="acc-tag">04</span>
+          <span class="acc-tag">06</span>
           <div>
             <div class="acc-title">Tips &amp; Tricks</div>
             <div class="acc-sub">Staying attentive to details, and Instruction Following vs. Correctness</div>
@@ -3664,7 +3860,7 @@
       <span class="corner-bl"></span><span class="corner-br"></span>
       <button class="acc-header" aria-expanded="false">
         <div class="acc-header-left">
-          <span class="acc-tag">05</span>
+          <span class="acc-tag">07</span>
           <div>
             <div class="acc-title">Common AI Errors</div>
             <div class="acc-sub">The eight patterns to know cold: what they look like and where they hide</div>
@@ -3733,7 +3929,7 @@
       <span class="corner-bl"></span><span class="corner-br"></span>
       <button class="acc-header" aria-expanded="false">
         <div class="acc-header-left">
-          <span class="acc-tag">06</span>
+          <span class="acc-tag">08</span>
           <div>
             <div class="acc-title">Visual Quality Vocabulary</div>
             <div class="acc-sub">Name the characteristic, not the vibe: a photographic cheat sheet</div>
@@ -3852,7 +4048,7 @@
       <span class="corner-bl"></span><span class="corner-br"></span>
       <button class="acc-header" aria-expanded="false">
         <div class="acc-header-left">
-          <span class="acc-tag">07</span>
+          <span class="acc-tag">09</span>
           <div>
             <div class="acc-title">Writing Justifications That Land</div>
             <div class="acc-sub">Spotting it is half the work</div>
@@ -3902,7 +4098,7 @@
       <span class="corner-bl"></span><span class="corner-br"></span>
       <button class="acc-header" aria-expanded="false">
         <div class="acc-header-left">
-          <span class="acc-tag">08</span>
+          <span class="acc-tag">10</span>
           <div>
             <div class="acc-title">Do's and Don'ts</div>
             <div class="acc-sub">The short version</div>
@@ -3946,7 +4142,7 @@
       <span class="corner-bl"></span><span class="corner-br"></span>
       <button class="acc-header" aria-expanded="false">
         <div class="acc-header-left">
-          <span class="acc-tag">09</span>
+          <span class="acc-tag">11</span>
           <div>
             <div class="acc-title">Official Multimango Task Guidelines</div>
             <div class="acc-sub">Full scoring reference for every task type</div>
@@ -4008,7 +4204,7 @@
       <span class="corner-bl"></span><span class="corner-br"></span>
       <button class="acc-header" aria-expanded="false">
         <div class="acc-header-left">
-          <span class="acc-tag">10</span>
+          <span class="acc-tag">12</span>
           <div>
             <div class="acc-title">Task Type Time Limits</div>
             <div class="acc-sub">How long you have for each task type</div>
@@ -4029,7 +4225,7 @@
       <span class="corner-bl"></span><span class="corner-br"></span>
       <button class="acc-header" aria-expanded="false">
         <div class="acc-header-left">
-          <span class="acc-tag">11</span>
+          <span class="acc-tag">13</span>
           <div>
             <div class="acc-title">MultiMango Voice Tasks</div>
             <div class="acc-sub">How voice tasks work, templates for a strong spoken justification, and the pitfalls that lower QA scores</div>
@@ -6336,6 +6532,7 @@
         <li><strong>Interview invitation.</strong> If you pass the screen, you’ll receive an email inviting you to an interview.</li>
         <li><strong>Interview.</strong> You’ll meet with a member of our team over Zoom.</li>
       </ol>
+      <div class="xref-callout"><span class="xref-text"><em>To learn more about your project specific set-up timeline, go to the Project Resources tab.</em></span></div>
     </div>
   </div>
 
@@ -6751,7 +6948,7 @@
   (function(){
 
   // accordion behaviour: multiple sections can be open at once
-  document.querySelectorAll('#tab-mm .acc-item, #tab-chartography .acc-item, #tab-video-caption .acc-item').forEach(item => {
+  document.querySelectorAll('#tab-mm .acc-item:not(.acc-static), #tab-chartography .acc-item:not(.acc-static), #tab-video-caption .acc-item:not(.acc-static)').forEach(item => {
     const btn = item.querySelector('.acc-header');
     btn.addEventListener('click', () => {
       const isOpen = item.classList.toggle('open');
