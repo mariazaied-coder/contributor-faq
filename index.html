@@ -2197,10 +2197,10 @@
   #tab-chartography .chart-ex img:hover{opacity:.92}
 
   /* Video Caption pre-submit checklist: each group label toggles its own list */
-  #vc-checklist .check-group-label{cursor:pointer;display:flex;align-items:baseline;justify-content:space-between;gap:10px;user-select:none}
-  #vc-checklist .check-group-label::after{content:"\25BE";font-size:10px;line-height:1;flex-shrink:0;transition:transform .18s ease}
-  #vc-checklist .check-group.collapsed .check-group-label::after{transform:rotate(-90deg)}
-  #vc-checklist .check-group.collapsed .check-list{display:none}
+  #vc-checklist .check-group-label, #vc-cal-checklist .check-group-label{cursor:pointer;display:flex;align-items:baseline;justify-content:space-between;gap:10px;user-select:none}
+  #vc-checklist .check-group-label::after, #vc-cal-checklist .check-group-label::after{content:"\25BE";font-size:10px;line-height:1;flex-shrink:0;transition:transform .18s ease}
+  #vc-checklist .check-group.collapsed .check-group-label::after, #vc-cal-checklist .check-group.collapsed .check-group-label::after{transform:rotate(-90deg)}
+  #vc-checklist .check-group.collapsed .check-list, #vc-cal-checklist .check-group.collapsed .check-list{display:none}
 
   /* ── ported with the Multimango tab update ── */
 /* ── FAQ toolbar (filter, most-asked, tags, section links) ── */
@@ -2406,6 +2406,18 @@
   #tab-video-caption .vc-part-note{margin:12px 0 0;padding:11px 15px;border-radius:10px;background:#f3f7fd;border:1px solid #e0e9f6;color:#4a5e73;font-size:14px;line-height:1.55}
   #tab-video-caption .vc-part ol li{margin-bottom:10px}
   #tab-video-caption .vc-part code{padding:1px 6px;border-radius:5px;background:#eef3ff;border:1px solid #d6e2ff;color:var(--navy);font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13px}
+
+  /* Video Caption calibration checklist */
+  #tab-video-caption .vc-cal-head{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  #tab-video-caption .vc-cal-head h3{margin:0}
+  #tab-video-caption .vc-cal-reset{flex:0 0 auto;padding:5px 13px;border:1px solid var(--border);border-radius:40px;background:#f8fafd;color:var(--navy);font-family:inherit;font-size:12.5px;font-weight:700;cursor:pointer;transition:background .15s ease,border-color .15s ease}
+  #tab-video-caption .vc-cal-reset:hover{background:#eef3ff;border-color:#c9d9f5}
+  #vc-cal-checklist .check-group{margin-bottom:14px}
+  #vc-cal-checklist .check-group:last-child{margin-bottom:0}
+  #vc-cal-checklist .check-group-label:focus-visible{outline:2px solid var(--blue);outline-offset:3px;border-radius:4px}
+
+  #vc-cal-checklist .check-text a{color:var(--blue);font-weight:600;text-decoration:underline}
+  #vc-cal-checklist .check-text a:hover{text-decoration:none}
 </style>
 </head>
 <body>
@@ -5785,7 +5797,96 @@ Do not label the golden INCORRECT merely because you cannot verify it.</pre>
         </a>
       </div>
     </div>
-  </section>
+  
+    <div class="ve-card">
+      <div class="vc-cal-head">
+        <h3>Calibration checklist</h3>
+        <button type="button" class="vc-cal-reset" id="vc-cal-reset">Reset</button>
+      </div>
+      <p>Work top to bottom and tick each box as you go. Open a section to see its steps.</p>
+
+      <div class="progress-wrap">
+        <div class="progress-track"><div class="progress-fill" id="vc-cal-fill"></div></div>
+        <span class="progress-label" id="vc-cal-label">0 / 33 checked</span>
+      </div>
+
+      <div id="vc-cal-checklist">
+          <div class="check-group">
+            <div class="check-group-label">1 &middot; Set up</div>
+            <ul class="check-list">
+              <li class="check-item"><span class="box"></span><span class="check-text">Task video and calibration caption open in the review UI</span></li>
+              <li class="check-item"><span class="box"></span><span class="check-text">Golden caption and the <a href="https://docs.google.com/spreadsheets/d/1fuWua6eaiGPSq2aWgSIJxgu5AKR0nlyDmGVbFctx3lE/edit?usp=sharing" target="_blank" rel="noopener">Self Serve Calibration Answer Key</a> open in a separate tab, not yet read</span></li>
+              <li class="check-item"><span class="box"></span><span class="check-text">A copy of the original caption saved, so you can compare later</span></li>
+              <li class="check-item"><span class="box"></span><span class="check-text">Mode chosen: <strong>guided practice</strong> (check after each section) or <strong>independent assessment</strong> (grade first, then check)</span></li>
+            </ul>
+          </div>
+          <div class="check-group collapsed">
+            <div class="check-group-label">2 &middot; First watch</div>
+            <ul class="check-list">
+              <li class="check-item"><span class="box"></span><span class="check-text">Watched the full clip with sound</span></li>
+              <li class="check-item"><span class="box"></span><span class="check-text">Read the calibration caption once, correcting nothing</span></li>
+            </ul>
+          </div>
+          <div class="check-group collapsed">
+            <div class="check-group-label">3 &middot; Review loop, once per section</div>
+            <ul class="check-list">
+              <li class="check-item"><span class="box"></span><span class="check-text"><strong>Review:</strong> replayed the segment</span></li>
+              <li class="check-item"><span class="box"></span><span class="check-text"><strong>Review:</strong> checked for wrong details, missing events, claims the clip doesn&#8217;t support, bad timing, contradictions</span></li>
+              <li class="check-item"><span class="box"></span><span class="check-text"><strong>Record:</strong> for each issue, noted where it is, what the caption claims, the evidence, your fix, your severity</span></li>
+              <li class="check-item"><span class="box"></span><span class="check-text"><strong>Record:</strong> noted anything you&#8217;re unsure about</span></li>
+              <li class="check-item"><span class="box"></span><span class="check-text"><strong>Check:</strong> read the golden caption for this section, then the answer key</span></li>
+              <li class="check-item"><span class="box"></span><span class="check-text"><strong>Check:</strong> confirmed which column is the reference and which is the altered caption</span></li>
+              <li class="check-item"><span class="box"></span><span class="check-text"><strong>Check:</strong> did I catch it? Is my fix supported by the clip? Does my severity match?</span></li>
+              <li class="check-item"><span class="box"></span><span class="check-text"><strong>Correct:</strong> replayed anything missed or disputed, and wrote one sentence on why the reference is right</span></li>
+              <li class="check-item"><span class="box"></span><span class="check-text"><strong>Correct:</strong> fixed every other mention the change affects (a speaker fix also hits voice details and the Overview)</span></li>
+              <li class="check-item"><span class="box"></span><span class="check-text"><strong>Correct:</strong> labelled anything found only after checking as answer-assisted, then closed the answer tab</span></li>
+            </ul>
+          </div>
+          <div class="check-group collapsed">
+            <div class="check-group-label">4 &middot; What each section covers</div>
+            <ul class="check-list">
+              <li class="check-item"><span class="box"></span><span class="check-text"><strong>Overview:</strong> characters, objects, setting, visual style, overall audio</span></li>
+              <li class="check-item"><span class="box"></span><span class="check-text"><strong>Each shot:</strong> camera and framing, scene, actions</span></li>
+              <li class="check-item"><span class="box"></span><span class="check-text"><strong>Each shot:</strong> dialogue, speakers, timestamps</span></li>
+              <li class="check-item"><span class="box"></span><span class="check-text"><strong>Each shot:</strong> on-screen text, transitions, playback speed</span></li>
+              <li class="check-item"><span class="box"></span><span class="check-text"><strong>Consistency pass:</strong> repeated details agree across the Overview, character descriptions and individual shots</span></li>
+            </ul>
+          </div>
+          <div class="check-group collapsed">
+            <div class="check-group-label">5 &middot; Log, one line per issue</div>
+            <ul class="check-list">
+              <li class="check-item"><span class="box"></span><span class="check-text">Logged: section or timestamp / claim / evidence and fix / severity / key entry / result / lesson</span></li>
+              <li class="check-item"><span class="box"></span><span class="check-text">Result marked: found independently, missed until answer check, severity disagreement, or extra flag to review</span></li>
+              <li class="check-item"><span class="box"></span><span class="check-text">Anything you flagged that isn&#8217;t in the key: evidence replayed, and raised with your Pod Lead if still unresolved</span></li>
+              <li class="check-item"><span class="box"></span><span class="check-text">Official grade assigned using the rubric&#8217;s own counting rules</span></li>
+            </ul>
+          </div>
+          <div class="check-group collapsed">
+            <div class="check-group-label">6 &middot; Final pass</div>
+            <ul class="check-list">
+              <li class="check-item"><span class="box"></span><span class="check-text">Read the caption end to end</span></li>
+              <li class="check-item"><span class="box"></span><span class="check-text">Character and object references, speakers, actions, timing, audio and the Overview all agree</span></li>
+              <li class="check-item"><span class="box"></span><span class="check-text">No new contradictions introduced by your fixes</span></li>
+            </ul>
+          </div>
+          <div class="check-group collapsed">
+            <div class="check-group-label">7 &middot; Retry what you missed</div>
+            <ul class="check-list">
+              <li class="check-item"><span class="box"></span><span class="check-text">Picked the categories you got wrong most often</span></li>
+              <li class="check-item"><span class="box"></span><span class="check-text">Answers hidden, segments replayed, correct judgment explained in your own words</span></li>
+            </ul>
+          </div>
+          <div class="check-group collapsed">
+            <div class="check-group-label">Done when</div>
+            <ul class="check-list">
+              <li class="check-item"><span class="box"></span><span class="check-text">Every discrepancy is explained or escalated</span></li>
+              <li class="check-item"><span class="box"></span><span class="check-text">Corrections are consistent across the whole caption</span></li>
+              <li class="check-item"><span class="box"></span><span class="check-text">You can say what you&#8217;ll check differently next time</span></li>
+            </ul>
+          </div>
+      </div>
+    </div>
+</section>
 
   <section id="vc-assembly" class="mm-section" style="scroll-margin-top:20px">
     <h2 class="mm-h">Assembly line task</h2>
@@ -7349,6 +7450,66 @@ Do not label the golden INCORRECT merely because you cannot verify it.</pre>
     });
   })();
 
+
+
+  // Video Caption calibration checklist (scoped: toggle, progress, fold, reset)
+  (function() {
+    var root = document.getElementById('vc-cal-checklist');
+    if(!root) return;
+    var items = root.querySelectorAll('.check-item');
+    var fill  = document.getElementById('vc-cal-fill');
+    var label = document.getElementById('vc-cal-label');
+    var reset = document.getElementById('vc-cal-reset');
+
+    function update(){
+      var done = root.querySelectorAll('.check-item.checked').length;
+      if(fill) fill.style.width = items.length ? (done / items.length * 100) + '%' : '0%';
+      if(label) label.textContent = done + ' / ' + items.length + ' checked';
+    }
+
+    items.forEach(function(item){
+      item.setAttribute('role','checkbox');
+      item.setAttribute('tabindex','0');
+      item.setAttribute('aria-checked','false');
+      function toggle(){
+        var on = item.classList.toggle('checked');
+        item.setAttribute('aria-checked', String(on));
+        update();
+      }
+      item.addEventListener('click', function(e){
+        if(e.target.closest('a')) return;   // let links open without ticking the box
+        toggle();
+      });
+      item.addEventListener('keydown', function(e){
+        if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); toggle(); }
+      });
+    });
+
+    root.querySelectorAll('.check-group-label').forEach(function(lab){
+      var group = lab.closest('.check-group');
+      lab.setAttribute('role','button');
+      lab.setAttribute('tabindex','0');
+      function sync(){ lab.setAttribute('aria-expanded', String(!group.classList.contains('collapsed'))); }
+      sync();
+      function fold(){ group.classList.toggle('collapsed'); sync(); }
+      lab.addEventListener('click', fold);
+      lab.addEventListener('keydown', function(e){
+        if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); fold(); }
+      });
+    });
+
+    if(reset){
+      reset.addEventListener('click', function(){
+        items.forEach(function(item){
+          item.classList.remove('checked');
+          item.setAttribute('aria-checked','false');
+        });
+        update();
+      });
+    }
+
+    update();
+  })();
 
   // Video Caption pre-submit checklist (scoped, separate from the Multimango list)
   (function() {
