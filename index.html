@@ -5066,6 +5066,8 @@
     <a href="#chart-about">About the project</a>
     <a href="#chart-guide">How to build a task</a>
     <a href="#chart-stump">Better ways to stump SOTA</a>
+    <a href="#chart-physics">Physics tasks</a>
+    <a href="#chart-chemistry">Chemistry tasks</a>
     <a href="#chart-faq">FAQ</a>
   </nav>
   <section id="chart-channels" class="mm-section" style="scroll-margin-top:20px">
@@ -5146,6 +5148,8 @@
     <div id="chart-links" style="scroll-margin-top:20px"></div><div class="ve-card"><h2>Key resources</h2>
     <ul>
       <li><a href="https://docs.google.com/document/d/1pM7VsGPiRFMnUjR_xcJXqPzyNfGBRJ0a17HzdxFsb64/edit?tab=t.0" target="_blank" rel="noopener">Welcome to Multimodal Science: Instruction Guide</a></li>
+      <li><a href="https://docs.google.com/document/d/1cgdoxqmMnMzeC1dlQOXh1PAlZo-RoOsX4uhGkjmZYNc/edit?tab=t.0" target="_blank" rel="noopener">Building High Quality Physics Tasks</a></li>
+      <li><a href="https://docs.google.com/document/d/1-sTueN90Vo8OaVYrN2zvebFgQYdFZ5Cx1CFwpSr_8zc/edit?tab=t.0" target="_blank" rel="noopener">Building High Quality Chemistry Tasks</a></li>
       <li><a href="https://docs.google.com/document/d/1FnaQAS510aUpWViXw7K9X_7AggvwgbAuCJQT9z0QP20/edit" target="_blank" rel="noopener">Multimodal Science Example Set</a></li>
       <li><a href="https://docs.google.com/document/d/11oHvsa9ul0qXUwTmGCH-8mOQV4KRi7YuzbauTCbvUzI/edit?tab=t.0" target="_blank" rel="noopener">Question Types &amp; Prompt-Writing Guide</a></li>
       <li><a href="https://docs.google.com/document/d/1ZAvu7HOCs45uC1YxkOQyMFyt_bJetaBKIGU6UOOjMbk/edit?tab=t.0" target="_blank" rel="noopener">Common Failure Patterns</a></li>
@@ -5636,6 +5640,332 @@
     </section>
   </section>
 
+  <section id="chart-physics" class="mm-section" style="scroll-margin-top:20px">
+    <h2 class="mm-h">Building high-quality physics tasks</h2>
+    <div class="ve-card">
+      <p>Physics tasks that share a few habits get through review far more often than the rest. This section shows what those tasks have in common and how to build yours the same way. Run through the checklist at the end before every physics submission.</p>
+      <p>Updated Oct 30, 2026. Full guide: <a href="https://docs.google.com/document/d/1cgdoxqmMnMzeC1dlQOXh1PAlZo-RoOsX4uhGkjmZYNc/edit?tab=t.0" target="_blank" rel="noopener">Building High Quality Physics Tasks</a>.</p>
+    </div>
+
+    <div class="ve-card"><h2>What successful physics tasks have in common</h2>
+      <p>Some diagram types get through more often than others. Generated maps, Smith charts and detector event displays make it about 3 times in 4. Circuits and optics spectra make it about 1 time in 5.</p>
+      <div class="ms-table-wrap"><table class="ms-table">
+        <tr><th>Diagram type</th><th>Made it through</th></tr>
+        <tr><td>Smith charts and RF feeds</td><td><b>80%</b></td></tr>
+        <tr><td>Detector event displays</td><td><b>78%</b></td></tr>
+        <tr><td>Field, potential and flow contour maps</td><td><b>74%</b></td></tr>
+        <tr><td>Trajectories and time series</td><td>56%</td></tr>
+        <tr><td>Thermo, phase and process charts</td><td>50%</td></tr>
+        <tr><td>Materials and mechanics curves</td><td>31%</td></tr>
+        <tr><td>Band structure and lattices</td><td>22%</td></tr>
+        <tr><td>Optics maps and spectra</td><td>20%</td></tr>
+        <tr><td>Circuit schematics (generated)</td><td>20%</td></tr>
+        <tr><td>Existing appliance schematics</td><td>0%</td></tr>
+        <tr><td><i>All physics tasks</i></td><td><i>47%</i></td></tr>
+      </table></div>
+      <p>Whatever the diagram, the tasks that make it tend to share four things:</p>
+      <ul>
+        <li><b>A question that takes several steps.</b> About 65% of multi-step reasoning tasks make it. Single calculations and concept questions almost never do, because the model can already answer them.</li>
+        <li><b>Lots of labelled objects,</b> so the model has to work across many readings.</li>
+        <li><b>A prompt that passes the first time.</b> Could two careful solvers read it and reach different answers? State every input, keep cutoffs clear of the data, and fix the answer format.</li>
+        <li><b>A short, numeric answer</b> in a fixed format, like <span class="ms-code">3; 1050</span>, often with a tolerance range.</li>
+      </ul>
+    </div>
+
+    <section class="acc-item" data-index="0">
+      <span class="corner-bl"></span><span class="corner-br"></span>
+      <button class="acc-header" aria-expanded="false">
+        <div class="acc-header-left">
+          <span class="acc-tag">01</span>
+          <div>
+            <div class="acc-title">Six habits that get more of your tasks through</div>
+            <div class="acc-sub">Steps, labels, cutoffs, terms, templates and real physics</div>
+          </div>
+        </div>
+        <span class="loupe"></span>
+      </button>
+      <div class="acc-panel">
+        <div class="acc-panel-inner">
+          <div class="acc-body">
+            <ol>
+              <li><b>Ask a question that takes several steps.</b> Have the solver read several values off the figure, apply a physical rule to each, and combine the results. “What is the current through R3?” is one step. “Which alloys meet all three limits, and what is the sum of their yield strengths?” is several.</li>
+              <li><b>Fill the figure with labelled objects.</b> Give every curve, charge or component its own label so solvers can refer to them, and upload the script that reproduces the PNG exactly. Tasks without a working script are rejected.</li>
+              <li><b>Keep cutoffs away from the data.</b> Put values on the grid where you can, and leave at least two gridlines between any cutoff and the nearest data point. Don’t ask for more precision than the axis shows.</li>
+              <li><b>Spell out every term and assumption.</b> Say what each symbol means, which parts are ideal, and how to handle edge cases, such as whether wires that cross without a dot are connected.</li>
+              <li><b>Give an exact answer template.</b> State the format, rounding and units with an example, and ask for two or three outputs at most. Skip multiple choice and free-form responses.</li>
+              <li><b>Make the physics the hard part.</b> Tracing lines is fine when the paths and crossings mean something physical, like two antenna patterns swapping which has more gain. Tasks get sent back when the diagram itself breaks physics. The image should be necessary, so don’t list the values the solver needs in the prompt.</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="acc-item" data-index="1">
+      <span class="corner-bl"></span><span class="corner-br"></span>
+      <button class="acc-header" aria-expanded="false">
+        <div class="acc-header-left">
+          <span class="acc-tag">02</span>
+          <div>
+            <div class="acc-title">What your feedback is telling you</div>
+            <div class="acc-sub">Common feedback and what to change</div>
+          </div>
+        </div>
+        <span class="loupe"></span>
+      </button>
+      <div class="acc-panel">
+        <div class="acc-panel-inner">
+          <div class="acc-body">
+            <div class="ms-table-wrap"><table class="ms-table">
+              <tr><th>If your feedback mentions</th><th>Try this</th></tr>
+              <tr><td>Boundary or cutoff stability</td><td>Move the cutoff into a clear gap, at least two gridlines from any data point.</td></tr>
+              <tr><td>A missing input or undefined term</td><td>Add the value or rule to the prompt, such as “take VBE = 0.7 V”.</td></tr>
+              <tr><td>Answer form or format</td><td>Add an exact template with an example, rounding and units.</td></tr>
+              <tr><td>Image dependence</td><td>Point to targets by label or position instead of giving their values.</td></tr>
+              <tr><td>Too many outputs</td><td>Cut it to two linked questions.</td></tr>
+              <tr><td>Realism, or “tests line-following”</td><td>Ask what a physicist would ask about the same figure.</td></tr>
+              <tr><td>Errors in the golden answer or steps</td><td>Recompute from your script output, carry units through, and round at the end.</td></tr>
+              <tr><td>The model solved it</td><td>Add steps that combine several readings, rather than making the figure harder to read.</td></tr>
+            </table></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="acc-item" data-index="2">
+      <span class="corner-bl"></span><span class="corner-br"></span>
+      <button class="acc-header" aria-expanded="false">
+        <div class="acc-header-left">
+          <span class="acc-tag">03</span>
+          <div>
+            <div class="acc-title">A physics task that got it right</div>
+            <div class="acc-sub">Stress-strain curves for eight alloys, cleared on the first try</div>
+          </div>
+        </div>
+        <span class="loupe"></span>
+      </button>
+      <div class="acc-panel">
+        <div class="acc-panel-inner">
+          <div class="acc-body">
+            <p><b>Prompt:</b> <i>The plot shows stress-strain curves for eight alloys, M1 to M8, each drawn as straight segments between kink points and ending at a fracture point. The yield strength is the stress at the first kink, and the toughness is the area under the curve. All kinks and fracture points lie on the grid (strain a multiple of 0.01, stress a multiple of 25 MPa). (1) How many alloys have a yield strength of at least 300 MPa, a fracture strain of at least 0.20, and a toughness of at least 45? (2) What is the sum of the yield strengths of those alloys, in MPa? Give the answer in exactly this form: the count for (1), then “; ”, then the sum for (2), for example: 2; 800. Output only this string.</i></p>
+            <p><b>Golden answer:</b> <span class="ms-code">3; 1050</span></p>
+            <p><b>Step-by-step solution:</b></p>
+            <ol>
+              <li>For each alloy, read its yield point (first kink) and its fracture point (the cross), and compute the area under its curve trapezoid by trapezoid between consecutive kinks.</li>
+              <li>M1: yield 400 MPa, fracture strain 0.24, toughness 8 + 25.5 + 37 + 27 = 97.5, so it qualifies. M2: yield 300 MPa, fracture strain 0.20, toughness 4.5 + 16.25 + 21.75 + 21.75 = 64.25, so it qualifies.</li>
+              <li>M7: yield 350 MPa, fracture strain 0.22, toughness 5.25 + 21.75 + 23.25 + 26.25 = 76.5, so it qualifies.</li>
+              <li>M3: yield 350 MPa and toughness 59.75, but fracture strain only 0.18, so it fails. M5: yield 500 MPa and toughness 56, but fracture strain only 0.14, so it fails.</li>
+              <li>M4: fracture strain 0.28 and toughness 106, but yield strength only 250 MPa, so it fails. M8: yield 450 MPa, but fracture strain 0.09 and toughness 29.75, so it fails. M6: yield 300 MPa, but fracture strain 0.08 and toughness 18.5, so it fails.</li>
+              <li>Part (1): M1, M2 and M7, so 3 alloys. Part (2): 400 + 300 + 350 = 1050 MPa.</li>
+              <li>Answer: 3; 1050</li>
+            </ol>
+            <h4>Why this task worked</h4>
+            <p>Labelled objects, values on the grid, defined terms, several steps and a locked format. It cleared the prompt, answer and difficulty checks on the first try.</p>
+            <p>For more strong physics tasks, see the <a href="https://docs.google.com/document/d/1FnaQAS510aUpWViXw7K9X_7AggvwgbAuCJQT9z0QP20/edit?tab=t.0" target="_blank" rel="noopener">Example Set</a>.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="acc-item" data-index="3">
+      <span class="corner-bl"></span><span class="corner-br"></span>
+      <button class="acc-header" aria-expanded="false">
+        <div class="acc-header-left">
+          <span class="acc-tag">04</span>
+          <div>
+            <div class="acc-title">Before you submit a physics task</div>
+            <div class="acc-sub">Seven checks, on top of the general checklist</div>
+          </div>
+        </div>
+        <span class="loupe"></span>
+      </button>
+      <div class="acc-panel">
+        <div class="acc-panel-inner">
+          <div class="acc-body">
+            <ul id="chart-physics-checklist" class="check-list">
+              <li class="check-item"><span class="box"></span><span class="check-text">The question needs several readings from the figure, combined with a physical rule.</span></li>
+              <li class="check-item"><span class="box"></span><span class="check-text">The figure comes from an uploaded script or simulator file that reproduces the PNG exactly.</span></li>
+              <li class="check-item"><span class="box"></span><span class="check-text">If a reasonable reading of a data point near a cutoff could change the answer, the golden answer includes a tolerance interval that covers it.</span></li>
+              <li class="check-item"><span class="box"></span><span class="check-text">Every symbol, convention and idealization the answer depends on is stated in the prompt.</span></li>
+              <li class="check-item"><span class="box"></span><span class="check-text">The prompt gives an exact answer template with an example, rounding and units.</span></li>
+              <li class="check-item"><span class="box"></span><span class="check-text">The golden answer is short, numeric where possible, and includes a tolerance range where needed.</span></li>
+              <li class="check-item"><span class="box"></span><span class="check-text">You recomputed the golden answer from the source data, and every step uses only values readable from the image.</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </section>
+
+  <section id="chart-chemistry" class="mm-section" style="scroll-margin-top:20px">
+    <h2 class="mm-h">Building high-quality chemistry tasks</h2>
+    <div class="ve-card">
+      <p>Most chemistry tasks are stopped at the difficulty check, because the model gets the answer right. The tasks that get through put the hard part in the diagram, not in chemistry the model already knows or in rules written into the prompt. This section shows what holds up against the model and how to build your tasks around it.</p>
+      <p>Updated Nov 1, 2026. Full guide: <a href="https://docs.google.com/document/d/1-sTueN90Vo8OaVYrN2zvebFgQYdFZ5Cx1CFwpSr_8zc/edit?tab=t.0" target="_blank" rel="noopener">Building High Quality Chemistry Tasks</a>.</p>
+    </div>
+
+    <div class="ve-card"><h2>What the model can and can’t solve</h2>
+      <p>Tasks that make the solver read stereochemistry off the diagram (wedges, Fischer projections, chairs) get through most often. Tasks built on plots or well-known reactions are the ones the model most often solves.</p>
+      <div class="ms-table-wrap"><table class="ms-table">
+        <tr><th>Diagram type</th><th>Made it through</th><th>Got past the difficulty check</th></tr>
+        <tr><td>Stereochemistry drawings (Fischer, wedge-dash, chairs, Newman)</td><td><b>73%</b></td><td>57%</td></tr>
+        <tr><td>Crystal structures and 3D models</td><td>53%</td><td>50%</td></tr>
+        <tr><td>Reaction schemes and syntheses</td><td>53%</td><td>38%</td></tr>
+        <tr><td>Single structures with labelled atoms</td><td>45%</td><td><b>64%</b></td></tr>
+        <tr><td>Plots (isotherms, phase diagrams, energy profiles)</td><td>20%</td><td>6%</td></tr>
+        <tr><td><i>All chemistry tasks</i></td><td><i>61%</i></td><td><i>46%</i></td></tr>
+      </table></div>
+      <p>Figures are for first-attempt chemistry tasks.</p>
+    </div>
+
+    <section class="acc-item" data-index="0">
+      <span class="corner-bl"></span><span class="corner-br"></span>
+      <button class="acc-header" aria-expanded="false">
+        <div class="acc-header-left">
+          <span class="acc-tag">01</span>
+          <div>
+            <div class="acc-title">Six habits that get more of your chemistry tasks through</div>
+            <div class="acc-sub">Stereochemistry, conventions, SMILES and one clear answer</div>
+          </div>
+        </div>
+        <span class="loupe"></span>
+      </button>
+      <div class="acc-panel">
+        <div class="acc-panel-inner">
+          <div class="acc-body">
+            <ol>
+              <li><b>Make the stereochemistry carry the difficulty.</b> Ask for CIP descriptors (R/S, E/Z, Rp/Sp) at labelled centres, ideally after a stereospecific step. These made it 83% of the time, against 45% for other tasks. Isotope labels that set priority are especially hard.</li>
+              <li><b>State every convention.</b> Say what wedges, hashes and Fischer crosses mean, which atom each group attaches through, and that unmarked atoms are <sup>12</sup>C, <sup>16</sup>O and protium. Tasks that did this made it 83% of the time, against 42%.</li>
+              <li><b>Skip anything a chemist could answer from memory.</b> The model reliably gets a named reaction’s product, a calculation from plot values or a colour-key lookup. Make the answer hinge on a detail only the image shows, like which carbon is labelled.</li>
+              <li><b>Pin down SMILES or leave them out.</b> SMILES answers made it 41% of the time, against 67% without. If you need one, ask for RDKit canonical isomeric SMILES, give the count and order, and check that each string parses.</li>
+              <li><b>Leave room for one answer.</b> Name the resonance form, pathway, geometry and what to count. Clashing R/S or point-group answers are the top reason tasks are sent back.</li>
+              <li><b>Add complexity to the diagram.</b> The model follows written rules well, so add a stereocentre, a labelled atom or a conformation instead of more instructions.</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="acc-item" data-index="1">
+      <span class="corner-bl"></span><span class="corner-br"></span>
+      <button class="acc-header" aria-expanded="false">
+        <div class="acc-header-left">
+          <span class="acc-tag">02</span>
+          <div>
+            <div class="acc-title">What your feedback is telling you</div>
+            <div class="acc-sub">Common chemistry feedback and what to change</div>
+          </div>
+        </div>
+        <span class="loupe"></span>
+      </button>
+      <div class="acc-panel">
+        <div class="acc-panel-inner">
+          <div class="acc-body">
+            <div class="ms-table-wrap"><table class="ms-table">
+              <tr><th>If your feedback mentions</th><th>Try this</th></tr>
+              <tr><td>Not stumped: the model solved it</td><td>Put the difficulty in the drawing: more stereocentres, a labelled atom, or a view to convert.</td></tr>
+              <tr><td>Geometry or stereo not established by the image</td><td>Label the centres, add a second view, or state the geometry to assume.</td></tr>
+              <tr><td>Undefined term, category or scope</td><td>Define the boundary, such as what counts as K ≈ 1.</td></tr>
+              <tr><td>Stereo misread in the steps</td><td>Re-derive wedges, hashes and CIP priorities from the drawing and your authoring file.</td></tr>
+              <tr><td>Golden answer format</td><td>Match the template exactly, with nothing extra.</td></tr>
+            </table></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="acc-item" data-index="2">
+      <span class="corner-bl"></span><span class="corner-br"></span>
+      <button class="acc-header" aria-expanded="false">
+        <div class="acc-header-left">
+          <span class="acc-tag">03</span>
+          <div>
+            <div class="acc-title">Writing a strong step-by-step</div>
+            <div class="acc-sub">Results, traceable CIP calls and an exact final answer</div>
+          </div>
+        </div>
+        <span class="loupe"></span>
+      </button>
+      <div class="acc-panel">
+        <div class="acc-panel-inner">
+          <div class="acc-body">
+            <ol>
+              <li><b>Show results, not instructions.</b> Each step should state what it found, such as the priority order or the R/S label, not “assign priorities” or “canonicalize in RDKit”. This is the most common problem.</li>
+              <li><b>Read every fact from the drawing and say where it is.</b> Name the atom, label or panel each step uses. Recheck wedges against hashes, ring size, heteroatoms and attachment points.</li>
+              <li><b>Make every CIP call traceable.</b> For each centre, list the attached atoms, the priority order and the 1→2→3 direction. Reverse the result when the lowest priority points toward the viewer. Do this for every centre, not just the first.</li>
+              <li><b>Use only what the solver sees.</b> Don’t pull values from the authoring file or the image description, don’t add outside conditions, and don’t check your work against the golden answer.</li>
+              <li><b>Build any SMILES inside the steps.</b> Give the atom order and the neighbours behind each @ or @@, then paste the exact string RDKit returns. Only say a string parses or canonicalizes if you actually ran it.</li>
+              <li><b>End on the golden answer, exactly.</b> The last step should give the final answer in the same value and format as the golden answer. Carry full precision through the steps and round only at the end.</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="acc-item" data-index="3">
+      <span class="corner-bl"></span><span class="corner-br"></span>
+      <button class="acc-header" aria-expanded="false">
+        <div class="acc-header-left">
+          <span class="acc-tag">04</span>
+          <div>
+            <div class="acc-title">A chemistry task that got it right</div>
+            <div class="acc-sub">Naming a stereoisomer from two 3D views, passed every check first time</div>
+          </div>
+        </div>
+        <span class="loupe"></span>
+      </button>
+      <div class="acc-panel">
+        <div class="acc-panel-inner">
+          <div class="acc-body">
+            <p><b>Prompt:</b> <i>The two images show the same organic molecule from different three-dimensional viewing angles. The atoms are represented using a ball-and-stick model. Atom colors: Grey = Carbon, White = Hydrogen, Bright red = oxygen, Dark red = Bromine. Using the molecular structure shown in the images, determine the correct IUPAC name of the compound. In your solution: (1) Identify every stereogenic carbon using the carbon numbering of the parent structure in the final IUPAC name (e.g. C1, C2, etc). (2) State the complete IUPAC name with its applicable stereochemical descriptors. Determine the stereochemistry from the three-dimensional arrangement of the atoms. Present the final answer in the following format: (Stereogenic carbons: , IUPAC name: ). List all stereogenic carbons in ascending numerical order. Do not include explanations, reasoning, or extra text.</i></p>
+            <p><b>Golden answer:</b> <span class="ms-code">(Stereogenic carbons: C4, C5, IUPAC name: (4R, 5S)-5-bromo-4-hydroxy-6-methylheptan-2-one)</span></p>
+            <p><b>Step-by-step solution:</b></p>
+            <ol>
+              <li>Identify the molecular structure: the longest carbon chain containing the ketone has 7 carbons, with hydroxyl, bromo and methyl substituents, so the parent structure is a heptanone.</li>
+              <li>Assign numbers: the ketone has the highest priority, so number from the end nearest it. C1 is the terminal CH3, C2 is the C=O, C3 is the CH2, C4 carries the OH, C5 carries the Br, C6 carries the CH3 substituent, and C7 is the terminal CH3.</li>
+              <li>Combine the parent name with the highest-priority suffix: the ketone is at C2, so the parent name is heptan-2-one.</li>
+              <li>Identify and name the substituents: C4 hydroxy, C5 bromo, C6 methyl. In alphabetical order this gives 5-bromo-4-hydroxy-6-methylheptan-2-one.</li>
+              <li>Identify stereogenic carbons: C4 and C5 each carry four different groups. C6 has two identical CH3 groups, so it isn’t a stereocentre. The stereogenic carbons are C4 and C5.</li>
+              <li>Assign CIP priorities at C4: C4 carries OH, H, the chain toward C3 and the chain toward C5. The order is OH (1), toward C5 (2), toward C3 (3), H (4); the C5 path outranks the C3 path because its next atoms are (Br, C, H) against (C, H, H). With H pointing away from the viewer, 1→2→3 runs clockwise, so C4 is R.</li>
+              <li>Assign CIP priorities at C5: C5 carries Br, H, the chain toward C4 and the chain toward C6. The order is Br (1), toward C4 (2), toward C6 (3), H (4); the C4 path outranks the C6 path because its next atoms are (O, C, H) against (C, C, H). With H at the back, 1→2→3 runs counterclockwise, so C5 is S.</li>
+              <li>Combine the descriptors with the name: (4R, 5S)-5-bromo-4-hydroxy-6-methylheptan-2-one.</li>
+            </ol>
+            <h4>Why this task worked</h4>
+            <p>Two views fix the 3D shape, the format is locked, and the answer was verified automatically. It passed every check the first time.</p>
+            <p>For more strong chemistry tasks, see the <a href="https://docs.google.com/document/d/1FnaQAS510aUpWViXw7K9X_7AggvwgbAuCJQT9z0QP20/edit?tab=t.0" target="_blank" rel="noopener">Example Set</a>.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="acc-item" data-index="4">
+      <span class="corner-bl"></span><span class="corner-br"></span>
+      <button class="acc-header" aria-expanded="false">
+        <div class="acc-header-left">
+          <span class="acc-tag">05</span>
+          <div>
+            <div class="acc-title">Before you submit a chemistry task</div>
+            <div class="acc-sub">Six checks, on top of the general checklist</div>
+          </div>
+        </div>
+        <span class="loupe"></span>
+      </button>
+      <div class="acc-panel">
+        <div class="acc-panel-inner">
+          <div class="acc-body">
+            <ul id="chart-chemistry-checklist" class="check-list">
+              <li class="check-item"><span class="box"></span><span class="check-text">The answer depends on something only the drawing shows.</span></li>
+              <li class="check-item"><span class="box"></span><span class="check-text">A chemist couldn’t answer it from memory of a named reaction or a standard plot.</span></li>
+              <li class="check-item"><span class="box"></span><span class="check-text">Wedges, Fischer crosses, attachment atoms and isotopes are all defined.</span></li>
+              <li class="check-item"><span class="box"></span><span class="check-text">The resonance form, pathway, geometry and counting rules leave only one answer.</span></li>
+              <li class="check-item"><span class="box"></span><span class="check-text">The answer template is exact, and any SMILES has a stated form and order.</span></li>
+              <li class="check-item"><span class="box"></span><span class="check-text">You re-derived every R/S assignment and SMILES from the diagram and the authoring file.</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </section>
+
   <section id="chart-faq" class="mm-section" style="scroll-margin-top:20px">
     <h2 class="mm-h">Multimodal Science FAQ</h2>
     <div class="faq-section">
@@ -5648,7 +5978,7 @@
           <span class="faq-q-num">1</span> <span class="faq-q-text">How long do I have to complete training?</span>
           <span class="chevron">▼</span>
         </button>
-        <div class="faq-a"><p>Reading the instructions and completing the training modules have a paid time cap of 1.5 hours for Multimodal Science, billable on the Workada timer. If you’re on more than one Workada project, select “Multimodal Science” in the timer app before you start logging time. This limit covers everything you need, and we're confident it provides enough time for most contributors. Once you reach the cap, you're welcome to continue with your timer turned off, but any time beyond that won't be compensated.</p></div>
+        <div class="faq-a"><p>Reading the instructions, completing the training modules and your calibration task have a paid time cap of 2 hours for Multimodal Science, billable on the Workada timer. If you’re on more than one Workada project, select “Multimodal Science” in the timer app before you start logging time. This limit covers everything you need, and we're confident it provides enough time for most contributors. Once you reach the cap, you're welcome to continue with your timer turned off, but any time beyond that won't be compensated.</p></div>
       </div>
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">
@@ -5693,10 +6023,23 @@
       </div>
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">
-          <span class="faq-q-num">7</span> <span class="faq-q-text">Can I release a task I claimed?</span>
+          <span class="faq-q-num">7</span> <span class="faq-q-text">How do claiming and holding tasks work?</span>
           <span class="chevron">▼</span>
         </button>
-        <div class="faq-a"><p>No. Once you claim a task you can’t release it, and if you don’t finish Step 1 within 1 hour, the claim expires and the task returns to the pool. You can hold up to 3 tasks at once, so only claim when you’re ready to build a diagram, or when you already have one built.</p></div>
+        <div class="faq-a"><ul>
+          <li><b>How many at once:</b> up to 3. With three open, you can’t claim another until you clear one. Tasks that are sent back to you can take you above three for a while.</li>
+          <li><b>Time limits:</b> only Step 1 has one. Submit it within 1 hour of claiming, or the task returns to the pool. After that, tasks don’t expire. If one disappears, send us the task ID so we can check.</li>
+          <li><b>Releasing a task:</b> you can’t release a task once you’ve claimed it, so only claim when you’re ready to build a diagram, or when you already have one built.</li>
+          <li><b>“Claim next blank task” is unavailable:</b> there have been times when no blank tasks were available. We post in #multimodal-science-discussion when tasks are available again.</li>
+          <li><b>The task you claimed is already filled out:</b> skip it for now. We’re working on a fix.</li>
+        </ul></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-q-num">8</span> <span class="faq-q-text">Can I change a task after I’ve submitted a step? Can I edit a prompt at a later step?</span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="faq-a"><p>Yes, but editing the prompt at a later step sends it back through prompt review. That review counts toward your 3 tries, and it can catch something it missed before. Once a task has been sent back a couple of times, avoid small edits unless they’re needed.</p></div>
       </div>
     </div>
     <div class="faq-section">
@@ -5706,21 +6049,21 @@
       </div>
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">
-          <span class="faq-q-num">8</span> <span class="faq-q-text">What do I do if I disagree with a review decision?</span>
+          <span class="faq-q-num">9</span> <span class="faq-q-text">What do I do if I disagree with a review decision?</span>
           <span class="chevron">▼</span>
         </button>
         <div class="faq-a"><p>Bring it to your Pod Lead with the task link and the specific part of the review you think was mis-scored. Your Pod Lead is listed under <b>Support</b> in your Workada Dashboard.</p></div>
       </div>
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">
-          <span class="faq-q-num">9</span> <span class="faq-q-text">Is there a form to appeal an AI Quality review?</span>
+          <span class="faq-q-num">10</span> <span class="faq-q-text">Is there a form to appeal an AI Quality review?</span>
           <span class="chevron">▼</span>
         </button>
         <div class="faq-a"><p>There's no standard appeal form. Take the same route as above: bring it to your Pod Lead with the task link and the part of the review in question.</p></div>
       </div>
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">
-          <span class="faq-q-num">10</span> <span class="faq-q-text">Where do I ask questions?</span>
+          <span class="faq-q-num">11</span> <span class="faq-q-text">Where do I ask questions?</span>
           <span class="chevron">▼</span>
         </button>
         <div class="faq-a"><p>Ask in #multimodal-science-onboarding while you’re in training, and in #multimodal-science-discussion once you’ve started tasking. It’s the fastest route, and the answer helps everyone else onboarding too. For anything private, message your Pod Lead, who is listed under <b>Support</b> in your Workada Dashboard.</p></div>
@@ -8053,6 +8396,20 @@
   // Chartography sourcing checklist (scoped, simple toggle only)
   (function() {
     document.querySelectorAll('#chart-sourcing-checklist .check-item').forEach(item => {
+      item.addEventListener('click', () => { item.classList.toggle('checked'); });
+    });
+  })();
+
+  // Multimodal Science chemistry checklist (scoped, simple toggle only)
+  (function() {
+    document.querySelectorAll('#chart-chemistry-checklist .check-item').forEach(item => {
+      item.addEventListener('click', () => { item.classList.toggle('checked'); });
+    });
+  })();
+
+  // Multimodal Science physics checklist (scoped, simple toggle only)
+  (function() {
+    document.querySelectorAll('#chart-physics-checklist .check-item').forEach(item => {
       item.addEventListener('click', () => { item.classList.toggle('checked'); });
     });
   })();
