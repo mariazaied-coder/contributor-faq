@@ -2501,6 +2501,60 @@
     #tab-mm .ve-card .iei-pair{grid-template-columns:1fr}
     #tab-mm .ve-card .iei-dim{padding:4px 0 0}
   }
+  #tab-mm .mm-timer-card{border-left:4px solid var(--blue)}
+  #tab-mm .ve-card a.mm-timer-btn{display:inline-block;margin-top:6px;background:var(--navy);color:#fff;font-weight:600;font-size:15px;text-decoration:none;padding:11px 20px;border-radius:999px}
+  #tab-mm .ve-card a.mm-timer-btn:hover{background:#0d3d85}
+  #tab-mm .ve-card a.mm-timer-btn:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+    #tab-paypolicy .rl .rl-col ul li{font-size:13.5px;line-height:1.45;padding:0 0 0 16px;margin:0 0 6px;border-bottom:0}
+  #tab-paypolicy .rl .rl-col ul li:last-child{margin-bottom:0}
+  #tab-paypolicy .rl .rl-yes ul li::before{content:"✓";color:#0E8FAE}
+  #tab-paypolicy .rl .rl-no ul li::before{content:"×";color:#D7263D}
+  /* ── Red timer label explainer ── */
+  .rl{margin:6px 0 18px;color:#092E65;font-family:'Libre Franklin',system-ui,sans-serif}
+  .rl-chips{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:0 0 10px}
+  .rl-chip{display:inline-flex;align-items:center;gap:6px;background:#FF7D7E;color:#092E65;font-weight:700;font-size:13px;line-height:1;padding:7px 12px;border-radius:999px}
+  .rl-chip::before{content:"";width:7px;height:7px;border-radius:50%;background:#092E65}
+  .rl-or{font-size:13px;color:#6B6B6B}
+  .rl .rl-lead{font-size:15px;line-height:1.55;margin:0 0 14px;color:#092E65}
+  .rl-pay{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:0 0 12px}
+  .rl-col{border-radius:12px;padding:12px 14px;background:#fff;border:1px solid rgba(9,46,101,.14)}
+  .rl-yes{border-top:3px solid #1DB5DA}
+  .rl-no{border-top:3px solid #FF7D7E}
+  .rl .rl-col h5{font-family:'Libre Franklin',system-ui,sans-serif;font-size:13px;font-weight:700;margin:0 0 6px;color:#092E65;letter-spacing:0}
+  .rl .rl-col ul{list-style:none;margin:0;padding:0}
+  .rl .rl-col li{font-size:13.5px;line-height:1.45;margin:0 0 6px;padding-left:16px;position:relative;color:#092E65}
+  .rl .rl-col li:last-child{margin-bottom:0}
+  .rl-yes li::before{content:"✓";position:absolute;left:0;color:#0E8FAE;font-weight:700}
+  .rl-no li::before{content:"×";position:absolute;left:0;color:#D7263D;font-weight:700}
+  .rl-steps{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .rl-step{background:#F7F3EA;border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:4px}
+  .rl-q{font-weight:700;font-size:14px;color:#092E65}
+  .rl-a{font-size:13.5px;line-height:1.45;color:#092E65}
+  @media (max-width:640px){.rl-pay,.rl-steps{grid-template-columns:1fr}}
+  /* Code of Conduct toggles */
+  #tab-coc details.coc-toggle{margin:16px 0 0;border:1px solid var(--border);border-radius:14px;background:#fff;overflow:hidden}
+  #tab-coc details.coc-toggle>summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:16px;padding:16px 20px}
+  #tab-coc details.coc-toggle>summary::-webkit-details-marker{display:none}
+  #tab-coc details.coc-toggle>summary:hover{background:#FBF9F4}
+  #tab-coc details.coc-toggle>summary:focus-visible{outline:2px solid var(--blue);outline-offset:-2px}
+  #tab-coc .coc-sum{flex:1;display:flex;flex-direction:column;gap:8px}
+  #tab-coc .coc-sum .coc-part-title{margin:0}
+  #tab-coc .coc-chips{display:flex;flex-wrap:wrap;gap:6px}
+  #tab-coc .coc-chip{font-size:12.5px;font-weight:600;color:#092E65;background:#F7F3EA;border-radius:999px;padding:4px 10px;line-height:1.3}
+  #tab-coc .coc-chev{flex:none;width:32px;height:32px;border-radius:50%;background:#092E65;position:relative;transition:transform .2s}
+  #tab-coc .coc-chev::after{content:"";position:absolute;left:11px;top:9px;width:8px;height:8px;border-right:2px solid #fff;border-bottom:2px solid #fff;transform:rotate(45deg)}
+  #tab-coc details[open]>summary .coc-chev{transform:rotate(180deg)}
+  #tab-coc .coc-body{padding:4px 20px 20px;border-top:1px solid var(--border)}
+  #tab-coc .coc-body .coc-tldr{margin:16px 0 14px}
+  #tab-coc .coc-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:start}
+  #tab-coc .coc-grid .coc-rule{margin:0;background:#FBF9F4;border-radius:12px;padding:14px 16px}
+  #tab-coc .coc-grid .coc-rule li{font-size:14px;line-height:1.55}
+  @media (prefers-reduced-motion:reduce){#tab-coc .coc-chev{transition:none}}
+  @media (max-width:720px){#tab-coc .coc-grid{grid-template-columns:1fr}#tab-coc details.coc-toggle>summary{padding:14px 16px}}
+  #tab-mm .fb-table td{vertical-align:top}
+  #tab-mm .fb-badge{display:inline-block;font-size:12px;font-weight:700;padding:3px 10px;border-radius:999px;line-height:1.4}
+  #tab-mm .fb-pass{background:#E4F4FA;color:#092E65;border:1px solid #1DB5DA}
+  #tab-mm .fb-fail{background:#FFF0F0;color:#092E65;border:1px solid #FF7D7E}
 </style>
 </head>
 <body>
@@ -2673,14 +2727,7 @@
     </div>
     <div class="faq-item">
       <button class="faq-q" aria-expanded="false">
-        <span class="faq-q-num">5</span> <span class="faq-q-text">If I have access to Slack but haven't been assigned to a Pod Lead yet, is something wrong?</span>
-        <span class="chevron">▼</span>
-      </button>
-      <div class="faq-a"><p>Pod Lead assignment happens automatically after you activate Slack. If you aren’t assigned to a Pod within the next business day, email <a href="mailto:support@op.workada.co">support@op.workada.co</a>.</p></div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q" aria-expanded="false">
-        <span class="faq-q-num">6</span> <span class="faq-q-text">What is my Workada email actually for?</span>
+        <span class="faq-q-num">5</span> <span class="faq-q-text">What is my Workada email actually for?</span>
         <span class="chevron">▼</span>
       </button>
       <div class="faq-a">
@@ -2699,7 +2746,7 @@
 
     <div class="faq-item">
       <button class="faq-q" aria-expanded="false">
-        <span class="faq-q-num">7</span> <span class="faq-q-text">Does the timer work if I have antivirus software?</span>
+        <span class="faq-q-num">6</span> <span class="faq-q-text">Does the timer work if I have antivirus software?</span>
         <span class="chevron">▼</span>
       </button>
       <div class="faq-a">
@@ -2708,7 +2755,7 @@
     </div>
     <div class="faq-item">
         <button class="faq-q" aria-expanded="false">
-          <span class="faq-q-num">8</span> <span class="faq-q-text">What browser should I use?</span>
+          <span class="faq-q-num">7</span> <span class="faq-q-text">What browser should I use?</span>
           <span class="chevron">▼</span>
         </button>
         <div class="faq-a">
@@ -2717,17 +2764,17 @@
       </div>
     <div class="faq-item">
         <button class="faq-q" aria-expanded="false">
-          <span class="faq-q-num">9</span> <span class="faq-q-text">What devices are not compatible with Workada?</span>
+          <span class="faq-q-num">8</span> <span class="faq-q-text">What devices are not compatible with Workada?</span>
           <span class="chevron">▼</span>
         </button>
         <div class="faq-a"><p>iOS, Android, and tablets, Chrome OS and Chromebooks, and Linux aren’t supported. An installed antivirus or the Firefox browser can also interfere with the timer. On a MacBook, use only Google Chrome.</p></div>
       </div>
     <div class="faq-item">
         <button class="faq-q" aria-expanded="false">
-          <span class="faq-q-num">10</span> <span class="faq-q-text">Can I use a VPN or a remote desktop app while I work?</span>
+          <span class="faq-q-num">9</span> <span class="faq-q-text">Can I use a VPN or a remote desktop app while I work?</span>
           <span class="chevron">▼</span>
         </button>
-        <div class="faq-a"><p>No. Don&#8217;t use a VPN, proxy, anonymizer, remote desktop app, or any other tool that hides or changes your location, even if you&#8217;re in an approved location. Using these tools is a violation of our Community Guidelines and the Working Location Policy. It can also stop your timer from starting.</p><p>If you have a legitimate reason to use one, such as a VPN your employer or school requires, email support@op.workada.co before you use it on Workada so we can review it.</p></div>
+        <div class="faq-a"><p>No. Don&#8217;t use a VPN, proxy, anonymizer, remote desktop app, or any other tool that hides or changes your location, even if you&#8217;re in an approved location. Using these tools is a violation of our Community Guidelines and the Working Location Policy. It can also stop your timer from starting.</p><p>Because it&#8217;s a Community Guidelines violation, using one can lead to immediate offboarding with no warning.</p></div>
       </div>
   </div>
 
@@ -2741,7 +2788,7 @@
 
     <div class="faq-item">
       <button class="faq-q" aria-expanded="false">
-        <span class="faq-q-num">11</span> <span class="faq-q-text">What is my pay rate?</span>
+        <span class="faq-q-num">10</span> <span class="faq-q-text">What is my pay rate?</span>
         <span class="chevron">▼</span>
       </button>
       <div class="faq-a">
@@ -2751,7 +2798,7 @@
 
     <div class="faq-item">
       <button class="faq-q" aria-expanded="false">
-        <span class="faq-q-num">12</span> <span class="faq-q-text">How is my payout calculated?</span>
+        <span class="faq-q-num">11</span> <span class="faq-q-text">How is my payout calculated?</span>
         <span class="chevron">▼</span>
       </button>
       <div class="faq-a">
@@ -2763,7 +2810,7 @@
 
     <div class="faq-item">
       <button class="faq-q" aria-expanded="false">
-        <span class="faq-q-num">13</span> <span class="faq-q-text">When do I get paid?</span>
+        <span class="faq-q-num">12</span> <span class="faq-q-text">When do I get paid?</span>
         <span class="chevron">▼</span>
       </button>
       <div class="faq-a">
@@ -2782,7 +2829,7 @@
 
     <div class="faq-item">
       <button class="faq-q" aria-expanded="false">
-        <span class="faq-q-num">14</span> <span class="faq-q-text">Is my banking information safe with Stripe?</span>
+        <span class="faq-q-num">13</span> <span class="faq-q-text">Is my banking information safe with Stripe?</span>
         <span class="chevron">▼</span>
       </button>
       <div class="faq-a">
@@ -2792,7 +2839,7 @@
 
     <div class="faq-item">
       <button class="faq-q" aria-expanded="false">
-        <span class="faq-q-num">15</span> <span class="faq-q-text">What if my payment looks wrong or is missing?</span>
+        <span class="faq-q-num">14</span> <span class="faq-q-text">What if my payment looks wrong or is missing?</span>
         <span class="chevron">▼</span>
       </button>
       <div class="faq-a">
@@ -2802,7 +2849,7 @@
 
     <div class="faq-item">
       <button class="faq-q" aria-expanded="false">
-        <span class="faq-q-num">16</span> <span class="faq-q-text">Does Workada withhold taxes from my earnings?</span>
+        <span class="faq-q-num">15</span> <span class="faq-q-text">Does Workada withhold taxes from my earnings?</span>
         <span class="chevron">▼</span>
       </button>
       <div class="faq-a">
@@ -2811,10 +2858,18 @@
     </div>
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">
-          <span class="faq-q-num">17</span> <span class="faq-q-text">How do referral incentives work, and when do I get paid?</span>
+          <span class="faq-q-num">16</span> <span class="faq-q-text">How do referral incentives work, and when do I get paid?</span>
           <span class="chevron">▼</span>
         </button>
         <div class="faq-a"><p>After you refer someone through your dashboard, your referral incentive shows up in your Payments tab within about two pay cycles. The clock starts once the person you referred completes their off-platform task.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-q-num">17</span> <span class="faq-q-text">Why is Referrals greyed out on my dashboard?</span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="faq-a"><p>Referrals stays greyed out until you&#8217;ve logged more than 5 hours on your project. Once you pass 5 hours, it unlocks and you can start referring people from your dashboard.</p></div>
       </div>
     </div>
 
@@ -3002,12 +3057,14 @@
         <span class="chevron">▼</span>
       </button>
       <div class="faq-a">
-        <p>Offboarding means losing access to continue contributing at Workada. There are four reasons you may be removed from the platform:</p>
+        <p>Offboarding means losing access to continue contributing at Workada. There are six reasons you may be removed from the platform:</p>
         <ol>
           <li>Low quality work: if your quality falls below an acceptable threshold. Coaching always comes first, so reach out to your Pod Lead to run shadow sessions and improve your quality before it gets to this point</li>
           <li>Dishonesty: using AI to do your work for you, copying/pasting someone else's or your own prior work without doing the task yourself, spam, or time milking. First incident results in a warning; second results in offboarding</li>
-          <li>Community guidelines violation: egregious violations result in immediate offboarding with no warning</li>
+          <li>Community guidelines violation: egregious violations result in immediate offboarding with no warning. This includes using a remote desktop app or any tool that hides or changes your location, such as a VPN or proxy</li>
           <li>Failing training or calibration: failure to pass either within the required attempts may result in offboarding</li>
+          <li>Not based in the US or Canada: you need to live and work in an approved location</li>
+          <li>Voluntary: you decide to leave and tell your Pod Lead, who lets Ops know so your access can be removed</li>
         </ol>
         <p>In all cases, you will be paid for all work completed up to your offboarding date, processed in the next scheduled payment cycle. Your Dashboard will remain available so you can check your Sessions and Payments history.</p>
       </div>
@@ -3228,6 +3285,20 @@
           <li><strong>Gray</strong> means it doesn't count.</li>
         </ul>
 
+        <h4 id="pp-redlabel" style="scroll-margin-top:24px">Red label on your timer</h4>
+        <div class="rl">
+          <div class="rl-chips"><span class="rl-chip">Onboarding pool</span><span class="rl-or">or</span><span class="rl-chip">No open onboarding module</span></div>
+          <p class="rl-lead">Your timer is counting against your paid onboarding and training time, not regular tasking time.</p>
+          <div class="rl-pay">
+            <div class="rl-col rl-yes"><h5>Paid</h5><ul><li>While one of your training modules is open</li><li>Within your paid training hours</li></ul></div>
+            <div class="rl-col rl-no"><h5>Not paid</h5><ul><li>When no module is open, like while you wait on a review</li><li>After your paid training hours are used up</li></ul></div>
+          </div>
+          <div class="rl-steps">
+            <div class="rl-step"><span class="rl-q">Passed calibration?</span><span class="rl-a">Stop the timer and start it again.</span></div>
+            <div class="rl-step"><span class="rl-q">Still in calibration?</span><span class="rl-a">Keep going. Passing moves you to regular tasking.</span></div>
+          </div>
+        </div>
+
         <h4>Switching windows briefly</h4>
         <ul class="extra-list">
           <li>Quick switches won't cost you time: there's a short grace period before auto-pause.</li>
@@ -3271,6 +3342,7 @@
       <div class="pp-collapse-body">
         <ul class="extra-list">
           <li>Check your hours yourself on the Dashboard's Sessions tab. Pay is hours worked × your rate.</li>
+          <li>Red &#8220;Onboarding pool&#8221; or &#8220;No open onboarding module&#8221; label on your timer? See <a href="#pp-redlabel">Red label on your timer</a> for what it means and what to do.</li>
           <li>Left the timer running by accident while not working? Edit the session to remove the time.</li>
           <li>If a warning email lands, there's no need to panic or stop working. Make sure you're using the timer when you're supposed to, document your side, and escalate through your Pod Lead.</li>
           <li>One correction request is enough: a single support email or Sessions-tab request does the job, and duplicates slow things down.</li>
@@ -3357,6 +3429,7 @@
   <nav class="mm-jump" aria-label="Jump to section">
     <span class="mm-jump-label">Jump to</span>
     <a href="#mm-channels">Channels</a>
+    <a href="#mm-timer">Timer issues</a>
     <a href="#mm-guide">Guidelines</a>
     <a href="#mm-video">Contributor Training</a>
     <a href="#mm-faq">Project FAQ</a>
@@ -3385,7 +3458,15 @@
         <span class="cr-chan-ic" aria-hidden="true">#</span>
         <div class="cr-chan-body"><span class="cr-chan-name">#mm-dormant-pod</span><p>Temporary pod for inactive contributors.</p></div>
       </div>
-      <a class="cr-chan cr-chan-full" href="https://workada.slack.com/archives/C0BLVAVL63X" target="_blank" rel="noopener">
+            <div class="cr-chan">
+        <span class="cr-chan-ic" aria-hidden="true">#</span>
+        <div class="cr-chan-body"><span class="cr-chan-name">#mm-general-task-announcements (private)</span><p>General pool: &#8220;tasks available&#8221; posts for the general task group, so you only hear about tasks you can get.</p></div>
+      </div>
+      <div class="cr-chan">
+        <span class="cr-chan-ic" aria-hidden="true">#</span>
+        <div class="cr-chan-body"><span class="cr-chan-name">#mm-eval-task-announcements (private)</span><p>Eval pool: &#8220;tasks available&#8221; posts for new eval task groups, so you only hear about tasks you can get.</p></div>
+      </div>
+<a class="cr-chan cr-chan-full" href="https://workada.slack.com/archives/C0BLVAVL63X" target="_blank" rel="noopener">
         <span class="cr-chan-ic" aria-hidden="true">#</span>
         <div class="cr-chan-body">
           <span class="cr-chan-name">#mm-task-issues</span>
@@ -3399,6 +3480,20 @@
       </div>
     </div>
   </section>
+  <section id="mm-timer" class="mm-section" style="scroll-margin-top:20px">
+    <h2 class="mm-h">Timer issues</h2>
+    <div class="ve-card mm-timer-card">
+      <p>Something wrong with the Workada Timer? Report it with the Timer Issue Report Form.</p>
+      <h4>Before you fill it out</h4>
+      <ul>
+        <li>A Loom screen recording is required for every report. The form has a link to create a free account and a short demo.</li>
+        <li>Check the known issues listed on the form. If you&#8217;re seeing one, please still report it. For anything else, choose &#8220;A different timer issue&#8221; and give as much detail as you can.</li>
+        <li>Record your whole screen with the timer visible. The form explains what each type of report needs.</li>
+      </ul>
+      <a class="mm-timer-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSdWEPW0mtJnzzMofEEIxluZXSUz0ppCh__ZvPDHVA-8Xe3W4w/viewform" target="_blank" rel="noopener">Open the Timer Issue Report Form</a>
+    </div>
+  </section>
+
   <section id="mm-guide" class="mm-section" style="scroll-margin-top:20px">
     <h2 class="mm-h">Guidelines</h2>
   <div class="guide-shell">
@@ -3575,8 +3670,8 @@
         <div class="acc-header-left">
           <span class="acc-tag">04</span>
           <div>
-            <div class="acc-title">Task Type Time Limits</div>
-            <div class="acc-sub">How long you have for each task type</div>
+            <div class="acc-title">Task Type Information</div>
+            <div class="acc-sub">What to work on, the time limit, and where the guidelines are</div>
           </div>
         </div>
         <span class="loupe"></span>
@@ -3584,7 +3679,7 @@
       <div class="acc-panel">
         <div class="acc-panel-inner">
           <div class="acc-body">
-            <p style="margin-bottom:18px"><a href="https://docs.google.com/spreadsheets/d/1JjMCV86ZJJIfw2VYl05sccmH0QhPNu7vy_aiJzX8C8o/edit?gid=1115373954#gid=1115373954" target="_blank" rel="noopener" style="color:var(--blue);font-weight:600;text-decoration:none;font-size:15px">&rarr; Open the Task Type Time Limits document</a></p>
+            <p style="margin-bottom:18px"><a href="https://docs.google.com/spreadsheets/d/1gRayH2l9v5pxczowgxBCL4XWjw8tciVFkMMS6W7xJ04/edit?gid=0#gid=0" target="_blank" rel="noopener" style="color:var(--blue);font-weight:600;text-decoration:none;font-size:15px">&rarr; Open the Task Type Information sheet</a></p>
           </div>
         </div>
       </div>
@@ -3635,7 +3730,6 @@
               <li><strong>A revamped training module</strong> matches these updates and includes real examples from MultiMango.</li>
             </ul>
             <div class="rule-strip"><strong>Reference answers are a guide, not the answer key.</strong> A different pick can still pass if your reason is specific and true.</div>
-            <p style="margin-bottom:18px"><a href="https://docs.google.com/document/d/1l30s0_C1OaLmH_0u8pVyYzE8oVYCf9bHcf2eBM5hF_Y/edit?tab=t.0#heading=h.6r6nc04lq0x9" target="_blank" rel="noopener" style="color:var(--blue);font-weight:600;text-decoration:none;font-size:15px">&rarr; Open the MultiMango Image Calibration Guide</a></p>
           </div>
         </div>
       </div>
@@ -3702,7 +3796,7 @@
                   <div class="iei-choice iei-tie"><span class="iei-key">Both Good</span><span class="iei-def">You&#8217;d be happy with either, and both meet the core requirements</span></div>
                   <div class="iei-choice iei-tie"><span class="iei-key">Both Bad</span><span class="iei-def">Both have major flaws, and you wouldn&#8217;t want either</span></div>
                 </div>
-                <div class="iei-note"><strong>About 1 in 10 ratings should be Both Good or Both Bad.</strong> Both Good is more common on image tasks, and Both Bad on video tasks. Give a specific reason for these too.</div>
+                <div class="iei-note"><strong>About 1 in 10 ratings should be Both Good or Both Bad.</strong> On image tasks, Both Good comes up more often than Both Bad. Give a specific reason for these too.</div>
                 <h4 class="iei-h">Pace yourself</h4>
                 <ul class="iei-list">
                   <li>About 2 minutes per image task. More time doesn&#8217;t improve your agreement with QA.</li>
@@ -3721,11 +3815,11 @@
                   </div>
                   <div class="iei-dimcard" role="tabpanel" id="iei-dp1" aria-labelledby="iei-d1">
                     <p class="iei-q">Which image do you prefer overall?</p>
-                    <p class="iei-p">Not just a gut feel: base it on concrete differences in the other three dimensions.</p>
+                    <p class="iei-p">Judge by the prompt&#8217;s intent and the overall vibe, and go with your gut.</p>
                     <ul class="iei-list">
-                      <li>Find the difference that matters most for what the user asked for</li>
-                      <li>One major issue can outweigh several minor ones</li>
-                      <li>There&#8217;s no fixed formula, and it isn&#8217;t a category count</li>
+                      <li>It can line up with the other dimensions, but there&#8217;s no fixed formula</li>
+                      <li>Avoid a tie on this dimension if you can</li>
+                      <li>Your reason still needs to be specific and true</li>
                     </ul>
                     <p class="iei-need"><strong>Your comment needs</strong> the image you prefer and the specific thing that decided it.</p>
                     <blockquote class="iei-ex">A has the three birds the prompt asked for. B adds a fourth bird and its wing is warped.</blockquote>
@@ -3919,26 +4013,37 @@
     <div class="ve-collapse-body">
     <p>Qualifying is two steps:</p>
     <ol>
-      <li><b>Video training</b> walks you through the video task and the quality dimensions you’ll be judging. You’ll need at least 75% to move on to calibration, and you get two attempts on each knowledge check.</li>
-      <li><b>Calibration:</b> you compare two AI-generated video clips and judge them across the task’s 9 quality dimensions (video and audio), picking the better clip overall. You complete <b>3 calibration tasks</b>.</li>
+      <li><b>Video training</b> walks you through the video task and the quality dimensions you’ll be judging. You’ll need at least 75% overall to move on to calibration. Only the written questions count toward your score, and you get two attempts on each. An answer counts as correct only when both your choice and your explanation meet the grading criteria. The knowledge checks are practice and aren’t scored.</li>
+      <li><b>Calibration:</b> you compare two AI-generated video clips and judge them across the task’s 9 quality dimensions (video and audio), picking the better clip overall. You work one task at a time, and calibration is complete once you have <b>2 passing tasks</b>. It closes after 5 failed tasks, and you can claim up to 7 tasks in total, including any you open and release without submitting. A task passes with a score of 4 or higher.</li>
     </ol>
     <h4>Your time cap</h4>
-    <p>You get <b>3 paid hours</b> for training and calibration, and you complete your 3 calibration tasks within that time. Your timer warns you as you approach the cap, and time beyond 3 hours isn’t paid, so pace yourself. It’s built to fit inside the window.</p>
+    <p>You get <b>3 paid hours</b> for video training and calibration, separate from the 4 hours for image training and calibration. Your timer warns you as you approach the cap, and time beyond 3 hours isn’t paid, so pace yourself. It’s built to fit inside the window.</p>
     <h4>While your Pod Lead reviews</h4>
-    <p>You can’t continue tasking until you’ve completed all 3 calibration tasks, so get them done within your time cap. Once they’re in, you can go back to tasking on Multimango while you wait for your Pod Lead to grade them. Once you pass, video tasks unlock. To be clear, you don’t switch to video-only: you’ll see the same standard mix of image and video tasks you had on your dashboard before.</p>
+    <p>Your Pod Lead grades every calibration task you submit, and you can have up to 3 submitted tasks waiting on a grade. Until your calibration is graded, you can&#8217;t pick up image tasks. Once you pass, video tasks unlock. To be clear, you don’t switch to video-only: you’ll see the same standard mix of image and video tasks you had on your dashboard before.</p>
     </div>
   </details>
 
   <details class="ve-card ve-collapse">
-    <summary><h2>How to score: A, B, Both Good, or Both Bad</h2><span class="ve-chev" aria-hidden="true"></span></summary>
+    <summary><h2>How to score: slightly, strongly, or tie</h2><span class="ve-chev" aria-hidden="true"></span></summary>
     <div class="ve-collapse-body">
-    <p>Each task shows you two AI-generated videos. For every dimension, pick A, B, Both Good, or Both Bad. It&#8217;s a per-dimension call, made fresh on each line.</p>
+    <p>Each task shows you two AI-generated videos. For every dimension, decide which side wins and by how much. It’s a per-dimension call, made fresh on each line.</p>
+    <div class="rule-strip"><b>Video tasks still use this scale.</b> The A, B, Both Good, or Both Bad scale is for image tasks. Video will move to it later, and we&#8217;ll announce it first.</div>
     <div class="score-grid">
-      <div class="score-tile"><span class="score-badge strong">A or B</span><p>One video is better on that dimension, and you can name the specific difference that decides it.</p></div>
-      <div class="score-tile"><span class="score-badge tie">Both Good</span><p>You&#8217;d be happy with either video, and both meet the core requirements.</p></div>
-      <div class="score-tile"><span class="score-badge slight">Both Bad</span><p>Both videos have major flaws, and you wouldn&#8217;t be happy receiving either. On video tasks, Both Bad comes up more often than Both Good.</p></div>
+      <div class="score-tile"><span class="score-badge slight">Slightly prefer</span><p>One video is better, but the gap is small. You can name the specific advantage, but another careful rater could reasonably call it a tie or lean the other way.</p></div>
+      <div class="score-tile"><span class="score-badge strong">Strongly prefer</span><p>One video is clearly better on that dimension and you’re convinced of it. Not a lean. A conviction you’d hold even if pushed back on.</p></div>
+      <div class="score-tile"><span class="score-badge tie">Tie</span><p>The dimension genuinely doesn’t separate them: no relevant advantage, or strengths and weaknesses offset. The videos don’t need to be identical.</p></div>
     </div>
-    <div class="rule-strip"><b>About 1 in 10 ratings should be Both Good or Both Bad.</b> Use them when the videos really are even, and give a specific reason, just like you would for A or B. This replaces the earlier guidance to avoid ties.</div>
+    <div class="rule-strip"><b>A strong pick doesn’t have to be flawless.</b> Garbled on-screen text can still clearly beat heavy distortion. If your strong pick has a visible defect, name it and say why it still wins. If you can’t write that sentence, it’s a slight.</div>
+    <h4>Slight vs. strong at a glance</h4>
+    <table class="qref-table">
+      <thead><tr><th>What to consider</th><th>Slightly prefer</th><th>Strongly prefer</th></tr></thead>
+      <tbody>
+        <tr><td>Why it wins</td><td>Better, but by a fairly small margin.</td><td>A clear, immediately visible advantage separates the two.</td></tr>
+        <tr><td>Winner’s flaws?</td><td>Yes, and they may make the call closer.</td><td>Maybe, but not enough to change the outcome.</td></tr>
+        <tr><td>The other video?</td><td>Has problems, but balances them with strengths.</td><td>Its problems widen the gap.</td></tr>
+        <tr><td>Room to disagree?</td><td>Yes, a careful rater could call it a tie or flip it.</td><td>Probably not. A careful rater should land in the same place.</td></tr>
+      </tbody>
+    </table>
     <h4>Overall Preference: not just a gut feel</h4>
     <p>Your Overall Preference should rest on concrete differences across the other dimensions. On video tasks, that means:</p>
     <ul>
@@ -3952,7 +4057,7 @@
     <h4>Keep it quick and specific</h4>
     <ul>
       <li>2 to 4 watches of each clip is usually enough.</li>
-      <li>Don&#8217;t decide on nitpicky details, and aim for about 5 minutes per video task.</li>
+      <li>Don&#8217;t decide on nitpicky details.</li>
       <li>Keep your justification to 1 to 3 short bullet points starting with hyphens, around 50 to 250 characters in total, and mention only the dimensions with a real difference.</li>
     </ul>
     </div>
@@ -3975,8 +4080,8 @@
     <div class="faq-toolbar" data-scope="mm">
       <div class="faq-toolbar-row faq-chip-row">
         <span class="faq-chip-label">Most asked</span>
-        <button class="faq-hot" data-q="How long should it take me to do each task">Task time</button>
         <button class="faq-hot" data-q="no longer eligible to submit">“No longer eligible”</button>
+        <button class="faq-hot" data-q="How does image calibration work">Image calibration</button>
         <button class="faq-hot" data-q="How do I choose between A, B">Both Good / Both Bad</button>
         <button class="faq-hot" data-q="offensive, NSFW">NSFW / offensive tasks</button>
       </div>
@@ -4090,6 +4195,7 @@
         </button>
         <div class="faq-a">
           <p>Quality is also read from behavioral signals, like speeding through tasks, taking too long, or picking the same side (for example, all A) many times in a row. You'll usually get a warning before you're blocked, so treat one as a cue to slow down and refocus on accuracy.</p>
+          <p>Your <strong>Quality Task of the Week</strong> is another check. Workada builds it from current MultiMango tasks, and it assesses your knowledge and understanding of the guidelines. You get feedback right after you submit, so you can see what to adjust on your next tasks.</p>
         </div>
       </div>
     
@@ -4128,7 +4234,7 @@
         <span class="faq-q-num">11</span> <span class="faq-q-text">Can I work from outside the US or Canada?</span>
         <span class="chevron">▼</span>
       </button>
-      <div class="faq-a"><p>The only locations you can work from are the US and Canada, plus US territories by default (PR, GU, VI, AS, MP).</p></div>
+      <div class="faq-a"><p>The only locations you can work from are the US and Canada, plus US territories by default (PR, GU, VI, AS, MP). Don&#8217;t task while you&#8217;re traveling internationally, and never use a VPN, remote desktop, or any tool that hides your location to task from abroad: it&#8217;s a violation of our Community Guidelines.</p></div>
     </div>
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">
@@ -4149,7 +4255,7 @@
           <span class="faq-q-num">14</span> <span class="faq-q-text">Do I need to justify every dimension, or just the main errors?</span>
           <span class="chevron">&#9660;</span>
         </button>
-        <div class="faq-a"><p>Write a sentence for <b>every applicable dimension</b>, on every task type. Some tasks show all the dimensions to judge individually with a single justification box at the bottom: even then, cover each dimension you scored rather than writing one general comment.</p><p>Keep it short: 1 to 3 short bullet points starting with hyphens, around 50 to 250 characters in total. Mention only the dimensions where there&#8217;s a real difference. If both outputs follow the prompt, you don&#8217;t need to say so. Short, specific comments help a QA reviewer see why you preferred one response over the other.</p></div>
+        <div class="faq-a"><p>Write a sentence for <b>every applicable dimension</b>, on every task type. Some tasks show all the dimensions to judge individually with a single justification box at the bottom: even then, cover each dimension you scored rather than writing one general comment.</p><p>Keep it short: 1 to 3 short bullet points starting with hyphens, around 50 to 250 characters in total. Mention only the dimensions where there&#8217;s a real difference. If both outputs follow the prompt, you don&#8217;t need to say so. Short, specific comments help a QA reviewer see why you preferred one response over the other.</p><p><strong>Short doesn&#8217;t mean thin.</strong> A comment too brief to show you actually checked the images fails the task, and so does reusing the same text on 3 or more dimensions. Write a new comment for each dimension, with details from the images.</p></div>
       </div>
           <div class="faq-item">
       <button class="faq-q" aria-expanded="false">
@@ -4204,12 +4310,11 @@
 
     <div class="faq-item">
       <button class="faq-q" aria-expanded="false">
-        <span class="faq-q-num">19</span> <span class="faq-q-text">How long should it take me to do each task?</span>
+        <span class="faq-q-num">19</span> <span class="faq-q-text">My training modules are showing out of order. Is that a problem?</span>
         <span class="chevron">▼</span>
       </button>
       <div class="faq-a">
-        <p>For Multimango tasks without a set time limit, spend no more than 10 minutes on an image task and no more than 15 minutes on a video task. Usually, tasks take much less time than this: as a rough pace, about 2 minutes for an image task and about 5 minutes for a video task. Other projects may differ. Make the obvious calls quickly, zoom in where it matters, and only fact-check claims that are actually checkable: a count, a label, a spelling. Don't go down rabbit holes.</p>
-        <p>Spending longer on a task doesn&#8217;t make your ratings line up better with QA, so don&#8217;t decide on nitpicky details. For video, 2 to 4 watches of each clip is usually enough. As you build experience, you&#8217;ll naturally get faster without losing quality.</p>
+        <p>No. It&#8217;s a known issue, and you can complete the modules in any order.</p>
       </div>
     </div>
 
@@ -4219,16 +4324,67 @@
         <span class="chevron">▼</span>
       </button>
       <div class="faq-a">
-        <p>Once you pass training, you'll need to complete calibration tasks first: see the Multimango section below for details.</p>
+        <p>Once you pass training, you need to pass image calibration before tasks show up. See the next question for how it works.</p>
       </div>
     </div>
+
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">
+        <span class="faq-q-num">21</span> <span class="faq-q-text">How does image calibration work?</span>
+        <span class="chevron">▼</span>
+      </button>
+      <div class="faq-a">
+        <p>After you pass image training, you complete image calibration before you start tasking.</p>
+        <ul>
+          <li>You get up to 20 tasks, and each one is graded automatically.</li>
+          <li>Each task scores out of 5, and a 3 or higher passes.</li>
+          <li>You pass calibration once 70% or more of your graded tasks have passed, with at least 10 graded.</li>
+          <li>Under 70% after 10 graded tasks? Keep going. Under 70% after 20 graded tasks is a fail.</li>
+          <li>Image training and calibration share 4 paid hours, so pace yourself.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">
+        <span class="faq-q-num">22</span> <span class="faq-q-text">How do I read my calibration feedback?</span>
+        <span class="chevron">▼</span>
+      </button>
+      <div class="faq-a">
+        <p>At the top is your result: a score out of 5 and a Pass or Fail badge.</p>
+        <table class="status-table fb-table">
+          <thead><tr><th>Score</th><th>Result</th><th>What it means</th></tr></thead>
+          <tbody>
+            <tr><td><b>5/5</b></td><td><span class="fb-badge fb-pass">Pass</span></td><td>No issues found.</td></tr>
+            <tr><td><b>4/5</b></td><td><span class="fb-badge fb-pass">Pass</span></td><td>Only small issues (Minor).</td></tr>
+            <tr><td><b>3/5</b></td><td><span class="fb-badge fb-pass">Pass</span></td><td>At least one real mistake (Major), but nothing serious enough to fail.</td></tr>
+            <tr><td><b>2/5</b></td><td><span class="fb-badge fb-fail">Fail</span></td><td>1 to 3 serious mistakes (Critical).</td></tr>
+            <tr><td><b>1/5</b></td><td><span class="fb-badge fb-fail">Fail</span></td><td>More than 3 serious mistakes (Critical).</td></tr>
+          </tbody>
+        </table>
+        <p>Below that is one tab per dimension, showing how many issues it has and how serious they are. Naturalness may show as &#8220;AI-Generated Appearance.&#8221; Each card has a tag (Minor, Major, or Critical), a title naming the kind of mistake, and these lines:</p>
+        <table class="status-table fb-table">
+          <thead><tr><th>Line</th><th>What it tells you</th></tr></thead>
+          <tbody>
+            <tr><td><b>What you did right</b></td><td>Something true and useful you wrote.</td></tr>
+            <tr><td><b>What you got wrong</b></td><td>A claim or pick that doesn&#8217;t match the images.</td></tr>
+            <tr><td><b>What you missed</b></td><td>An important difference you left out.</td></tr>
+            <tr><td><b>To do better</b></td><td>What to do on your next task.</td></tr>
+            <tr><td><b>Other reviewers also caught</b></td><td>A real issue most reviewers noticed that you didn&#8217;t mention.</td></tr>
+            <tr><td><b>To go further</b></td><td>A tip to make a good answer even stronger.</td></tr>
+          </tbody>
+        </table>
+        <p><strong>Start with any tab that shows a Critical.</strong> One Critical on any dimension fails the task. Majors and Minors don&#8217;t fail a task on their own.</p>
+      </div>
+    </div>
+
 
 
 
   
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">
-          <span class="faq-q-num">21</span> <span class="faq-q-text">When a task looks like one I've already done, should I refresh the page?</span>
+          <span class="faq-q-num">23</span> <span class="faq-q-text">When a task looks like one I've already done, should I refresh the page?</span>
           <span class="chevron">▼</span>
         </button>
         <div class="faq-a">
@@ -4239,40 +4395,41 @@
 
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">
-          <span class="faq-q-num">22</span> <span class="faq-q-text">How do I choose between A, B, Both Good, or Both Bad?</span>
+          <span class="faq-q-num">24</span> <span class="faq-q-text">How do I choose between A, B, Both Good, or Both Bad?</span>
           <span class="chevron">▼</span>
         </button>
         <div class="faq-a">
           <p>For each dimension, pick A or B when one output is better and you can name the specific difference. Pick <strong>Both Good</strong> when you&#8217;d be happy with either and both meet the core requirements, and <strong>Both Bad</strong> when both have major flaws and you wouldn&#8217;t be happy receiving either.</p>
-          <p>About 1 in 10 of your ratings should be Both Good or Both Bad. Both Good comes up more often on image tasks, and Both Bad comes up more often on video tasks. Give a specific reason for every answer, including Both Good and Both Bad. This replaces the earlier 5-point scale and the guidance to avoid ties.</p>
+          <p>About 1 in 10 of your ratings should be Both Good or Both Bad, and Both Good comes up more often than Both Bad. Give a specific reason for every answer, including Both Good and Both Bad. On Overall Preference, avoid a tie if you can. On image tasks, this replaces the earlier 5-point scale and the guidance to avoid ties. Video tasks still use slightly prefer, strongly prefer, or tie until the new scale is announced.</p>
+          <p><strong>Watch out:</strong> answering Both Good or Both Bad on 3 or more dimensions when the images clearly differ fails the task. A one-line reason for a Both answer isn&#8217;t enough either, so name the specific details in both images that make them even.</p>
         </div>
       </div>
     
       
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">
-          <span class="faq-q-num">23</span> <span class="faq-q-text">I received a prompt in a foreign language, what should I do?</span>
+          <span class="faq-q-num">25</span> <span class="faq-q-text">I received a prompt in a foreign language, what should I do?</span>
           <span class="chevron">▼</span>
         </button>
         <div class="faq-a"><p>Refresh the page to load a new prompt.</p></div>
       </div>
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">
-          <span class="faq-q-num">24</span> <span class="faq-q-text">How should I handle a very long prompt?</span>
+          <span class="faq-q-num">26</span> <span class="faq-q-text">How should I handle a very long prompt?</span>
           <span class="chevron">&#9660;</span>
         </button>
         <div class="faq-a"><p>Long prompts on image and video tasks can eat your whole handle time. Work them in this order:</p><ol><li>Review the outputs on their own, before you read the prompt.</li><li>Read the prompt and identify the <b>primary prompt</b>: what the output basically has to be.</li><li>Skim the rest, separating the details that matter from the minor ones.</li><li>Make your selection on that basis.</li><li>Write your justification against the details you judged important.</li></ol><p>If a prompt is so long that this still isn't workable, let your Pod Lead know.</p></div>
       </div>
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">
-          <span class="faq-q-num">25</span> <span class="faq-q-text">What if a task genuinely can't be done well within the time cap?</span>
+          <span class="faq-q-num">27</span> <span class="faq-q-text">What if a task genuinely can't be done well within the time cap?</span>
           <span class="chevron">&#9660;</span>
         </button>
         <div class="faq-a"><p>Take the time the task actually needs. Where it is unreasonable to complete a task properly inside the limit for that type, quality comes first.</p><p>You won't be blocked for going long while you're working in good faith. That only becomes a problem when the time is far above average and starts to look like time milking.</p></div>
       </div>
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">
-          <span class="faq-q-num">26</span> <span class="faq-q-text">Can I use a read-aloud extension for long prompts?</span>
+          <span class="faq-q-num">28</span> <span class="faq-q-text">Can I use a read-aloud extension for long prompts?</span>
           <span class="chevron">&#9660;</span>
         </button>
         <div class="faq-a"><p>Yes, as long as your Workada timer still shows MultiMango as your active tab. Don't use one if it significantly increases your handle time for little or no gain in quality.</p></div>
@@ -4285,7 +4442,7 @@
       </div>
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">
-          <span class="faq-q-num">27</span> <span class="faq-q-text">If I’m offboarded after failing training or calibration, can I apply for other Workada roles?</span>
+          <span class="faq-q-num">29</span> <span class="faq-q-text">If I’m offboarded after failing training or calibration, can I apply for other Workada roles?</span>
           <span class="chevron">▼</span>
         </button>
         <div class="faq-a"><p>Yes, you may apply if you’d like. Keep in mind that the Data Labeling Specialist role has the easiest training and calibration, so other roles may be more challenging.</p></div>
@@ -4301,7 +4458,6 @@
         <button class="faq-hot" data-q="What counts as passing">What counts as passing</button>
         <button class="faq-hot" data-q="Can I opt out">Can I opt out?</button>
         <button class="faq-hot" data-q="3-hour cap">The 3-hour cap</button>
-        <button class="faq-hot" data-q="waiting for my Pod Lead">Tasking while waiting</button>
       </div>
       <div class="faq-toolbar-row faq-chip-row">
         <span class="faq-chip-label">Filter by</span>
@@ -4321,15 +4477,7 @@
 
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">
-          <span class="faq-q-num">1</span> <span class="faq-q-text">Can I go back to tasking while I’m waiting for my Pod Lead to review?</span>
-          <span class="chevron">▼</span>
-        </button>
-        <div class="faq-a"><p>After you’ve completed your 3 calibration tasks on workada.com, you can resume tasking on multimango.com until your Pod Lead has reviewed them.</p></div>
-      </div>
-    
-      <div class="faq-item">
-        <button class="faq-q" aria-expanded="false">
-          <span class="faq-q-num">2</span> <span class="faq-q-text">Do I have to do this? Can I opt out?</span>
+          <span class="faq-q-num">1</span> <span class="faq-q-text">Do I have to do this? Can I opt out?</span>
           <span class="chevron">▼</span>
         </button>
         <div class="faq-a"><p>There’s no opt-out. Everyone starts on image tasks and moves into video once they qualify. Video eval is an explicit request from the Multimango team, and purposely failing training to stay on image tasks is grounds for offboarding.</p></div>
@@ -4337,7 +4485,7 @@
     
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">
-          <span class="faq-q-num">3</span> <span class="faq-q-text">How and where do I start the training?</span>
+          <span class="faq-q-num">2</span> <span class="faq-q-text">How and where do I start the training?</span>
           <span class="chevron">▼</span>
         </button>
         <div class="faq-a"><p>Switch to the Video Eval project, open the Training tab, and start your timer.</p></div>
@@ -4346,42 +4494,42 @@
   
     <div class="faq-item">
       <button class="faq-q" aria-expanded="false">
-        <span class="faq-q-num">4</span> <span class="faq-q-text">Once I finish, do I only get video tasks?</span>
+        <span class="faq-q-num">3</span> <span class="faq-q-text">Once I finish, do I only get video tasks?</span>
         <span class="chevron">▼</span>
       </button>
       <div class="faq-a"><p>No. You’ll see the standard mix of tasks on your dashboard, just like before: image and video. (A separate video-only tier exists for top performers over time, but training alone doesn’t switch it on.)</p></div>
     </div>
     <div class="faq-item">
       <button class="faq-q" aria-expanded="false">
-        <span class="faq-q-num">5</span> <span class="faq-q-text">What counts as passing?</span>
+        <span class="faq-q-num">4</span> <span class="faq-q-text">What counts as passing?</span>
         <span class="chevron">▼</span>
       </button>
-      <div class="faq-a"><p>Complete your 3 calibration tasks. Your Pod Lead grades them and lets you know your result.</p></div>
+      <div class="faq-a"><p>You need 2 passing tasks before 5 failed tasks, with up to 7 tasks in total. A task passes with a score of 4 or higher. Your Pod Lead grades every task and lets you know your result.</p></div>
     </div>
     <div class="faq-item">
       <button class="faq-q" aria-expanded="false">
-        <span class="faq-q-num">6</span> <span class="faq-q-text">What if I fail calibration?</span>
+        <span class="faq-q-num">5</span> <span class="faq-q-text">What if I fail calibration?</span>
         <span class="chevron">▼</span>
       </button>
       <div class="faq-a"><p>For now, you keep doing image tasks as normal. Failing video doesn’t remove your image work.</p></div>
     </div>
     <div class="faq-item">
       <button class="faq-q" aria-expanded="false">
-        <span class="faq-q-num">7</span> <span class="faq-q-text">What’s a GS score?</span>
+        <span class="faq-q-num">6</span> <span class="faq-q-text">What’s a GS score?</span>
         <span class="chevron">▼</span>
       </button>
       <div class="faq-a"><p>Gold Standard, an easy benchmark task that’s auto-graded to check your accuracy on image work. It’s one of the signals used to assess your quality, though video eligibility itself is based on your image hours.</p></div>
     </div>
     <div class="faq-item">
       <button class="faq-q" aria-expanded="false">
-        <span class="faq-q-num">8</span> <span class="faq-q-text">What happens if I go over the 3-hour cap?</span>
+        <span class="faq-q-num">7</span> <span class="faq-q-text">What happens if I go over the 3-hour cap?</span>
         <span class="chevron">▼</span>
       </button>
-      <div class="faq-a"><p>Your timer warns you as you approach it. Time past the cap isn’t paid, so aim to finish your 3 calibration tasks within the window.</p></div>
+      <div class="faq-a"><p>Your timer warns you as you approach it. Time past the cap isn’t paid, so aim to finish calibration within the window.</p></div>
     </div>
     <div class="faq-item">
       <button class="faq-q" aria-expanded="false">
-        <span class="faq-q-num">9</span> <span class="faq-q-text">Where do I see my calibration feedback?</span>
+        <span class="faq-q-num">8</span> <span class="faq-q-text">Where do I see my calibration feedback?</span>
         <span class="chevron">▼</span>
       </button>
       <div class="faq-a"><p>Your Pod Lead grades your calibration and shares guidance.</p></div>
@@ -4389,42 +4537,42 @@
   
     <div class="faq-item">
       <button class="faq-q" aria-expanded="false">
-        <span class="faq-q-num">10</span> <span class="faq-q-text">How do I qualify for video training?</span>
+        <span class="faq-q-num">9</span> <span class="faq-q-text">How do I qualify for video training?</span>
         <span class="chevron">▼</span>
       </button>
       <div class="faq-a"><p>You become eligible for video training once you’ve built a track record on image work: <b>15 active hours</b> on multimango.com image tasks. Once you hit 15 image hours, you’re moved into video eval setup automatically.</p></div>
     </div>
           <div class="faq-item">
       <button class="faq-q" aria-expanded="false">
-        <span class="faq-q-num">11</span> <span class="faq-q-text">Which task hours count toward video eligibility?</span>
+        <span class="faq-q-num">10</span> <span class="faq-q-text">Which task hours count toward video eligibility?</span>
         <span class="chevron">▼</span>
       </button>
-      <div class="faq-a"><p>Only your Text-to-Image hours count toward the Image Active Hours used for video eligibility. Until you’ve passed video training, other task types don’t count toward that total.</p></div>
+      <div class="faq-a"><p>Your tasking hours on MultiMango count toward video eligibility. Once you have 15+ hours on MultiMango, your Pod Lead can grant you video training.</p></div>
     </div>
     <div class="faq-item">
       <button class="faq-q" aria-expanded="false">
-        <span class="faq-q-num">12</span> <span class="faq-q-text">On a task that only shows Audio Quality and Sync, do I also judge audio instruction following?</span>
+        <span class="faq-q-num">11</span> <span class="faq-q-text">On a task that only shows Audio Quality and Sync, do I also judge audio instruction following?</span>
         <span class="chevron">▼</span>
       </button>
       <div class="faq-a"><p>No. When a task only includes Audio Quality and Sync, evaluate just those two, not audio instruction following.</p></div>
     </div>
     <div class="faq-item">
       <button class="faq-q" aria-expanded="false">
-        <span class="faq-q-num">13</span> <span class="faq-q-text">After I pass video eval, why do I only see image tasks while others get video?</span>
+        <span class="faq-q-num">12</span> <span class="faq-q-text">After I pass video eval, why do I only see image tasks while others get video?</span>
         <span class="chevron">▼</span>
       </button>
-      <div class="faq-a"><p>Once you pass, you move into the general task pool and the client routes whatever task types it wants to you, that could be image, video, or another type. Before you pass, you're limited to video tasks only. After you complete video training, it could take weeks for video to appear on Multimango.</p></div>
+      <div class="faq-a"><p>Once you pass, you move into the general task pool and the client routes whatever task types it wants to you, that could be image, video, or another type. After you complete video training, it could take weeks for video to appear on Multimango.</p></div>
     </div>
     <div class="faq-item">
       <button class="faq-q" aria-expanded="false">
-        <span class="faq-q-num">14</span> <span class="faq-q-text">How long should a Text-to-Video task take?</span>
+        <span class="faq-q-num">13</span> <span class="faq-q-text">How long should a Text-to-Video task take?</span>
         <span class="chevron">▼</span>
       </button>
       <div class="faq-a"><p>Aim to stay under the 20-minute cap, you'll be kicked off a video task past it. Text-to-video tasks usually have just 1 to 4 dimensions to score (never more than 6), so pacing yourself is manageable.</p></div>
     </div>
     <div class="faq-item">
       <button class="faq-q" aria-expanded="false">
-        <span class="faq-q-num">15</span> <span class="faq-q-text">What changed about MTQ and LAIG?</span>
+        <span class="faq-q-num">14</span> <span class="faq-q-text">What changed about MTQ and LAIG?</span>
         <span class="chevron">▼</span>
       </button>
       <div class="faq-a"><p>The two axes no longer overlap:</p><ul><li><b>MTQ (Motion &amp; Temporal Quality)</b> has been <b>narrowed</b> to traditional motion-quality issues only: <b>flickering, smoothness, and camera jitter</b>.</li><li><b>LAIG (Less AI Generated)</b> has been <b>expanded</b> to cover <b>physics issues, phasing in and out of reality, extra limbs, and other generative artifacts</b>.</li></ul><p>Physics and AI-related artifacts used to get scored under MTQ. They now belong under LAIG. The change separates the two axes and lines Contributors up with auditors.</p><p>Training, calibration answers, and the tearsheet are being updated to match. Until then, use the training and calibration examples as your reference.</p></div>
@@ -4482,7 +4630,7 @@
                 <li class="check-item"><span class="box"></span><span class="check-text"><strong>Does it follow the prompt?</strong> Everything requested is there, in the requested style, layout, and text, and the rest is untouched?</span></li>
                 <li class="check-item"><span class="box"></span><span class="check-text"><strong>Does it make sense?</strong> Logical scene, realistic proportions, natural behavior, sensible context?</span></li>
                 <li class="check-item"><span class="box"></span><span class="check-text"><strong>Does it look polished?</strong> Could you recreate this on purpose in Canva or Photoshop, or is it distorted, messy, obviously AI?</span></li>
-                <li class="check-item"><span class="box"></span><span class="check-text"><strong>Which one do you prefer overall?</strong> Can you name the concrete differences that decide it, or are they genuinely Both Good or Both Bad?</span></li>
+                <li class="check-item"><span class="box"></span><span class="check-text"><strong>Which one do you prefer overall?</strong> On image tasks, go with your gut on the prompt&#8217;s intent and overall vibe, and avoid a tie if you can.</span></li>
               </ul>
             </div>
 
@@ -4527,7 +4675,7 @@
           <span class="acc-tag">02</span>
           <div>
             <div class="acc-title">Tips &amp; Tricks</div>
-            <div class="acc-sub">Staying attentive to details, and when to pick Both Good or Both Bad</div>
+            <div class="acc-sub">Staying attentive to details, and when to pick Both Good or Both Bad on image tasks</div>
           </div>
         </div>
         <span class="loupe"></span>
@@ -4574,12 +4722,12 @@
               </div>
             </div>
 
-            <div class="sub-head">When to pick Both Good or Both Bad</div>
+            <div class="sub-head">When to pick Both Good or Both Bad (image tasks)</div>
             <div class="overlap-pair">
               <div class="overlap-box"><strong>Both Good</strong>You&#8217;d be happy with either output, and both meet the core requirements. This comes up more often on image tasks, because image models are strong.</div>
-              <div class="overlap-box"><strong>Both Bad</strong>Both outputs have major flaws, and you wouldn&#8217;t be happy receiving either. This comes up more often on video tasks.</div>
+              <div class="overlap-box"><strong>Both Bad</strong>Both outputs have major flaws, and you wouldn&#8217;t be happy receiving either.</div>
             </div>
-            <div class="rule-strip">About 1 in 10 of your ratings should be Both Good or Both Bad. Give a specific reason for these just like you would for A or B. This replaces the earlier guidance to avoid ties.</div>
+            <div class="rule-strip">About 1 in 10 of your ratings should be Both Good or Both Bad. Give a specific reason for these just like you would for A or B. This replaces the earlier guidance to avoid ties. Video tasks still use slightly prefer, strongly prefer, or tie until the new scale is announced.</div>
 
           </div>
         </div>
@@ -4851,7 +4999,7 @@
                   <li><span class="mark">+</span>Echo the prompt's own wording in your answer.</li>
                   <li><span class="mark">+</span>Build a case: name specifics in both images.</li>
                   <li><span class="mark">+</span>Stay consistent: your Overall Preference should match the issues you name.</li>
-                  <li><span class="mark">+</span>Use Both Good or Both Bad when the outputs really are even.</li>
+                  <li><span class="mark">+</span>On image tasks, save Both Good or Both Bad for outputs that really are even, and avoid a tie on Overall Preference if you can.</li>
                 </ul>
               </div>
               <div class="dd-col dont">
@@ -4871,35 +5019,6 @@
         </div>
       </div>
     </section>
-
-    <section class="acc-item" data-index="6">
-      <span class="corner-bl"></span><span class="corner-br"></span>
-      <button class="acc-header" aria-expanded="false">
-        <div class="acc-header-left">
-          <span class="acc-tag">07</span>
-          <div>
-            <div class="acc-title">Timer Issue Report Form</div>
-            <div class="acc-sub">Report a problem with the Workada Timer</div>
-          </div>
-        </div>
-        <span class="loupe"></span>
-      </button>
-      <div class="acc-panel">
-        <div class="acc-panel-inner">
-          <div class="acc-body">
-            <p><strong>Before you fill it out:</strong></p>
-            <ul class="tip-list">
-              <li>A Loom screen recording is required for every report. The form has a link to create a free account and a short demo.</li>
-              <li>Check the known issues listed on the form. If you&#8217;re seeing one, please still report it. For anything else, choose &#8220;A different timer issue&#8221; and give as much detail as you can.</li>
-              <li>Record your whole screen with the timer visible. The form explains what each type of report needs.</li>
-            </ul>
-            <p style="margin-bottom:18px"><a href="https://docs.google.com/forms/d/e/1FAIpQLSdWEPW0mtJnzzMofEEIxluZXSUz0ppCh__ZvPDHVA-8Xe3W4w/viewform" target="_blank" rel="noopener" style="color:var(--blue);font-weight:600;text-decoration:none;font-size:15px">&rarr; Open the Timer Issue Report Form</a></p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-
   </div>
     </div>
   </section>
@@ -7608,7 +7727,7 @@
 <div class="tab-panel" id="tab-coc">
   <div class="coc-card"><div class="coc">
 <p class="coc-intro">These are the standards for the use of Workada’s Dashboard and Slack: <a href="https://docs.google.com/document/d/1iBvxwFH6Gmo53xCSPWudB9Q5bqKM2fa60fvZroHQu_k/edit?usp=sharing" target="_blank" rel="noopener">Read the full Code of Conduct →</a></p>
-<div class="coc-part"><h4 class="coc-part-title">On the Dashboard</h4><div class="coc-tldr"><b>In short:</b> use the platform only for legitimate task work. One account, keep your credentials secure, submit accurate work, treat all task and customer data as confidential. Trying to reverse-engineer or game the system could mean removal from the platform. Also as a reminder, all the work you create on the platform belongs to Workada.</div><div class="coc-rule"><h5>Account integrity</h5><ul><li>Keep only one account. Don’t create another after a suspension or termination without written permission.</li><li>Keep your login credentials secure, and never share, sell, or transfer access to your account.</li><li>Make sure your personal and payment information is accurate, current, and in your own name.</li><li>Complete any identity-verification request from Workada right away.</li></ul></div><div class="coc-rule"><h5>Performing tasks</h5><ul><li>Take on only tasks you can complete accurately and on time.</li><li>Follow the scope, specifications, and instructions provided with each task.</li><li>Don’t submit work that’s fabricated, copied from unauthorized sources, or done by someone else in your place.</li><li>Don’t try to game quality-control or verification. Repeated inaccurate work can lead to removal from projects or account deactivation.</li></ul></div><div class="coc-rule"><h5>Confidentiality and data</h5><ul><li>Treat all Workada materials, customer data, and task content as confidential.</li><li>Don’t download, copy, or store confidential information beyond what a task requires.</li><li>Don’t share task details or customer data with third parties, on social media, or anywhere else.</li><li>When a task ends or your account closes, delete all confidential information from your devices and cloud storage.</li></ul></div><div class="coc-rule"><h5>Intellectual property</h5><ul><li>Everything you create belongs to Workada, whether it's through the Dashboard or off-platform while your timer is running. Don’t keep copies or try to use, sell, or license it on your own.</li><li>Don’t submit content that infringes anyone else’s intellectual property.</li><li>Don’t use Workada’s materials for anything outside your tasks.</li></ul></div><div class="coc-rule"><h5>Communication</h5><ul><li>Email and Slack are our only official communication channels.</li><li>Don’t use channels outside these for Workada business, including WhatsApp, Discord, or other groups.</li></ul></div><div class="coc-rule"><h5>Software and systems</h5><ul><li>Use only approved browsers and apps. Don’t reverse-engineer, decompile, or extract source code from any Workada software or extension.</li><li>Don’t probe, scan, or test the security of the Dashboard or any connected system.</li><li>Don’t introduce malware, scripts, or bots that manipulate the platform or task results.</li><li>Report any security issue or suspected breach to support@op.workada.co right away.</li></ul></div><div class="coc-rule"><h5>Compliance</h5><ul><li>Use the Dashboard only for lawful purposes, following all applicable laws.</li><li>Don’t work from, or on behalf of, any country or party under applicable sanctions or export controls.</li><li>Don’t use a VPN, proxy, remote desktop app, or any other tool that hides or changes your location.</li><li>Don’t upload or submit content that’s illegal, discriminatory, harassing, or otherwise harmful.</li></ul></div><p class="coc-note">Workada can investigate suspected breaches, hold payment during an investigation, remove you from projects, or suspend or deactivate your account, at its reasonable discretion under the Terms of Use.</p></div><div class="coc-part"><h4 class="coc-part-title">On Slack</h4><div class="coc-tldr"><b>In short:</b> be professional and respectful. Keep conversations work-related and on-topic. Never share task details, customer data, or confidential info in any channel. No spam, harassment, or solicitation. Workada can monitor and remove content, and serious violations can deactivate your account.</div><div class="coc-rule"><h5>Professional standards</h5><ul><li>Communicate respectfully at all times. Personal attacks, insults, and hostile behavior aren’t allowed.</li><li>No harassment, discrimination, or bullying on the basis of race, gender, age, religion, disability, national origin, sexual orientation, or any other protected characteristic.</li><li>Handle disagreements constructively, and escalate anything unresolved to support@op.workada.co rather than letting it become a public argument.</li><li>Keep your language inclusive and appropriate for a professional, international audience.</li></ul></div><div class="coc-rule"><h5>Permitted use</h5><ul><li>Use Slack to discuss Workada tasks, workflows, platform updates, and professional development.</li><li>Post in the right channel, and keep messages concise. Off-topic or repetitive posts may be removed.</li><li>Don’t use Slack to solicit business, advertise third-party services, or recruit Contributors away from Workada.</li></ul></div><div class="coc-rule"><h5>Confidentiality and content</h5><ul><li>Don’t share confidential information, task details, customer data, materials, or work product, in any channel, DM, or thread.</li><li>Don’t post screenshots, documents, or files from the Dashboard unless Workada authorizes it.</li><li>Don’t post anything illegal, defamatory, obscene, threatening, or harmful, and don’t post spam or phishing links.</li><li>Don’t share or endorse misinformation about Workada, its customers, or other Contributors.</li></ul></div><div class="coc-rule"><h5>Privacy and moderation</h5><ul><li>Don’t share copyrighted material or third-party personal data without authorization.</li><li>Don’t record, screenshot, or distribute private conversations without everyone’s consent.</li><li>Moderators may monitor channels and remove content that breaks these standards. Report violations to support@op.workada.co.</li><li>Repeated or serious violations can lead to removal from the workspace, suspension, or account deactivation.</li></ul></div></div>
+<details class="coc-part coc-toggle"><summary><span class="coc-sum"><span class="coc-part-title">On the Dashboard</span><span class="coc-chips"><span class="coc-chip">Account integrity</span><span class="coc-chip">Performing tasks</span><span class="coc-chip">Confidentiality and data</span><span class="coc-chip">Intellectual property</span><span class="coc-chip">Communication</span><span class="coc-chip">Software and systems</span><span class="coc-chip">Compliance</span></span></span><span class="coc-chev" aria-hidden="true"></span></summary><div class="coc-body"><div class="coc-tldr"><b>In short:</b> use the platform only for legitimate task work. One account, keep your credentials secure, submit accurate work, treat all task and customer data as confidential. Trying to reverse-engineer or game the system could mean removal from the platform. Also as a reminder, all the work you create on the platform belongs to Workada.</div><div class="coc-grid"><div class="coc-rule"><h5>Account integrity</h5><ul><li>Keep only one account. Don’t create another after a suspension or termination without written permission.</li><li>Keep your login credentials secure, and never share, sell, or transfer access to your account.</li><li>Make sure your personal and payment information is accurate, current, and in your own name.</li><li>Complete any identity-verification request from Workada right away.</li></ul></div><div class="coc-rule"><h5>Performing tasks</h5><ul><li>Take on only tasks you can complete accurately and on time.</li><li>Follow the scope, specifications, and instructions provided with each task.</li><li>Don’t submit work that’s fabricated, copied from unauthorized sources, or done by someone else in your place.</li><li>Don’t try to game quality-control or verification. Repeated inaccurate work can lead to removal from projects or account deactivation.</li></ul></div><div class="coc-rule"><h5>Confidentiality and data</h5><ul><li>Treat all Workada materials, customer data, and task content as confidential.</li><li>Don’t download, copy, or store confidential information beyond what a task requires.</li><li>Don’t share task details or customer data with third parties, on social media, or anywhere else.</li><li>When a task ends or your account closes, delete all confidential information from your devices and cloud storage.</li></ul></div><div class="coc-rule"><h5>Intellectual property</h5><ul><li>Everything you create belongs to Workada, whether it's through the Dashboard or off-platform while your timer is running. Don’t keep copies or try to use, sell, or license it on your own.</li><li>Don’t submit content that infringes anyone else’s intellectual property.</li><li>Don’t use Workada’s materials for anything outside your tasks.</li></ul></div><div class="coc-rule"><h5>Communication</h5><ul><li>Email and Slack are our only official communication channels.</li><li>Don’t use channels outside these for Workada business, including WhatsApp, Discord, or other groups.</li></ul></div><div class="coc-rule"><h5>Software and systems</h5><ul><li>Use only approved browsers and apps. Don’t reverse-engineer, decompile, or extract source code from any Workada software or extension.</li><li>Don’t probe, scan, or test the security of the Dashboard or any connected system.</li><li>Don’t introduce malware, scripts, or bots that manipulate the platform or task results.</li><li>Report any security issue or suspected breach to support@op.workada.co right away.</li></ul></div><div class="coc-rule"><h5>Compliance</h5><ul><li>Use the Dashboard only for lawful purposes, following all applicable laws.</li><li>Don’t work from, or on behalf of, any country or party under applicable sanctions or export controls.</li><li>Don’t use a VPN, proxy, remote desktop app, or any other tool that hides or changes your location.</li><li>Don’t upload or submit content that’s illegal, discriminatory, harassing, or otherwise harmful.</li></ul></div></div><p class="coc-note">Workada can investigate suspected breaches, hold payment during an investigation, remove you from projects, or suspend or deactivate your account, at its reasonable discretion under the Terms of Use.</p></div></details><details class="coc-part coc-toggle"><summary><span class="coc-sum"><span class="coc-part-title">On Slack</span><span class="coc-chips"><span class="coc-chip">Professional standards</span><span class="coc-chip">Permitted use</span><span class="coc-chip">Confidentiality and content</span><span class="coc-chip">Privacy and moderation</span></span></span><span class="coc-chev" aria-hidden="true"></span></summary><div class="coc-body"><div class="coc-tldr"><b>In short:</b> be professional and respectful. Keep conversations work-related and on-topic. Never share task details, customer data, or confidential info in any channel. No spam, harassment, or solicitation. Workada can monitor and remove content, and serious violations can deactivate your account.</div><div class="coc-grid"><div class="coc-rule"><h5>Professional standards</h5><ul><li>Communicate respectfully at all times. Personal attacks, insults, and hostile behavior aren’t allowed.</li><li>No harassment, discrimination, or bullying on the basis of race, gender, age, religion, disability, national origin, sexual orientation, or any other protected characteristic.</li><li>Handle disagreements constructively, and escalate anything unresolved to support@op.workada.co rather than letting it become a public argument.</li><li>Keep your language inclusive and appropriate for a professional, international audience.</li></ul></div><div class="coc-rule"><h5>Permitted use</h5><ul><li>Use Slack to discuss Workada tasks, workflows, platform updates, and professional development.</li><li>Post in the right channel, and keep messages concise. Off-topic or repetitive posts may be removed.</li><li>Don’t use Slack to solicit business, advertise third-party services, or recruit Contributors away from Workada.</li></ul></div><div class="coc-rule"><h5>Confidentiality and content</h5><ul><li>Don’t share confidential information, task details, customer data, materials, or work product, in any channel, DM, or thread.</li><li>Don’t post screenshots, documents, or files from the Dashboard unless Workada authorizes it.</li><li>Don’t post anything illegal, defamatory, obscene, threatening, or harmful, and don’t post spam or phishing links.</li><li>Don’t share or endorse misinformation about Workada, its customers, or other Contributors.</li></ul></div><div class="coc-rule"><h5>Privacy and moderation</h5><ul><li>Don’t share copyrighted material or third-party personal data without authorization.</li><li>Don’t record, screenshot, or distribute private conversations without everyone’s consent.</li><li>Moderators may monitor channels and remove content that breaks these standards. Report violations to support@op.workada.co.</li><li>Repeated or serious violations can lead to removal from the workspace, suspension, or account deactivation.</li></ul></div></div></div></details>
 </div></div>
 <div class="policies-card">
   <h3>Workada policies</h3>
