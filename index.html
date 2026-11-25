@@ -2555,7 +2555,20 @@
   #tab-mm .fb-badge{display:inline-block;font-size:12px;font-weight:700;padding:3px 10px;border-radius:999px;line-height:1.4}
   #tab-mm .fb-pass{background:#E4F4FA;color:#092E65;border:1px solid #1DB5DA}
   #tab-mm .fb-fail{background:#FFF0F0;color:#092E65;border:1px solid #FF7D7E}
-</style>
+/*CU-UNANSWERED*/
+  .faq-unanswered { border-left:3px solid #ff4d4f !important; }
+  .faq-unanswered .faq-q-text, .faq-unanswered .faq-q-num { color:#ff6b6b !important; }
+  .needs-badge { font-size:11px; font-weight:700; color:#ff6b6b; border:1px solid #ff6b6b; border-radius:10px; padding:1px 8px; margin-left:8px; white-space:nowrap; }
+  /*CU-FLOW*/
+  .cu-flow{display:grid;gap:12px;margin-top:4px}
+  .cu-flow-card{border:1px solid rgba(255,255,255,0.14);border-left:4px solid #7aa2ff;border-radius:12px;padding:16px 18px;background:rgba(255,255,255,0.04)}
+  .cu-flow-card.ok{border-left-color:#4cd08a}
+  .cu-flow-card.warn{border-left-color:#ffb84d}
+  .cu-flow-card h3{margin:0 0 6px;font-size:16px;color:#fff !important}
+  .cu-flow-card p{margin:4px 0;font-size:15px;line-height:1.5;color:rgba(255,255,255,0.82)}
+  .cu-flow-tag{display:inline-block;font-size:12px;font-weight:700;border-radius:10px;padding:2px 10px;margin-top:6px;border:1px solid currentColor}
+  .cu-flow-intro{font-size:15px;color:rgba(255,255,255,0.75);margin:-8px 0 16px}
+  </style>
 </head>
 <body>
 
@@ -7727,10 +7740,381 @@
 </div>
 
 <div class="tab-panel" id="tab-terminal-bench">
-  <section id="terminal-bench-soon" class="mm-section" style="scroll-margin-top:20px">
+  <p class="mm-intro">Everything for the Terminal Bench project: your Slack channels, how to build a task, how your task is checked, how pay works, and answers to common questions.</p>
+  <nav class="mm-jump" aria-label="Jump to section">
+    <span class="mm-jump-label">Jump to</span>
+    <a href="#tb-channels">Channels</a>
+    <a href="#tb-about">About the project</a>
+    <a href="#tb-manual">Contributor manual</a>
+    <a href="#tb-start">Getting started</a>
+    <a href="#tb-checks">How your task is checked</a>
+    <a href="#tb-training">Training and calibration</a>
+    <a href="#tb-pay">Pay</a>
+    <a href="#tb-pods">Pods and Pod Leads</a>
+    <a href="#tb-faq">Project FAQ</a>
+  </nav>
+
+  <section id="tb-channels" class="mm-section" style="scroll-margin-top:20px">
+    <h2 class="mm-h">Channels</h2>
+    <div class="cr-channels">
+      <a class="cr-chan cr-chan-no-link" tabindex="0">
+        <span class="cr-chan-ic" aria-hidden="true">#</span>
+        <div class="cr-chan-body"><span class="cr-chan-name">#terminal-bench-onboarding</span><p>Stay here while you complete the setup steps.</p></div>
+      </a>
+      <a class="cr-chan cr-chan-no-link" tabindex="0">
+        <span class="cr-chan-ic" aria-hidden="true">#</span>
+        <div class="cr-chan-body"><span class="cr-chan-name">#terminal-bench-discussion</span><p>Ask questions and get help from the team and other Contributors.</p></div>
+      </a>
+      <a class="cr-chan cr-chan-no-link" tabindex="0">
+        <span class="cr-chan-ic" aria-hidden="true">#</span>
+        <div class="cr-chan-body"><span class="cr-chan-name">#terminal-bench-announcements</span><p>Project announcements from the Terminal Bench team.</p></div>
+      </a>
+    </div>
+  </section>
+
+  <section id="tb-about" class="mm-section" style="scroll-margin-top:20px">
+    <h2 class="mm-h">About the project</h2>
     <div class="ve-card">
-      <h3>Coming soon</h3>
-      <p>Resources for the Terminal Bench project are on the way. Your Pod Lead will let you know as soon as this page is ready.</p>
+      <h3>What you'll build</h3>
+      <p>You write original Terminal-Bench 3/4-style tasks: real expert work in your field, done by an AI agent in a terminal. Each task is packaged in Harbor format and graded automatically as 1 (pass) or 0 (fail) by a program that checks the outcome, not the method.</p>
+      <p>A good task is hard for frontier models because the core problem is hard, not because of tricks, hidden requirements or missing information.</p>
+    </div>
+    <div class="ve-card">
+      <h3>What a task contains</h3>
+      <ul>
+        <li><b>Prompt (instruction.md):</b> the instruction the agent gets, written by you.</li>
+        <li><b>Environment (environment/):</b> everything the agent works in.</li>
+        <li><b>Reference answer (solution/solve.sh):</b> your solution, used by the oracle run.</li>
+        <li><b>Verifier (tests/Dockerfile and tests/test.sh):</b> the program that grades the outcome.</li>
+        <li><b>Task config (task.toml):</b> timeouts, verifier mode and metadata.</li>
+        <li><b>README (README.md):</b> how your task works, for reviewers.</li>
+        <li><b>Task ZIP:</b> the single task folder, zipped, uploaded to the Task ZIP field.</li>
+      </ul>
+    </div>
+    <div class="ve-card">
+      <h3>Competencies</h3>
+      <p>Each task asks for one competency, and you build your task in that domain. Set the category in task.toml to the competency and pick a subcategory from its list.</p>
+      <ul>
+        <li><b>Science:</b> Biology, Chemistry, Physics, Earth, Robotics, Math, Linguistics</li>
+        <li><b>Software:</b> Algorithms, Systems, Databases, Data engineering, Frontend, Languages</li>
+        <li><b>ML:</b> Training, Inference, Evaluation, Kernels</li>
+        <li><b>Operations:</b> Finance, Logistics, Supply chain, Claims, Compliance, Marketing</li>
+        <li><b>Security:</b> Cryptography, Reverse engineering, Forensics, AppSec</li>
+        <li><b>Hardware:</b> CAD, RTL</li>
+        <li><b>Media:</b> Music, Design</li>
+      </ul>
+      <p>If none of the subcategories fits, write subcategory = "Other: &lt;short description&gt;" in 60 characters or fewer.</p>
+    </div>
+  </section>
+
+  <section id="tb-manual" class="mm-section" style="scroll-margin-top:20px">
+    <h2 class="mm-h">Contributor manual</h2>
+    <div class="ve-card">
+      <h3>Terminal Bench Contributor Manual</h3>
+      <p>The manual walks you through every step of building a task, the checks it goes through and how to set up Harbor. Keep it open while you work.</p>
+      <p><a style="color:#092E65;font-weight:600;text-decoration:underline" href="https://docs.google.com/document/d/1gwhl_wJ1QedLFYWbZDaMbEGYskGlqlUWd6A4QJ-MtNE/edit" target="_blank" rel="noopener">Open the Contributor Manual</a></p>
+    </div>
+  </section>
+
+  <section id="tb-start" class="mm-section" style="scroll-margin-top:20px">
+    <h2 class="mm-h">Getting started</h2>
+    <div class="ve-card">
+      <h3>Before your first task</h3>
+      <ol>
+        <li>Install Harbor 0.25.0 on your computer, using the <a style="color:#092E65;font-weight:600;text-decoration:underline" href="https://docs.harborframework.com/getting-started/quick-start" target="_blank" rel="noopener">Harbor quick start</a>.</li>
+        <li>Download the <a style="color:#092E65;font-weight:600;text-decoration:underline" href="https://drive.google.com/file/d/1c9O46gcCJJyl6Qs58qDn9fXkAyAC8hay/view" target="_blank" rel="noopener">Harbor starter ZIP</a>. You start every task from it.</li>
+        <li>Complete the Terminal Bench training in Workada.</li>
+      </ol>
+    </div>
+    <div class="ve-card">
+      <h3>How to make a task</h3>
+      <p>Plan on 2 to 3 hours per task. You can hold up to 2 tasks in Author a task at once.</p>
+      <ol>
+        <li><b>Claim a task and read its competency.</b> Sign in to Workada, claim a task from the <a style="color:#092E65;font-weight:600;text-decoration:underline" href="https://app.workada.com/tasks" target="_blank" rel="noopener">task queue</a> and read the Task Competency on the task page.</li>
+        <li><b>Design the task.</b> Choose real expert work that an agent can do in a terminal and that is hard because the core problem is hard. Plan how a program checks the end result.</li>
+        <li><b>Build the task folder.</b> Start from the starter ZIP, write instruction.md yourself, then set task.toml and build README.md, environment/, solution/solve.sh and the tests.</li>
+        <li><b>Test it locally with Harbor.</b> Run harbor lint, then run the task with -a oracle (it must earn 1) and with -a nop (it must earn 0).</li>
+        <li><b>ZIP and upload.</b> ZIP the single task folder (no more than 128 MiB unpacked and 20,000 files, with no credentials or caches), upload it to the Task ZIP field and submit.</li>
+      </ol>
+    </div>
+    <div class="ve-card">
+      <h3>The ground rules</h3>
+      <ul>
+        <li><b>Original work only.</b> Copies of public tasks are rejected automatically, and close matches go to a reviewer.</li>
+        <li><b>Licensed data only.</b> Anything you didn't create must be licensed for commercial use and redistribution. Name the source in README.md under Relevant experience.</li>
+        <li><b>Write the prompt yourself.</b> An AI-written instruction gets a warning.</li>
+        <li><b>No LLM-as-judge.</b> The verifier is a program that grades the outcome, not the method.</li>
+        <li><b>Keep answers out of reach.</b> The solution and tests stay out of the agent's image, and no canary strings go anywhere.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="tb-checks" class="mm-section" style="scroll-margin-top:20px">
+    <h2 class="mm-h">How your task is checked</h2>
+    <div class="ve-card">
+      <h3>The checks, in order</h3>
+      <p>After you submit, your task goes through these checks. If it fails one, it comes back to you with a note, and infrastructure errors never count against you.</p>
+      <ol>
+        <li><b>Similarity:</b> compares your task with every public Terminal-Bench-format task and with earlier tasks in this project.</li>
+        <li><b>Oracle and Nop:</b> your reference solution must earn 1, and a do-nothing run must earn 0.</li>
+        <li><b>Auto Review:</b> an AI reviewer checks the task against the Terminal-Bench task rubric. Any critical or major finding sends it back.</li>
+        <li><b>SOTA Prefilter:</b> Claude Sonnet attempts the task 4 times, plus 1 cheat run that tries to earn reward without solving it. Your task comes back if Sonnet solves 3 or more of the 4, or if the cheat run earns reward.</li>
+        <li><b>SOTA Eval:</b> Claude Opus attempts the task 8 times, plus 1 cheat run. Your task passes when Opus solves 1 to 6 of the 8 and the cheat run earns nothing.</li>
+        <li><b>Contributor Review:</b> a peer contributor audits the task and the runs. A major or critical finding sends it back.</li>
+      </ol>
+    </div>
+    <div class="ve-card">
+      <h3>When a task comes back to you</h3>
+      <p>Read the note on the task page, and the runs under SOTA results. Fix each issue in the part the note names, rerun the local Harbor checks, and upload a new ZIP. The task reopens in Author a task and goes through every check again.</p>
+    </div>
+    <div class="ve-card">
+      <h3>Common reasons tasks come back</h3>
+      <ul>
+        <li>The starter was submitted with the solution pasted in as the instruction. Replace the whole starter with your own task.</li>
+        <li>The tests required something the instruction never said. For every assertion, point to the sentence that requires it, or drop the assertion.</li>
+        <li>The data file the instruction mentions was never copied into the environment. Copy every input into environment/.</li>
+        <li>solve.sh only copied a finished answer. Make it do the work.</li>
+        <li>The task is a textbook problem. Keep the domain and make the problem harder, such as a broken model to diagnose or a real defect to find.</li>
+        <li>The verifier ran the agent's code as root. Run agent code unprivileged and protect /logs/verifier.</li>
+        <li>A parameter that changes the answer wasn't stated. State every such parameter, such as material, units and versions.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="tb-training" class="mm-section" style="scroll-margin-top:20px">
+    <h2 class="mm-h">Training and calibration</h2>
+    <div class="ve-card">
+      <h3>Terminal Bench training</h3>
+      <p>Complete the Terminal Bench training in Workada before your first task. It covers every rule in the Contributor Manual in more detail.</p>
+      <p>When your first task is accepted, you get a one-time $900 payment for training and calibration.</p>
+    </div>
+  </section>
+
+  <section id="tb-pay" class="mm-section" style="scroll-margin-top:20px">
+    <h2 class="mm-h">Pay</h2>
+    <div class="ve-card">
+      <h3>How pay works</h3>
+      <p>You earn $300 for every accepted task. Terminal Bench pays per task, so there's no timer to start or stop.</p>
+      <p>When your first task is accepted, you also get a one-time $900 payment for training and calibration, on top of the $300 for that task.</p>
+      <p>Only accepted tasks are paid, so a returned task isn't paid until it's accepted. Payouts go out on Mondays, Wednesdays and Fridays.</p>
+    </div>
+  </section>
+
+  <section id="tb-pods" class="mm-section" style="scroll-margin-top:20px">
+    <h2 class="mm-h">Pods and Pod Leads</h2>
+    <div class="ve-card">
+      <h3>Your Pod Lead</h3>
+      <p>Your Pod Lead is listed under Support in your Workada Dashboard. Message them for anything private. For questions about tasks, post in #terminal-bench-discussion.</p>
+    </div>
+  </section>
+
+  <section id="tb-faq" class="mm-section" style="scroll-margin-top:20px">
+    <h2 class="mm-h">Project FAQ</h2>
+    <p style="font-size:15px; color:rgba(255,255,255,0.75); margin:-8px 0 20px;">Can't find what you need? Post in #terminal-bench-discussion.</p>
+
+    <div class="faq-section">
+      <div class="section-header">
+        <div class="section-num">A</div>
+        <h2>Getting started</h2>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-q-num">1</span> <span class="faq-q-text">What do I need before my first task?</span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="faq-a"><p>You need Harbor 0.25.0 installed on your computer, the Harbor starter ZIP and the Terminal Bench training in Workada. The Contributor Manual has a Setting up Harbor tab that walks you through the install.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-q-num">2</span> <span class="faq-q-text">How long does a task take?</span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="faq-a"><p>Plan on 2 to 3 hours to create a task and revise it as needed. Designing takes about 30 to 45 minutes, building takes 1 to 1.5 hours and local testing takes about 30 minutes. A returned task adds time to fix it.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-q-num">3</span> <span class="faq-q-text">What is a competency?</span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="faq-a"><p>A competency is the Terminal Bench domain your task has to fit, such as Science, Software or Security. You see it as the Task Competency on the task page. Build your task in that domain, set the category in task.toml to it and pick a subcategory from its list. The upload check rejects a category or subcategory that isn't on the list.</p></div>
+      </div>
+    </div>
+
+    <div class="faq-section">
+      <div class="section-header">
+        <div class="section-num">B</div>
+        <h2>Tasks and quality</h2>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-q-num">4</span> <span class="faq-q-text">How many tasks can I hold at once?</span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="faq-a"><p>Up to 2 in Author a task, and returned ("Needs edits") tasks count toward that limit. Tasks being checked don't count, so you can start a new one while others are pending.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-q-num">5</span> <span class="faq-q-text">How hard should my task be?</span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="faq-a">
+          <p>After you submit, the platform runs Claude Sonnet on your task 4 times and Claude Opus 8 times. You don't run these yourself. Each run's score and trajectory appear under SOTA results on the task page.</p>
+          <ul>
+            <li>Your task is too easy if Sonnet solves 3 or more of its 4 runs, or Opus solves 7 or more of its 8.</li>
+            <li>If Opus solves 0 of 8, the task usually has an unclear instruction, an unstated requirement, a missing input or a broken environment.</li>
+            <li>Either way, the task comes back to you.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-q-num">6</span> <span class="faq-q-text">Can I use data I didn't create?</span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="faq-a">
+          <p>Only if it's licensed for commercial use, including being passed on as part of a dataset that is sold or licensed. Your task is delivered as training data, and its files go with it.</p>
+          <ul>
+            <li><b>Allowed:</b> public domain, CC0, CC BY, and permissive code licenses such as MIT, BSD and Apache 2.0. Keep the license file and credit with the data, and name the source in README.md under Relevant experience.</li>
+            <li><b>Not allowed:</b> non-commercial (NC), no-derivatives (ND) or ShareAlike (SA) licenses, research-only or no-redistribution terms, copyleft code licenses such as GPL and AGPL, data with no stated license, and data taken against a site's terms.</li>
+          </ul>
+          <p>Not sure? Generate the data yourself, or ask in #terminal-bench-discussion before you build the task.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-q-num">7</span> <span class="faq-q-text">How do I update a task that was sent back? My new ZIP isn't showing.</span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="faq-a"><p>Open it from your Author a task queue, upload the new ZIP to the Task ZIP field, wait for the upload check to finish, then press Submit. The Prompt should update within a few seconds to match your new instruction.md.</p><p>If the page still shows your old prompt, it isn't cached. Usually the same ZIP was uploaded again or the submission didn't go through, so re-upload and check the file name and size before submitting. Tasks still being checked or reviewed can't be changed.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-q-num">8</span> <span class="faq-q-text">I redesigned a returned task. Should I resubmit it, create a new task, or mark it as a variant?</span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="faq-a"><p>Update it in the same task slot and resubmit. It won't be flagged as a duplicate of its earlier version, and keeping the same folder name is fine. Don't submit the change as a new task, since two very similar tasks will be flagged by the Similarity check.</p><p>"Variant of" is only for a separate new task built from an existing one, so check with an admin first. If a task gets stuck on a duplicate flag, post the task IDs in #terminal-bench-discussion and we'll clear it.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-q-num">9</span> <span class="faq-q-text">What checks does my task go through after I submit?</span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="faq-a">
+          <ol>
+            <li>Similarity: compares your task against existing ones, including your own.</li>
+            <li>Oracle and Nop: your reference solution must pass the tests, and a "do nothing" run must fail them.</li>
+            <li>Auto Review: automated quality review. Findings appear in the feedback panel on the task page.</li>
+            <li>SOTA Prefilter: Sonnet runs the task 4 times plus one cheat (adversarial) run. Solving 3 or more of 4 counts as too easy.</li>
+            <li>SOTA Eval: Opus runs the task 8 times plus a cheat run. If Opus solves 7 or 8 of the 8, the task needs to be harder, and if it solves none, the task needs a closer look.</li>
+            <li>Contributor Review: a peer contributor reviews the task and either passes it or sends it back with feedback.</li>
+          </ol>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-q-num">10</span> <span class="faq-q-text">My task has been "Pending" for hours. Is it stuck?</span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="faq-a"><p>Usually not. SOTA runs can take a while depending on difficulty, and Contributor Review is currently taking a day or two. If your task has passed SOTA Eval, it's waiting for a peer reviewer and nothing is needed from you.</p><p>If it's been pending more than about 24 hours with no new results, post the task ID in #terminal-bench-discussion and we'll check.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-q-num">11</span> <span class="faq-q-text">The cheat (adversarial) run shows "solved," but the agent didn't exploit anything. Do I need to fix it?</span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="faq-a"><p>Not necessarily. The platform reviews cheat runs and passes the check if the model solved the task legitimately. If the cheat run actually earned the reward by exploiting the verifier, fix the verifier before resubmitting. The cheat run's trajectory and Results ZIP are under SOTA results on the task page.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-q-num">12</span> <span class="faq-q-text">Where do I find my feedback, and what if I don't see any?</span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="faq-a"><p>In the feedback panel on the right side of the task page, called Review findings in the manual. Model run results are under SOTA results. Every task goes through contributor peer review, and a reviewer who sends it back should leave feedback there.</p><p>If you got a feedback notification or a returned task but see nothing, post the task ID in #terminal-bench-discussion. Sometimes the notification means the task passed review with no issues.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-q-num">13</span> <span class="faq-q-text">My task was returned for being too easy. Should I redesign it or start a new one?</span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="faq-a"><p>Redesign the same task first. Keep the domain and make the core problem harder, such as a broken model to diagnose, a real defect to find, or a system to investigate. Avoid adding tricks or hidden requirements, and check whether the instructions or tests give away too much.</p><p>If you can't make it genuinely harder, it's fine to move on to a new problem.</p></div>
+      </div>
+    </div>
+
+    <div class="faq-section">
+      <div class="section-header">
+        <div class="section-num">C</div>
+        <h2>Pay</h2>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-q-num">14</span> <span class="faq-q-text">How am I paid on Terminal Bench?</span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="faq-a"><p>You earn $300 for each accepted task. Pay is per task, so what you earn depends on the tasks you build, not on the hours you log.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-q-num">15</span> <span class="faq-q-text">Do I need to use the timer?</span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="faq-a"><p>No. Terminal Bench doesn't use the timer, so you don't need to start it, stop it or track hours.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-q-num">16</span> <span class="faq-q-text">What is the one-time $900 payment?</span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="faq-a"><p>It's a one-time payment for your training and calibration. You get it when your first task is accepted, in addition to the $300 for that task. You only receive it once.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-q-num">17</span> <span class="faq-q-text">Do I get paid for a returned task?</span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="faq-a"><p>No. We only pay for accepted tasks. If a task comes back to you, fix what the note names and resubmit it, and you earn the $300 once it's accepted.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-q-num">18</span> <span class="faq-q-text">When do payouts arrive?</span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="faq-a"><p>Payouts go out on Mondays, Wednesdays and Fridays.</p></div>
+      </div>
+    </div>
+
+    <div class="faq-section">
+      <div class="section-header">
+        <div class="section-num">D</div>
+        <h2>Pods and support</h2>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-q-num">19</span> <span class="faq-q-text">Where do I ask questions?</span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="faq-a"><p>Post in #terminal-bench-discussion for questions about tasks, checks and feedback, and in #terminal-bench-onboarding while you complete the setup steps. Project announcements go in #terminal-bench-announcements.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-q-num">20</span> <span class="faq-q-text">How do I reach my Pod Lead?</span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="faq-a"><p>Your Pod Lead is listed under Support in your Workada Dashboard. Message them for anything private.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-q-num">21</span> <span class="faq-q-text">How do I contact support about a specific task?</span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="faq-a"><p>Email <a style="color:#092E65;font-weight:600;text-decoration:underline" href="mailto:support@op.workada.com">support@op.workada.com</a> with the task details. For anything private, message your Pod Lead instead.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-q-num">22</span> <span class="faq-q-text">How do I release a task I can't finish?</span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="faq-a"><p>Claims don't expire, so a task stays yours until you finish it or let us know. If you can't finish a task, email <a style="color:#092E65;font-weight:600;text-decoration:underline" href="mailto:support@op.workada.com">support@op.workada.com</a> and we'll release it.</p></div>
+      </div>
     </div>
   </section>
 
@@ -7739,11 +8123,386 @@
 </div>
 
 <div class="tab-panel" id="tab-computer-use">
-  <section id="computer-use-soon" class="mm-section" style="scroll-margin-top:20px">
-    <div class="ve-card">
-      <h3>Coming soon</h3>
-      <p>Resources for the Computer Use project are on the way. Your Pod Lead will let you know as soon as this page is ready.</p>
+  <p class="mm-intro">Quick answers for the Computer Use project, with links to the full Welcome Manual when you need more detail.</p>
+  <nav class="mm-jump" aria-label="Jump to section">
+    <span class="mm-jump-label">Jump to</span>
+    <a href="#cu-flow">Calibration to tasking</a>
+    <a href="#cu-channels">Channels</a>
+    <a href="#cu-manual">Welcome manual</a>
+    <a href="#cu-faq">Project FAQ</a>
+  </nav>
+
+  <section id="cu-flow" class="mm-section" style="scroll-margin-top:20px">
+    <h2 class="mm-h">How calibration leads to tasking</h2>
+    <p class="cu-flow-intro">Your result in the calibration task decides which tier you can task at. Which tier you try for matters, because you cannot re-calibrate for Advanced after you are accepted at Core.</p>
+    <div class="cu-flow">
+      <div class="cu-flow-card warn">
+        <h3>Scenario 1: You try for Core and are accepted at Core</h3>
+        <p>You can task at Core only. You will not be able to re-calibrate for Advanced.</p>
+        <span class="cu-flow-tag" style="color:#ffb84d">Tasking: Core only</span>
+      </div>
+      <div class="cu-flow-card warn">
+        <h3>Scenario 2: You try for Advanced and are accepted only at Core</h3>
+        <p>You can task at Core only. You will not be able to re-calibrate for Advanced.</p>
+        <span class="cu-flow-tag" style="color:#ffb84d">Tasking: Core only</span>
+      </div>
+      <div class="cu-flow-card ok">
+        <h3>Scenario 3: You try for Advanced and are accepted at Advanced</h3>
+        <p>You can task at Core or Advanced.</p>
+        <span class="cu-flow-tag" style="color:#4cd08a">Tasking: Core or Advanced</span>
+      </div>
     </div>
+  </section>
+
+  <section id="cu-channels" class="mm-section" style="scroll-margin-top:20px">
+    <h2 class="mm-h">Channels</h2>
+    <div class="cr-channels">
+      <a class="cr-chan" href="https://workada.slack.com/archives/C0CJA6MK83U" target="_blank" rel="noopener">
+        <span class="cr-chan-ic" aria-hidden="true">#</span>
+        <div class="cr-chan-body"><span class="cr-chan-name">#computer-use-onboarding</span><p>Start here for setup, training and Bloom help.</p></div>
+      </a>
+      <a class="cr-chan" href="https://workada.slack.com/archives/C0CJ52K4GPM" target="_blank" rel="noopener">
+        <span class="cr-chan-ic" aria-hidden="true">#</span>
+        <div class="cr-chan-body"><span class="cr-chan-name">#computer-use-discussions</span><p>Ask questions and get help from the team and other Contributors.</p></div>
+      </a>
+      <a class="cr-chan" href="https://workada.slack.com/archives/C0CJ52QD7T5" target="_blank" rel="noopener">
+        <span class="cr-chan-ic" aria-hidden="true">#</span>
+        <div class="cr-chan-body"><span class="cr-chan-name">#computer-use-announcements</span><p>Project announcements, task availability and pod updates.</p></div>
+      </a>
+      <a class="cr-chan" href="https://workada.slack.com/archives/C0B2KBC3WES" target="_blank" rel="noopener">
+        <span class="cr-chan-ic" aria-hidden="true">#</span>
+        <div class="cr-chan-body"><span class="cr-chan-name">#workada-announcements</span><p>Company-wide announcements. Check daily before you task.</p></div>
+      </a>
+          <div class="cr-chan" style="cursor:default" title="Your Pod Lead will add you to your pod channel">
+        <span class="cr-chan-ic" aria-hidden="true">#</span>
+        <div class="cr-chan-body"><span class="cr-chan-name">#your-pod-channel</span><p>Your pod channel with your Pod Lead. You will be added once you are placed in a pod.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="cu-manual" class="mm-section" style="scroll-margin-top:20px">
+    <h2 class="mm-h">Welcome manual</h2>
+    <p style="font-size:15px; color:rgba(255,255,255,0.75); margin:-8px 0 20px;">The manual is the source of truth. Jump straight to the part you need.</p>
+    <div class="cr-channels">
+      <a class="cr-chan" href="https://docs.google.com/document/d/e/2PACX-1vRQeRKlu-sg-Y_oARvf0FhoF15N-EkQWn_aX0iWnWM0XmAK0gAyrOY1WKqYQMT57E3pZ-YDhM8pcrcj/pub?tab=t.0#h.m76njd2ajwrk" target="_blank" rel="noopener">
+        <span class="cr-chan-ic" aria-hidden="true">&#8599;</span>
+        <div class="cr-chan-body"><span class="cr-chan-name">Task context and tiers</span><p>What a task is, apps, Core vs Advanced.</p></div>
+      </a>
+      <a class="cr-chan" href="https://docs.google.com/document/d/e/2PACX-1vRQeRKlu-sg-Y_oARvf0FhoF15N-EkQWn_aX0iWnWM0XmAK0gAyrOY1WKqYQMT57E3pZ-YDhM8pcrcj/pub?tab=t.0#h.p16i7ewt3075" target="_blank" rel="noopener">
+        <span class="cr-chan-ic" aria-hidden="true">&#8599;</span>
+        <div class="cr-chan-body"><span class="cr-chan-name">Step by step</span><p>How to plan, record and submit a task.</p></div>
+      </a>
+      <a class="cr-chan" href="https://docs.google.com/document/d/e/2PACX-1vRQeRKlu-sg-Y_oARvf0FhoF15N-EkQWn_aX0iWnWM0XmAK0gAyrOY1WKqYQMT57E3pZ-YDhM8pcrcj/pub?tab=t.jwdii9rqo5sb#h.ovu19zw9sa1" target="_blank" rel="noopener">
+        <span class="cr-chan-ic" aria-hidden="true">&#8599;</span>
+        <div class="cr-chan-body"><span class="cr-chan-name">One-pager</span><p>A checklist to keep open while you work.</p></div>
+      </a>
+      <a class="cr-chan" href="https://docs.google.com/document/d/e/2PACX-1vRQeRKlu-sg-Y_oARvf0FhoF15N-EkQWn_aX0iWnWM0XmAK0gAyrOY1WKqYQMT57E3pZ-YDhM8pcrcj/pub?tab=t.7kndamgnlfrv#h.4x8sgkskz5wb" target="_blank" rel="noopener">
+        <span class="cr-chan-ic" aria-hidden="true">&#8599;</span>
+        <div class="cr-chan-body"><span class="cr-chan-name">Good tasks and an example</span><p>What good looks like, with a worked sample.</p></div>
+      </a>
+      <a class="cr-chan" href="https://docs.google.com/document/d/e/2PACX-1vRQeRKlu-sg-Y_oARvf0FhoF15N-EkQWn_aX0iWnWM0XmAK0gAyrOY1WKqYQMT57E3pZ-YDhM8pcrcj/pub?tab=t.cvtszzqaqu57#h.x5lmj1gg8jcb" target="_blank" rel="noopener">
+        <span class="cr-chan-ic" aria-hidden="true">&#8599;</span>
+        <div class="cr-chan-body"><span class="cr-chan-name">Calibration directions</span><p>Suggested directions for each app.</p></div>
+      </a>
+      <a class="cr-chan" href="https://docs.google.com/document/d/e/2PACX-1vRQeRKlu-sg-Y_oARvf0FhoF15N-EkQWn_aX0iWnWM0XmAK0gAyrOY1WKqYQMT57E3pZ-YDhM8pcrcj/pub?tab=t.fdq2ynfb7wfh#h.1zopu0qezvz4" target="_blank" rel="noopener">
+        <span class="cr-chan-ic" aria-hidden="true">&#8599;</span>
+        <div class="cr-chan-body"><span class="cr-chan-name">QC checklist</span><p>Every issue reviewers check for.</p></div>
+      </a>
+      <a class="cr-chan" href="https://docs.google.com/document/d/e/2PACX-1vRQeRKlu-sg-Y_oARvf0FhoF15N-EkQWn_aX0iWnWM0XmAK0gAyrOY1WKqYQMT57E3pZ-YDhM8pcrcj/pub?tab=t.xclp3glwu734#h.kfytyvay9vag" target="_blank" rel="noopener">
+        <span class="cr-chan-ic" aria-hidden="true">&#8599;</span>
+        <div class="cr-chan-body"><span class="cr-chan-name">Setting up Bloom</span><p>Install, connect and troubleshoot.</p></div>
+      </a>
+      <a class="cr-chan" href="https://docs.google.com/document/d/e/2PACX-1vRQeRKlu-sg-Y_oARvf0FhoF15N-EkQWn_aX0iWnWM0XmAK0gAyrOY1WKqYQMT57E3pZ-YDhM8pcrcj/pub?tab=t.zfmx5wuthv6y#h.jzv8w5or0am8" target="_blank" rel="noopener">
+        <span class="cr-chan-ic" aria-hidden="true">&#8599;</span>
+        <div class="cr-chan-body"><span class="cr-chan-name">Setting up the timer</span><p>Install, sign in and troubleshoot.</p></div>
+      </a>
+    </div>
+  </section>
+
+  <section id="cu-faq" class="mm-section" style="scroll-margin-top:20px">
+    <h2 class="mm-h">Project FAQ</h2>
+    <p style="font-size:15px; color:rgba(255,255,255,0.75); margin:-8px 0 20px;">Can&#8217;t find what you need? Post in #computer-use-discussions.</p>
+
+    <div class="faq-section">
+      <div class="section-header">
+        <div class="section-num">A</div>
+        <h2>Getting started</h2>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-q-num">1</span> <span class="faq-q-text">What is Computer Use?</span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="faq-a"><p>You record yourself doing real, multistep work in a professional app (Excel, Salesforce, AWS and more) so AI models can learn how skilled people use it. One task = one deliverable in one assigned app. <a style="color:#092E65;font-weight:600;text-decoration:underline" href="https://docs.google.com/document/d/e/2PACX-1vRQeRKlu-sg-Y_oARvf0FhoF15N-EkQWn_aX0iWnWM0XmAK0gAyrOY1WKqYQMT57E3pZ-YDhM8pcrcj/pub?tab=t.0#h.m76njd2ajwrk" target="_blank" rel="noopener">Task context</a></p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-q-num">2</span> <span class="faq-q-text">What do I need before my first recording?</span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="faq-a"><p>A Mac or Windows computer, Bloom, the Workada timer, and a sandbox, trial, demo or free account of your own in your app (never a work account). Sign the recording consent form in Workada.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-q-num">3</span> <span class="faq-q-text">How long does a task take and how long is the screen recording?</span>
+          <span class="chevron">&#9660;</span>
+        </button>
+        <div class="faq-a"><p>Prep time for a task should not take longer than 2 hours (prep time range is different for every app and skill level). The actual screen recorded submission should be at minimum 30 minutes and at maximum 2 hours.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-q-num">4</span> <span class="faq-q-text">Which apps can I record in?</span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="faq-a"><p>Salesforce, HubSpot, Zendesk, QuickBooks, Microsoft 365, Google Workspace, Jira, Tableau, Power BI, Zapier, VS Code, GitHub, AWS, Figma, Photoshop, Premiere Pro, Blender and more. Some apps are Core only. <a style="color:#092E65;font-weight:600;text-decoration:underline" href="https://docs.google.com/document/d/e/2PACX-1vRQeRKlu-sg-Y_oARvf0FhoF15N-EkQWn_aX0iWnWM0XmAK0gAyrOY1WKqYQMT57E3pZ-YDhM8pcrcj/pub?tab=t.0#h.sgkurct3eexr" target="_blank" rel="noopener">Full app list</a></p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-q-num">5</span> <span class="faq-q-text">Will I get assigned tasks, or do I plan my own?</span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="faq-a"><p>After calibration is accepted you plan your own tasks in your approved apps. There is no assigned brief. Each task is one real multistep deliverable that ends with a check of your own work, tagged Core or Advanced, and different from your earlier tasks in that app.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-q-num">6</span> <span class="faq-q-text">Where do I ask for help?</span>
+          <span class="chevron">&#9660;</span>
+        </button>
+        <div class="faq-a"><p>Reach out to your Pod Lead. If you have not been assigned a Pod Lead, drop your questions in the #computer-use-onboarding thread or #computer-use-discussions thread, so the team can follow each issue. Any timer, task, or account issues, please submit a support ticket at support@op.workada.co.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-q-num">7</span> <span class="faq-q-text">What's the difference between Core and Advanced?</span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="faq-a"><p>Core is everyday and power-user work with standard features. Advanced is admin, build or expert-level work that ends in a result you can test, like an automation that fires or figures that tie out. You tag your tier when you submit. <a style="color:#092E65;font-weight:600;text-decoration:underline" href="https://docs.google.com/document/d/e/2PACX-1vRQeRKlu-sg-Y_oARvf0FhoF15N-EkQWn_aX0iWnWM0XmAK0gAyrOY1WKqYQMT57E3pZ-YDhM8pcrcj/pub?tab=t.0#h.zdmhdcx3lrrn" target="_blank" rel="noopener">Tiers</a></p></div>
+      </div>
+    </div>
+
+    <div class="faq-section">
+      <div class="section-header">
+        <div class="section-num">B</div>
+        <h2>Bloom and the timer</h2>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-q-num">8</span> <span class="faq-q-text">How do I set up Bloom?</span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="faq-a"><p>Install it from Settings on your Workada dashboard, sign in with Workada, allow its three permissions, then make a 1-minute test recording. <a style="color:#092E65;font-weight:600;text-decoration:underline" href="https://docs.google.com/document/d/e/2PACX-1vRQeRKlu-sg-Y_oARvf0FhoF15N-EkQWn_aX0iWnWM0XmAK0gAyrOY1WKqYQMT57E3pZ-YDhM8pcrcj/pub?tab=t.xclp3glwu734#h.j95nee5jngj4" target="_blank" rel="noopener">Setting up Bloom</a></p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-q-num">9</span> <span class="faq-q-text">The New Recording button is grayed out.</span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="faq-a"><p>Turn Bloom on under all three privacy settings, then quit Bloom completely (Cmd+Q) and reopen it. <a style="color:#092E65;font-weight:600;text-decoration:underline" href="https://docs.google.com/document/d/e/2PACX-1vRQeRKlu-sg-Y_oARvf0FhoF15N-EkQWn_aX0iWnWM0XmAK0gAyrOY1WKqYQMT57E3pZ-YDhM8pcrcj/pub?tab=t.xclp3glwu734#h.ai8o1letuaev" target="_blank" rel="noopener">Bloom troubleshooting</a></p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-q-num">10</span> <span class="faq-q-text">Bloom crashed mid-recording.</span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="faq-a"><p>Start a new recording and submit all of them.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-q-num">11</span> <span class="faq-q-text">Why record the entire screen?</span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="faq-a"><p>Reviewers check clicks and keystrokes against the video, and single-window recordings can fail to convert. Always choose Entire screen.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-q-num">12</span> <span class="faq-q-text">My timer still says another project, or training is locked.</span>
+          <span class="chevron">&#9660;</span>
+        </button>
+        <div class="faq-a"><p>Email support at support@op.workada.co.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-q-num">13</span> <span class="faq-q-text">Do I run the timer and Bloom at the same time?</span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="faq-a"><p>Yes, for calibration and for real tasks. The timer now tracks time in the tools you are working in, but desktop apps may not always register. For calibration, your Bloom session length is taken into account for pay. If time is missing, see the FAQ tab (Time tracking).</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-q-num">14</span> <span class="faq-q-text">A tool I need is blocked by the timer.</span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="faq-a"><p>Use the <a style="color:#092E65;font-weight:600;text-decoration:underline" href="https://docs.google.com/forms/d/e/1FAIpQLScgP4JXQllVqjZSO3X4FZLsiT0v83TAzRhhVhLZSSphA4NgMQ/viewform?usp=dialog" target="_blank" rel="noopener">tool request form</a>. Only request tools you need for tasks that the timer is currently blocking.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-q-num">15</span> <span class="faq-q-text">Bloom keeps sending me back to the Set up Bloom page after I sign in with Workada.</span>
+          <span class="chevron">&#9660;</span>
+        </button>
+        <div class="faq-a"><p>Sign in using your Gmail linked to your Workada email, or contact support at support@op.workada.co.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-q-num">16</span> <span class="faq-q-text">My upload failed.</span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="faq-a"><p>Retry in Bloom, or upload recording.mp4, events.jsonl and manifest.json yourself on the task page (up to 250 MiB each).</p></div>
+      </div>
+    </div>
+
+    <div class="faq-section">
+      <div class="section-header">
+        <div class="section-num">C</div>
+        <h2>Making and submitting a task</h2>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-q-num">17</span> <span class="faq-q-text">How do I make a task?</span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="faq-a"><p>Plan a complex workflow, prepare your screen, record in one sitting, then attach your Bloom session and output file in Workada. The screen recording should show only the app assigned. If some troubleshooting needs to happen during the screen recording, try to keep it limited (for example, 3 minutes of a 30 minute task). Try not to use any other apps during the screen recording alongside the approved app. <a style="color:#092E65;font-weight:600;text-decoration:underline" href="https://docs.google.com/document/d/e/2PACX-1vRQeRKlu-sg-Y_oARvf0FhoF15N-EkQWn_aX0iWnWM0XmAK0gAyrOY1WKqYQMT57E3pZ-YDhM8pcrcj/pub?tab=t.0#h.p16i7ewt3075" target="_blank" rel="noopener">Step by step</a> &middot; <a style="color:#092E65;font-weight:600;text-decoration:underline" href="https://docs.google.com/document/d/e/2PACX-1vRQeRKlu-sg-Y_oARvf0FhoF15N-EkQWn_aX0iWnWM0XmAK0gAyrOY1WKqYQMT57E3pZ-YDhM8pcrcj/pub?tab=t.jwdii9rqo5sb#h.ovu19zw9sa1" target="_blank" rel="noopener">One-pager</a></p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-q-num">18</span> <span class="faq-q-text">What does a good task look like?</span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="faq-a"><p>Realistic, multistep, with real configuration and a check that proves it worked. <a style="color:#092E65;font-weight:600;text-decoration:underline" href="https://docs.google.com/document/d/e/2PACX-1vRQeRKlu-sg-Y_oARvf0FhoF15N-EkQWn_aX0iWnWM0XmAK0gAyrOY1WKqYQMT57E3pZ-YDhM8pcrcj/pub?tab=t.7kndamgnlfrv#h.4x8sgkskz5wb" target="_blank" rel="noopener">Good tasks and an example</a></p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-q-num">19</span> <span class="faq-q-text">Where do I submit?</span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="faq-a"><p>In Workada, open Computer Use &rarr; Tasks and open your Record your work task (or select Start next to Start a recording task). <a style="color:#092E65;font-weight:600;text-decoration:underline" href="https://docs.google.com/document/d/e/2PACX-1vRQeRKlu-sg-Y_oARvf0FhoF15N-EkQWn_aX0iWnWM0XmAK0gAyrOY1WKqYQMT57E3pZ-YDhM8pcrcj/pub?tab=t.0#h.nfsdqb7xqhov" target="_blank" rel="noopener">Where your work happens</a></p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-q-num">20</span> <span class="faq-q-text">Can I use AI while recording?</span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="faq-a"><p>No. No AI assistants, macros or custom shortcuts while recording. You can use AI beforehand to set up a starting point and plan your task.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-q-num">21</span> <span class="faq-q-text">How much idle time is okay?</span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="faq-a"><p>Under 15% of the recording, with no pause over 5 minutes. Anything over 60 seconds without activity counts as idle.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-q-num">22</span> <span class="faq-q-text">Can I repeat a task?</span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="faq-a"><p>No. Make each task new in workflow, data or approach. You can record up to 100 hours per app.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-q-num">23</span> <span class="faq-q-text">If I claimed a calibration task or task by accident, how can it be taken off my dashboard?</span>
+          <span class="chevron">&#9660;</span>
+        </button>
+        <div class="faq-a"><p>Tasks are automatically released 48 hours after claiming if there is no submission.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-q-num">24</span> <span class="faq-q-text">Can I use a work account or real data?</span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="faq-a"><p>No. Use your own sandbox, trial or demo account with fake but realistic data. Never type a password while recording.</p></div>
+      </div>
+    </div>
+
+    <div class="faq-section">
+      <div class="section-header">
+        <div class="section-num">D</div>
+        <h2>Calibration and review</h2>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-q-num">25</span> <span class="faq-q-text">What is calibration?</span>
+          <span class="chevron">&#9660;</span>
+        </button>
+        <div class="faq-a"><p>A first sample recording in your app that shows the team your skill level. You choose either Core or Advanced calibration for each app, and your result sets the tier you can task at in that app. Submit one calibration per app you are proficient in, showing your best work in that app, and mention the other apps you have submitted in &ldquo;Describe your work&rdquo;. Aim for about 30 minutes, though you may start mid-workflow for complex Advanced work. There is no set deadline, but submit as soon as you can. <a style="color:#092E65;font-weight:600;text-decoration:underline" href="https://docs.google.com/document/d/e/2PACX-1vRQeRKlu-sg-Y_oARvf0FhoF15N-EkQWn_aX0iWnWM0XmAK0gAyrOY1WKqYQMT57E3pZ-YDhM8pcrcj/pub?tab=t.cvtszzqaqu57#h.x5lmj1gg8jcb" target="_blank" rel="noopener">Calibration directions</a></p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-q-num">26</span> <span class="faq-q-text">How long does calibration review take?</span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="faq-a"><p>Reviews are manual and the team aims for about 24 hours, but there can be a backlog. You do not need to submit another sample while you wait.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-q-num">27</span> <span class="faq-q-text">How is my task reviewed?</span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="faq-a"><p>Four passes in order: intake, task quality, hour validation and tier. It ends as Accept or Reject. <a style="color:#092E65;font-weight:600;text-decoration:underline" href="https://docs.google.com/document/d/e/2PACX-1vRQeRKlu-sg-Y_oARvf0FhoF15N-EkQWn_aX0iWnWM0XmAK0gAyrOY1WKqYQMT57E3pZ-YDhM8pcrcj/pub?tab=t.0#h.i1ixv2518gjv" target="_blank" rel="noopener">How your task is reviewed</a></p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-q-num">28</span> <span class="faq-q-text">Why was my task rejected?</span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="faq-a"><p>Common reasons: toy exercise, no deliverable or check, padded time, real data, AI use, or the wrong tier. <a style="color:#092E65;font-weight:600;text-decoration:underline" href="https://docs.google.com/document/d/e/2PACX-1vRQeRKlu-sg-Y_oARvf0FhoF15N-EkQWn_aX0iWnWM0XmAK0gAyrOY1WKqYQMT57E3pZ-YDhM8pcrcj/pub?tab=t.7kndamgnlfrv#h.dck5dcls0xqt" target="_blank" rel="noopener">Common pitfalls</a> &middot; <a style="color:#092E65;font-weight:600;text-decoration:underline" href="https://docs.google.com/document/d/e/2PACX-1vRQeRKlu-sg-Y_oARvf0FhoF15N-EkQWn_aX0iWnWM0XmAK0gAyrOY1WKqYQMT57E3pZ-YDhM8pcrcj/pub?tab=t.fdq2ynfb7wfh#h.1zopu0qezvz4" target="_blank" rel="noopener">QC checklist</a></p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-q-num">29</span> <span class="faq-q-text">Is there a time cap on training and calibration?</span>
+          <span class="chevron">&#9660;</span>
+        </button>
+        <div class="faq-a"><p>Yes. Paid time for training and calibration is capped at 2 hours.</p></div>
+      </div>
+    </div>
+
+    <div class="faq-section">
+      <div class="section-header">
+        <div class="section-num">E</div>
+        <h2>Pay and pods</h2>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-q-num">30</span> <span class="faq-q-text">Is there a pay difference between Core and Advanced, and what are the rates?</span>
+          <span class="chevron">&#9660;</span>
+        </button>
+        <div class="faq-a"><p>$25 for Core, $50 for Advanced.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-q-num">31</span> <span class="faq-q-text">Is setup and prep time before recording paid?</span>
+          <span class="chevron">&#9660;</span>
+        </button>
+        <div class="faq-a"><p>Yes, within reason. Time logged is tracked, and any egregious time logged with low output is flagged.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-q-num">32</span> <span class="faq-q-text">What counts as paid time?</span>
+          <span class="chevron">&#9660;</span>
+        </button>
+        <div class="faq-a"><p>Worked time on the platform, including planning for a successful task, Slack, meeting with your Pod Lead, and the actual task recording and submission. All time logged should be within reason. Any egregious time spent with low output will get flagged.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-q-num">33</span> <span class="faq-q-text">If I am moved to Advanced, does the Advanced rate cover my earlier tasks?</span>
+          <span class="chevron">&#9660;</span>
+        </button>
+        <div class="faq-a"><p>Your Advanced rate applies moving forward after you calibrated for Advanced tasking.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-q-num">34</span> <span class="faq-q-text">Does the coverage report change my pay?</span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="faq-a"><p>No. It compares your recording with your timer time for information only.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-q-num">35</span> <span class="faq-q-text">Who is my Pod Lead?</span>
+          <span class="chevron">&#9660;</span>
+        </button>
+        <div class="faq-a"><p>If you do not have a Pod Lead, email support at support@op.workada.co. But keep in mind, Pod assignment can take 2 days after onboarding at times.</p></div>
+      </div>
+    </div>
+
   </section>
 
   <p class="feedback-line" style="margin-top:40px">We&#8217;re always looking to improve this guide. If you&#8217;d like to see something added, let your Pod Lead know.</p>
@@ -8093,7 +8852,7 @@
     'sheets-aquisition': { title: 'Sheets Acquisition', sub: 'Resources for the Sheets Acquisition project are coming soon.' },
     'sheets-artifact-collection': { title: 'Sheets Artifact Collection', sub: 'Resources for the Sheets Artifact Collection project are coming soon.' },
     'terminal-bench': { title: 'Terminal Bench', sub: 'Resources for the Terminal Bench project are coming soon.' },
-    'computer-use': { title: 'Computer Use', sub: 'Resources for the Computer Use project are coming soon.' },
+    'computer-use': { title: 'Computer Use', sub: 'Quick answers, Slack channels and links to the Welcome Manual.' },
     faq:    { title: 'Contributor FAQ',         sub: 'These are the questions you\'ve been asking most, in one place. We\'re actively making Workada better, and we\'re here to support you while we do.' },
     glance: { title: 'Workada at a Glance',     sub: 'Our mission, values, and the standards that guide how we work together.' },
     paypolicy: { title: 'Pay Policy and Timer', sub: 'How working time is tracked and paid, plus what counts as active work on the timer.' },
