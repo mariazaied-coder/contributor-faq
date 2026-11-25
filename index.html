@@ -8769,9 +8769,9 @@
   function runSearch(q){
     const ql = q.toLowerCase();
     const hits = [];
-    const otherProjects = ['mm','sheets','chartography','video-caption'].filter(p => activeProjectRoute && p !== activeProjectRoute);
-    for(const e of searchIndex){
-      if(otherProjects.includes(e.tab)) continue;
+    const GENERIC_TABS = ['journey','glance','paypolicy','faq','support','coc'];
+ for(const e of searchIndex){
+ if(!GENERIC_TABS.includes(e.tab) && e.tab !== activeProjectRoute) continue;
       const ti = e.title.toLowerCase().indexOf(ql);
       const bi = e.text.toLowerCase().indexOf(ql);
       if(ti > -1 || bi > -1) hits.push({e, score: (ti > -1 ? 0 : 1), pos: (ti > -1 ? ti : bi)});
